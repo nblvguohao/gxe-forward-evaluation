@@ -1,0 +1,16 @@
+# 4090 (driver 550 / CUDA 12.4): cu128 wheels tested first, see specs/09 §9.2.
+--index-url https://pypi.tuna.tsinghua.edu.cn/simple
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+numpy
+pandas
+pyarrow
+scipy
+scikit-learn
+lightgbm
+optuna
+omegaconf
+matplotlib
+pytest
+einops
+torch_geometric

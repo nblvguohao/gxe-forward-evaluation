@@ -1,0 +1,2394 @@
+{
+ "track": "R9_A_mainline_external_H9a_H9b",
+ "generated_utc": "2026-09-29T16:36:02Z",
+ "prereg": {
+  "file": "prereg_v9_mainline_external.json",
+  "sha256": "6ed45e2bd64c88226fe72360e0b8405233cc84b03b1b604330eaa000dd99aa09",
+  "frozen_at_utc": "2026-09-29T13:41:40Z"
+ },
+ "compute": {
+  "host": "amax (x86_64, egp311)",
+  "note": "all folds of every setting computed on the same machine",
+  "computed_on": [
+   "{\"machine\": \"x86_64\", \"numpy\": \"2.4.6\", \"python\": \"3.11.16\", \"threads\": \"8\"}"
+  ]
+ },
+ "data_consistency": {
+  "integrity": {
+   "new/1_Training_Trait_Data_2014_2023.csv": {
+    "sha256": "f206848428c9e7ff330716b0fc46ed78590deeb6dd38433b0b1b23a0390a21fb",
+    "matches_SHA256SUMS": true
+   },
+   "new/4_Training_Weather_Data_2014_2023_full_year.csv": {
+    "sha256": "f9655f9db6df859cbd79b9be3ecead2c9229ad179b72a0292fd82d100e77865a",
+    "matches_SHA256SUMS": true
+   },
+   "new/5_Genotype_Data_All_2014_2025_Hybrids.vcf": {
+    "sha256": "28f2e8c6c933539af4dfdd966df77f773dfdc925e6f3235ecb20d52b92acce6c",
+    "matches_SHA256SUMS": true
+   },
+   "old/1_Training_Trait_Data_2014_2021.csv": {
+    "sha256": "502582195367608dda756d63aaf48d70e371a6468c3c9fa883d0367f9a383e72",
+    "matches_round1_prereg": true
+   },
+   "old/4_Training_Weather_Data_2014_2021.csv": {
+    "sha256": "ed53f534cf813fd821e82e1b791256ef41d350624a16155cc0c3c67154e404f2",
+    "matches_round1_prereg": true
+   },
+   "old/5_Genotype_Data_All_2014_2025_Hybrids.vcf": {
+    "sha256": "28f2e8c6c933539af4dfdd966df77f773dfdc925e6f3235ecb20d52b92acce6c",
+    "matches_round1_prereg": true
+   }
+  },
+  "new_trait_columns": [
+   "Env",
+   "Year",
+   "Field_Location",
+   "Experiment",
+   "Replicate",
+   "Block",
+   "Plot",
+   "Range",
+   "Pass",
+   "Hybrid",
+   "Hybrid_orig_name",
+   "Hybrid_Parent1",
+   "Hybrid_Parent2",
+   "Plot_Area_ha",
+   "Date_Planted",
+   "Date_Harvested",
+   "Stand_Count_plants",
+   "Pollen_DAP_days",
+   "Silk_DAP_days",
+   "Plant_Height_cm",
+   "Ear_Height_cm",
+   "Root_Lodging_plants",
+   "Stalk_Lodging_plants",
+   "Yield_Mg_ha",
+   "Grain_Moisture",
+   "Twt_kg_m3"
+  ],
+  "old_trait_columns": [
+   "Env",
+   "Year",
+   "Field_Location",
+   "Experiment",
+   "Replicate",
+   "Block",
+   "Plot",
+   "Range",
+   "Pass",
+   "Hybrid",
+   "Hybrid_orig_name",
+   "Hybrid_Parent1",
+   "Hybrid_Parent2",
+   "Plot_Area_ha",
+   "Date_Planted",
+   "Date_Harvested",
+   "Stand_Count_plants",
+   "Pollen_DAP_days",
+   "Silk_DAP_days",
+   "Plant_Height_cm",
+   "Ear_Height_cm",
+   "Root_Lodging_plants",
+   "Stalk_Lodging_plants",
+   "Yield_Mg_ha",
+   "Grain_Moisture",
+   "Twt_kg_m3"
+  ],
+  "new_weather_columns": [
+   "Env",
+   "Date",
+   "RH2M",
+   "T2M_MAX",
+   "ALLSKY_SFC_SW_DWN",
+   "T2MWET",
+   "GWETTOP",
+   "QV2M",
+   "GWETPROF",
+   "T2M_MIN",
+   "T2MDEW",
+   "PS",
+   "T2M",
+   "GWETROOT",
+   "ALLSKY_SFC_PAR_TOT",
+   "WS2M",
+   "ALLSKY_SFC_SW_DNI",
+   "PRECTOTCORR",
+   "Date_p"
+  ],
+  "trait_2014_2021": {
+   "n_rows_new": 136012,
+   "n_rows_old": 136012,
+   "n_rows_new_total": 173960,
+   "rows_by_year_new": {
+    "2014": 12675,
+    "2015": 13688,
+    "2016": 15387,
+    "2017": 15533,
+    "2018": 20851,
+    "2019": 20806,
+    "2020": 16940,
+    "2021": 20132,
+    "2022": 19084,
+    "2023": 18864
+   },
+   "env_set_equal": true,
+   "n_env_new": 217,
+   "n_env_old": 217,
+   "envs_only_new": [],
+   "envs_only_old": [],
+   "same_row_order": false,
+   "sort_keys": [
+    "Env",
+    "Hybrid",
+    "Replicate",
+    "Block",
+    "Plot",
+    "Range",
+    "Pass",
+    "Experiment",
+    "Field_Location"
+   ],
+   "common_columns": [
+    "Env",
+    "Year",
+    "Field_Location",
+    "Experiment",
+    "Replicate",
+    "Block",
+    "Plot",
+    "Range",
+    "Pass",
+    "Hybrid",
+    "Hybrid_orig_name",
+    "Hybrid_Parent1",
+    "Hybrid_Parent2",
+    "Plot_Area_ha",
+    "Date_Planted",
+    "Date_Harvested",
+    "Stand_Count_plants",
+    "Pollen_DAP_days",
+    "Silk_DAP_days",
+    "Plant_Height_cm",
+    "Ear_Height_cm",
+    "Root_Lodging_plants",
+    "Stalk_Lodging_plants",
+    "Yield_Mg_ha",
+    "Grain_Moisture",
+    "Twt_kg_m3"
+   ],
+   "columns_only_new": [],
+   "columns_only_old": [],
+   "column_equality_after_sort": {
+    "Env": {
+     "n_equal": 136012,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Year": {
+     "n_equal": 136012,
+     "n_rows": 136012,
+     "max_abs_diff": 0.0
+    },
+    "Field_Location": {
+     "n_equal": 136012,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Experiment": {
+     "n_equal": 115206,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Replicate": {
+     "n_equal": 135866,
+     "n_rows": 136012,
+     "max_abs_diff": 1.0
+    },
+    "Block": {
+     "n_equal": 135804,
+     "n_rows": 136012,
+     "max_abs_diff": 9.0
+    },
+    "Plot": {
+     "n_equal": 134979,
+     "n_rows": 136012,
+     "max_abs_diff": 479.0
+    },
+    "Range": {
+     "n_equal": 135736,
+     "n_rows": 136012,
+     "max_abs_diff": 15.0
+    },
+    "Pass": {
+     "n_equal": 135697,
+     "n_rows": 136012,
+     "max_abs_diff": 42.0
+    },
+    "Hybrid": {
+     "n_equal": 134653,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Hybrid_orig_name": {
+     "n_equal": 135017,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Hybrid_Parent1": {
+     "n_equal": 135369,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Hybrid_Parent2": {
+     "n_equal": 135327,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Plot_Area_ha": {
+     "n_equal": 1,
+     "n_rows": 136012,
+     "max_abs_diff": 4.963268999350762e-10
+    },
+    "Date_Planted": {
+     "n_equal": 77693,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Date_Harvested": {
+     "n_equal": 80375,
+     "n_rows": 136012,
+     "max_abs_diff": null
+    },
+    "Stand_Count_plants": {
+     "n_equal": 135037,
+     "n_rows": 136012,
+     "max_abs_diff": 72.0
+    },
+    "Pollen_DAP_days": {
+     "n_equal": 135252,
+     "n_rows": 136012,
+     "max_abs_diff": 13.0
+    },
+    "Silk_DAP_days": {
+     "n_equal": 135266,
+     "n_rows": 136012,
+     "max_abs_diff": 11.0
+    },
+    "Plant_Height_cm": {
+     "n_equal": 132168,
+     "n_rows": 136012,
+     "max_abs_diff": 167.86
+    },
+    "Ear_Height_cm": {
+     "n_equal": 133056,
+     "n_rows": 136012,
+     "max_abs_diff": 87.78
+    },
+    "Root_Lodging_plants": {
+     "n_equal": 135834,
+     "n_rows": 136012,
+     "max_abs_diff": 36.0
+    },
+    "Stalk_Lodging_plants": {
+     "n_equal": 135305,
+     "n_rows": 136012,
+     "max_abs_diff": 69.0
+    },
+    "Yield_Mg_ha": {
+     "n_equal": 7741,
+     "n_rows": 136012,
+     "max_abs_diff": 10.7269946380224
+    },
+    "Grain_Moisture": {
+     "n_equal": 134749,
+     "n_rows": 136012,
+     "max_abs_diff": 12.0
+    },
+    "Twt_kg_m3": {
+     "n_equal": 28071,
+     "n_rows": 136012,
+     "max_abs_diff": 319.2219380020799
+    }
+   },
+   "yield_identical": false
+  },
+  "weather_2014_2021": {
+   "n_rows_old": 77431,
+   "n_rows_new_for_old_envs": 77431,
+   "n_old_rows_missing_in_new": 0,
+   "n_new_rows_not_in_old_for_old_envs": 0,
+   "env_set_old": 212,
+   "old_envs_missing_in_new": [],
+   "n_env_new_total": 269,
+   "n_env_new_by_year": {
+    "2014": 8760,
+    "2015": 9490,
+    "2016": 9516,
+    "2017": 10585,
+    "2018": 10585,
+    "2019": 10220,
+    "2020": 9150,
+    "2021": 9855,
+    "2022": 10220,
+    "2023": 9855
+   },
+   "max_abs_diff_by_variable": {
+    "T2M_MAX": 0.0,
+    "T2M_MIN": 0.0,
+    "T2M": 0.0,
+    "RH2M": 0.0,
+    "PRECTOTCORR": 0.0,
+    "ALLSKY_SFC_SW_DWN": 0.0,
+    "GWETROOT": 0.0
+   },
+   "n_values_differing_by_variable": {
+    "T2M_MAX": 0,
+    "T2M_MIN": 0,
+    "T2M": 0,
+    "RH2M": 0,
+    "PRECTOTCORR": 0,
+    "ALLSKY_SFC_SW_DWN": 0,
+    "GWETROOT": 0
+   }
+  },
+  "derived_2014_2021": {
+   "n_env_with_season_old": 212,
+   "n_env_with_season_new_2014_2021": 214,
+   "season_env_sets_equal": false,
+   "plant_median_equal": true,
+   "max_abs_diff_cum_gdd": 0.0,
+   "max_abs_diff_weather_prefix_sums": 0.0,
+   "n_hybrid_env_old": 85265,
+   "n_hybrid_env_matched": 85250,
+   "max_abs_diff_hybrid_mean_yield": 4.755445876079991,
+   "n_yield_mismatch": 84524,
+   "max_abs_diff_silk_gdd": 8.475000000000023,
+   "n_silk_gdd_mismatch": 553
+  },
+  "counts_by_year_new": {
+   "2014": {
+    "n_env_trait": 24,
+    "n_env_with_weather": 24,
+    "n_env_ge30_genotyped_with_yield": 24,
+    "n_hybrids_with_yield": 854,
+    "n_hybrids_genotyped_with_yield": 850
+   },
+   "2015": {
+    "n_env_trait": 27,
+    "n_env_with_weather": 26,
+    "n_env_ge30_genotyped_with_yield": 26,
+    "n_hybrids_with_yield": 1155,
+    "n_hybrids_genotyped_with_yield": 1138
+   },
+   "2016": {
+    "n_env_trait": 27,
+    "n_env_with_weather": 26,
+    "n_env_ge30_genotyped_with_yield": 26,
+    "n_hybrids_with_yield": 579,
+    "n_hybrids_genotyped_with_yield": 556
+   },
+   "2017": {
+    "n_env_trait": 30,
+    "n_env_with_weather": 29,
+    "n_env_ge30_genotyped_with_yield": 29,
+    "n_hybrids_with_yield": 503,
+    "n_hybrids_genotyped_with_yield": 488
+   },
+   "2018": {
+    "n_env_trait": 29,
+    "n_env_with_weather": 29,
+    "n_env_ge30_genotyped_with_yield": 29,
+    "n_hybrids_with_yield": 1054,
+    "n_hybrids_genotyped_with_yield": 1039
+   },
+   "2019": {
+    "n_env_trait": 28,
+    "n_env_with_weather": 28,
+    "n_env_ge30_genotyped_with_yield": 28,
+    "n_hybrids_with_yield": 1201,
+    "n_hybrids_genotyped_with_yield": 1158
+   },
+   "2020": {
+    "n_env_trait": 25,
+    "n_env_with_weather": 25,
+    "n_env_ge30_genotyped_with_yield": 24,
+    "n_hybrids_with_yield": 1176,
+    "n_hybrids_genotyped_with_yield": 1175
+   },
+   "2021": {
+    "n_env_trait": 27,
+    "n_env_with_weather": 27,
+    "n_env_ge30_genotyped_with_yield": 25,
+    "n_hybrids_with_yield": 1181,
+    "n_hybrids_genotyped_with_yield": 1180
+   },
+   "2022": {
+    "n_env_trait": 28,
+    "n_env_with_weather": 28,
+    "n_env_ge30_genotyped_with_yield": 27,
+    "n_hybrids_with_yield": 553,
+    "n_hybrids_genotyped_with_yield": 549
+   },
+   "2023": {
+    "n_env_trait": 27,
+    "n_env_with_weather": 27,
+    "n_env_ge30_genotyped_with_yield": 26,
+    "n_hybrids_with_yield": 556,
+    "n_hybrids_genotyped_with_yield": 546
+   }
+  },
+  "genotype": {
+   "vcf_identical_to_local": true,
+   "n_hybrids": 5899,
+   "n_snp_maf05": 2355
+  },
+  "verdict": {
+   "trait_rows_equal": true,
+   "env_set_equal": true,
+   "yield_identical": false,
+   "weather_identical": true,
+   "derived_identical": false
+  }
+ },
+ "data_consistency_plot_level": {
+  "plot_level": {
+   "keys": [
+    "Env",
+    "Replicate",
+    "Block",
+    "Plot",
+    "Range",
+    "Pass"
+   ],
+   "duplicated_keys_new": 0,
+   "duplicated_keys_old": 0,
+   "n_matched": 136012,
+   "n_only_old": 0,
+   "n_only_new": 0,
+   "n_hybrid_label_changed": 386,
+   "n_yield_both_nan": 7845,
+   "n_yield_nan_only_one_side": 88,
+   "n_yield_exact_equal": 4,
+   "n_yield_absdiff_lt_1em6": 128079,
+   "n_yield_absdiff_lt_0_01": 128079,
+   "n_yield_absdiff_ge_0_1": 0,
+   "n_yield_absdiff_ge_1": 0,
+   "absdiff_quantiles": {
+    "q50": 4.219007365691141e-10,
+    "q90": 3.904800038867506e-09,
+    "q99": 4.897266521197707e-09,
+    "q100": 5.000000413701855e-09
+   },
+   "mean_signed_diff": -2.3857762477392304e-12,
+   "ratio_new_over_old_quantiles": {
+    "q50": 0.9999999999997938,
+    "q90": 1.0000000002324405,
+    "q99": 1.0000000004218057,
+    "q100": 1.0000000006319274
+   },
+   "corr_plot_yield": 1.0,
+   "n_Silk_DAP_days_differing": 356,
+   "n_Pollen_DAP_days_differing": 366,
+   "hybrid_label_change_examples": [
+    {
+     "Env": "DEH1_2014",
+     "Plot": 181,
+     "Hybrid_o": "LOCALCHECK DE",
+     "Hybrid_n": "LOCAL_CHECK_DE"
+    },
+    {
+     "Env": "DEH1_2014",
+     "Plot": 231,
+     "Hybrid_o": "LOCALCHECK DE",
+     "Hybrid_n": "LOCAL_CHECK_DE"
+    },
+    {
+     "Env": "DEH1_2014",
+     "Plot": 22,
+     "Hybrid_o": "LOCALCHECK DE",
+     "Hybrid_n": "LOCAL_CHECK_DE"
+    },
+    {
+     "Env": "DEH1_2014",
+     "Plot": 258,
+     "Hybrid_o": "LOCALCHECK DE",
+     "Hybrid_n": "LOCAL_CHECK_DE"
+    },
+    {
+     "Env": "GEH1_2021",
+     "Plot": 505,
+     "Hybrid_o": "AGRO NAUT",
+     "Hybrid_n": "AGRO_NAUT"
+    },
+    {
+     "Env": "GEH1_2021",
+     "Plot": 507,
+     "Hybrid_o": "AGRO NAUT",
+     "Hybrid_n": "AGRO_NAUT"
+    },
+    {
+     "Env": "GEH1_2021",
+     "Plot": 510,
+     "Hybrid_o": "AGRO NAUT",
+     "Hybrid_n": "AGRO_NAUT"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 568,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 103,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 129,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 645,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 157,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 686,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 753,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    },
+    {
+     "Env": "IAH1_2021",
+     "Plot": 264,
+     "Hybrid_o": "MBS3755GTCBLL_MBS8488DC RIB",
+     "Hybrid_n": "MBS3755GTCBLL_MBS8488DC_RIB"
+    }
+   ]
+  },
+  "per_env": {
+   "n_env": 217,
+   "r_quantiles": {
+    "q50": 1.0,
+    "q90": 1.0,
+    "q99": 1.0,
+    "q100": 1.0
+   },
+   "frac_equal_quantiles": {
+    "q50": 1.0,
+    "q90": 1.0,
+    "q99": 1.0,
+    "q100": 1.0
+   },
+   "slope_quantiles": {
+    "q50": 1.000000000003431,
+    "q90": 1.0000000000516593,
+    "q99": 1.0000000001114966,
+    "q100": 1.0000000002066838
+   },
+   "n_env_all_equal": 217,
+   "n_env_r_below_0_99": 0,
+   "envs_r_below_0_99": [],
+   "by_year": {
+    "2014": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2015": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2016": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2017": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2018": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2019": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2020": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    },
+    "2021": {
+     "mean_frac_equal": 1.0,
+     "min_r": 1.0
+    }
+   },
+   "mean_shift_quantiles": {
+    "q50": 4.313882584483508e-11,
+    "q90": 1.382666425797652e-10,
+    "q99": 2.44806201976644e-10,
+    "q100": 2.688853584231765e-10
+   }
+  },
+  "hybrid_env_mean_yield": {
+   "n_old": 84527,
+   "n_new": 84488,
+   "n_both": 84488,
+   "n_only_old": 39,
+   "n_only_new": 0,
+   "n_absdiff_gt_1e_6": 29,
+   "max_absdiff": 4.755445876079991,
+   "n_absdiff_gt_0_01": 29
+  },
+  "weather_envs_2014_2021": {
+   "n_old": 212,
+   "n_new": 214,
+   "only_new": [
+    "ILH1_2017",
+    "INH1_2017"
+   ],
+   "only_old": []
+  }
+ },
+ "data_consistency_note": "data_consistency uses exact equality after sorting on labels (hybrid relabelling misaligns rows); data_consistency_plot_level matches plots on field position and is the authoritative comparison",
+ "setting_roles": {
+  "S4_G2F_CV00": "gate",
+  "EXT_pooled": "gate (primary external)",
+  "EXT_2022": "reported",
+  "EXT_2023": "reported",
+  "S1_G2F_LOYO": "REPLICATION",
+  "S2_G2F_LOLO": "REPLICATION"
+ },
+ "data_cache_sha256": "e80c0a7335dbea8578419bd1c52b0566b28df7400ed0a5902b8ab8a56869f4ee",
+ "code_sha256": {
+  "a_lib.py": "52ea0f3fb94e1492170cdc54ccdd39bbf9d96b2657de522b5322917c75144ab4",
+  "a_models.py": "939864a6464ff1d2185f4d8900b78a5ae1f45d810a683c3329258047a067793f",
+  "v5_lib.py": "1c01e9d30e9286cbf04fc8d31941d22892b74fd63be293e84717e6737b49d70a",
+  "v7_lib.py": "9a40f457c03831a9937fb23b27b116ec8a7e89d471545722d65a6bf6598aaf6e",
+  "v8_lib.py": "92e3bbed177e99f19f74308237f2f39f45598296d501b36f4a8aa530a349b822",
+  "v9_data.py": "364e9165d11e92e7bff6a270868ac1980bc0787feaa29e7a1991ef9a401aeb28",
+  "v9_lib.py": "412e59a732b6d7f91d72c4a9c10594077e0b26d95434511026cd9e9b59645d0f",
+  "v9_run.py": "faf604c376e5d753ebd3946282434f213ad8e27242783248122d5c7f6f02412a",
+  "v9_summarize.py": "033b0294fa10b36f17402550b9194e21786d00bce6e2e4b6ad4b74d915f7c48a",
+  "v9_yield_diff.py": "20fb65ffab04279e0ec8588083dbaf3b3a9a7fb5d33bbe10758dc973c3bd097d"
+ },
+ "folds": {
+  "EXT_2022": {
+   "n_folds_total": 1,
+   "n_skipped": 0,
+   "skipped": [],
+   "run": [
+    "2022"
+   ]
+  },
+  "EXT_2023": {
+   "n_folds_total": 1,
+   "n_skipped": 0,
+   "skipped": [],
+   "run": [
+    "2023"
+   ]
+  },
+  "S1_G2F_LOYO": {
+   "n_folds_total": 8,
+   "n_skipped": 0,
+   "skipped": [],
+   "run": [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021"
+   ]
+  },
+  "S2_G2F_LOLO": {
+   "n_folds_total": 5,
+   "n_skipped": 0,
+   "skipped": [],
+   "run": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4"
+   ]
+  },
+  "S4_G2F_CV00": {
+   "n_folds_total": 40,
+   "n_skipped": 0,
+   "skipped": [],
+   "run": [
+    "2014_f0",
+    "2014_f1",
+    "2014_f2",
+    "2014_f3",
+    "2014_f4",
+    "2015_f0",
+    "2015_f1",
+    "2015_f2",
+    "2015_f3",
+    "2015_f4",
+    "2016_f0",
+    "2016_f1",
+    "2016_f2",
+    "2016_f3",
+    "2016_f4",
+    "2017_f0",
+    "2017_f1",
+    "2017_f2",
+    "2017_f3",
+    "2017_f4",
+    "2018_f0",
+    "2018_f1",
+    "2018_f2",
+    "2018_f3",
+    "2018_f4",
+    "2019_f0",
+    "2019_f1",
+    "2019_f2",
+    "2019_f3",
+    "2019_f4",
+    "2020_f0",
+    "2020_f1",
+    "2020_f2",
+    "2020_f3",
+    "2020_f4",
+    "2021_f0",
+    "2021_f1",
+    "2021_f2",
+    "2021_f3",
+    "2021_f4"
+   ]
+  }
+ },
+ "settings": {
+  "S4_G2F_CV00": {
+   "n_env": 211,
+   "n_folds_run": 40,
+   "r": {
+    "MG_2k|P1": 0.26141,
+    "MG_2k|P2": 0.2982,
+    "MG_2k|P3": 0.284218,
+    "D_noEC|P1": 0.301727,
+    "D_noEC|P2": 0.310246,
+    "D_noEC|P3": 0.303718,
+    "D_full|P1": 0.305441,
+    "D_full|P2": 0.314013,
+    "D_full|P3": 0.307605
+   },
+   "H9a_D_noEC_minus_MG": {
+    "mean": 0.0195,
+    "ci_low": 0.009349,
+    "ci_high": 0.029932,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "H9b_D_full_minus_D_noEC": {
+    "mean": 0.003887,
+    "ci_low": -0.000779,
+    "ci_high": 0.008523,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.051474
+   },
+   "D_full_minus_MG": {
+    "mean": 0.023388,
+    "ci_low": 0.012984,
+    "ci_high": 0.034116,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "audit": {
+    "MG_2k": {
+     "loss_P2_minus_P1": {
+      "mean": 0.03679,
+      "ci_low": 0.027824,
+      "ci_high": 0.046307,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.013982,
+      "ci_low": 0.008858,
+      "ci_high": 0.019554,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.125,
+      "P2": 0.05,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_noEC": {
+     "loss_P2_minus_P1": {
+      "mean": 0.008519,
+      "ci_low": 0.005458,
+      "ci_high": 0.01175,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.006528,
+      "ci_low": 0.00416,
+      "ci_high": 0.008957,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.675,
+      "P2": 0.625,
+      "P3": 0.45
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_full": {
+     "loss_P2_minus_P1": {
+      "mean": 0.008572,
+      "ci_low": 0.005156,
+      "ci_high": 0.012108,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.006408,
+      "ci_low": 0.003591,
+      "ci_high": 0.009322,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.475,
+      "P2": 0.525,
+      "P3": 0.225
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    }
+   },
+   "chosen": {
+    "MG_2k|P1": {
+     "2014_f0": 31622.776602,
+     "2014_f1": 31622.776602,
+     "2014_f2": 31622.776602,
+     "2014_f3": 31622.776602,
+     "2014_f4": 31622.776602,
+     "2015_f0": 31622.776602,
+     "2015_f1": 31622.776602,
+     "2015_f2": 31622.776602,
+     "2015_f3": 100000.0,
+     "2015_f4": 31622.776602,
+     "2016_f0": 10000.0,
+     "2016_f1": 10000.0,
+     "2016_f2": 10000.0,
+     "2016_f3": 10000.0,
+     "2016_f4": 10000.0,
+     "2017_f0": 31622.776602,
+     "2017_f1": 31622.776602,
+     "2017_f2": 31622.776602,
+     "2017_f3": 10000.0,
+     "2017_f4": 31622.776602,
+     "2018_f0": 10.0,
+     "2018_f1": 31.622777,
+     "2018_f2": 31.622777,
+     "2018_f3": 31.622777,
+     "2018_f4": 31.622777,
+     "2019_f0": 1000000.0,
+     "2019_f1": 1000000.0,
+     "2019_f2": 1000000.0,
+     "2019_f3": 3162.27766,
+     "2019_f4": 1000000.0,
+     "2020_f0": 316.227766,
+     "2020_f1": 3162.27766,
+     "2020_f2": 316.227766,
+     "2020_f3": 1000.0,
+     "2020_f4": 316.227766,
+     "2021_f0": 10000000.0,
+     "2021_f1": 10000000.0,
+     "2021_f2": 10000000.0,
+     "2021_f3": 10000000.0,
+     "2021_f4": 10000000.0
+    },
+    "MG_2k|P2": {
+     "2014_f0": 10000.0,
+     "2014_f1": 3162.27766,
+     "2014_f2": 1000.0,
+     "2014_f3": 100.0,
+     "2014_f4": 3162.27766,
+     "2015_f0": 100000.0,
+     "2015_f1": 10000.0,
+     "2015_f2": 31622.776602,
+     "2015_f3": 10000.0,
+     "2015_f4": 10000.0,
+     "2016_f0": 3162.27766,
+     "2016_f1": 1000.0,
+     "2016_f2": 3162.27766,
+     "2016_f3": 100000.0,
+     "2016_f4": 3162.27766,
+     "2017_f0": 31.622777,
+     "2017_f1": 31.622777,
+     "2017_f2": 100.0,
+     "2017_f3": 10.0,
+     "2017_f4": 316.227766,
+     "2018_f0": 100.0,
+     "2018_f1": 316.227766,
+     "2018_f2": 0.1,
+     "2018_f3": 10000000.0,
+     "2018_f4": 316.227766,
+     "2019_f0": 1000.0,
+     "2019_f1": 1000.0,
+     "2019_f2": 1000.0,
+     "2019_f3": 316.227766,
+     "2019_f4": 31622.776602,
+     "2020_f0": 100.0,
+     "2020_f1": 3162.27766,
+     "2020_f2": 31.622777,
+     "2020_f3": 31.622777,
+     "2020_f4": 0.1,
+     "2021_f0": 316.227766,
+     "2021_f1": 316.227766,
+     "2021_f2": 10000000.0,
+     "2021_f3": 100.0,
+     "2021_f4": 3.162278
+    },
+    "MG_2k|P3": {
+     "2014_f0": 1000.0,
+     "2014_f1": 1000.0,
+     "2014_f2": 1000.0,
+     "2014_f3": 1000.0,
+     "2014_f4": 3162.27766,
+     "2015_f0": 1000.0,
+     "2015_f1": 1000.0,
+     "2015_f2": 1000.0,
+     "2015_f3": 1000.0,
+     "2015_f4": 1000.0,
+     "2016_f0": 3162.27766,
+     "2016_f1": 3162.27766,
+     "2016_f2": 10000.0,
+     "2016_f3": 3162.27766,
+     "2016_f4": 3162.27766,
+     "2017_f0": 10000.0,
+     "2017_f1": 3162.27766,
+     "2017_f2": 10000.0,
+     "2017_f3": 3162.27766,
+     "2017_f4": 10000.0,
+     "2018_f0": 3162.27766,
+     "2018_f1": 3162.27766,
+     "2018_f2": 1000.0,
+     "2018_f3": 3162.27766,
+     "2018_f4": 3162.27766,
+     "2019_f0": 3162.27766,
+     "2019_f1": 3162.27766,
+     "2019_f2": 3162.27766,
+     "2019_f3": 3162.27766,
+     "2019_f4": 3162.27766,
+     "2020_f0": 3162.27766,
+     "2020_f1": 3162.27766,
+     "2020_f2": 3162.27766,
+     "2020_f3": 3162.27766,
+     "2020_f4": 3162.27766,
+     "2021_f0": 3162.27766,
+     "2021_f1": 3162.27766,
+     "2021_f2": 3162.27766,
+     "2021_f3": 3162.27766,
+     "2021_f4": 3162.27766
+    },
+    "D_noEC|P1": {
+     "2014_f0": 400,
+     "2014_f1": 800,
+     "2014_f2": 800,
+     "2014_f3": 400,
+     "2014_f4": 100,
+     "2015_f0": 800,
+     "2015_f1": 800,
+     "2015_f2": 800,
+     "2015_f3": 800,
+     "2015_f4": 800,
+     "2016_f0": 50,
+     "2016_f1": 100,
+     "2016_f2": 50,
+     "2016_f3": 50,
+     "2016_f4": 200,
+     "2017_f0": 50,
+     "2017_f1": 50,
+     "2017_f2": 50,
+     "2017_f3": 50,
+     "2017_f4": 50,
+     "2018_f0": 200,
+     "2018_f1": 400,
+     "2018_f2": 800,
+     "2018_f3": 400,
+     "2018_f4": 800,
+     "2019_f0": 800,
+     "2019_f1": 800,
+     "2019_f2": 800,
+     "2019_f3": 800,
+     "2019_f4": 800,
+     "2020_f0": 400,
+     "2020_f1": 800,
+     "2020_f2": 200,
+     "2020_f3": 400,
+     "2020_f4": 400,
+     "2021_f0": 100,
+     "2021_f1": 50,
+     "2021_f2": 50,
+     "2021_f3": 50,
+     "2021_f4": 50
+    },
+    "D_noEC|P2": {
+     "2014_f0": 50,
+     "2014_f1": 200,
+     "2014_f2": 100,
+     "2014_f3": 200,
+     "2014_f4": 50,
+     "2015_f0": 400,
+     "2015_f1": 100,
+     "2015_f2": 400,
+     "2015_f3": 100,
+     "2015_f4": 200,
+     "2016_f0": 200,
+     "2016_f1": 50,
+     "2016_f2": 50,
+     "2016_f3": 50,
+     "2016_f4": 50,
+     "2017_f0": 800,
+     "2017_f1": 800,
+     "2017_f2": 400,
+     "2017_f3": 800,
+     "2017_f4": 800,
+     "2018_f0": 50,
+     "2018_f1": 800,
+     "2018_f2": 50,
+     "2018_f3": 800,
+     "2018_f4": 50,
+     "2019_f0": 50,
+     "2019_f1": 800,
+     "2019_f2": 50,
+     "2019_f3": 800,
+     "2019_f4": 400,
+     "2020_f0": 200,
+     "2020_f1": 50,
+     "2020_f2": 100,
+     "2020_f3": 50,
+     "2020_f4": 200,
+     "2021_f0": 100,
+     "2021_f1": 50,
+     "2021_f2": 50,
+     "2021_f3": 50,
+     "2021_f4": 800
+    },
+    "D_noEC|P3": {
+     "2014_f0": 50,
+     "2014_f1": 50,
+     "2014_f2": 50,
+     "2014_f3": 50,
+     "2014_f4": 50,
+     "2015_f0": 50,
+     "2015_f1": 50,
+     "2015_f2": 50,
+     "2015_f3": 50,
+     "2015_f4": 50,
+     "2016_f0": 50,
+     "2016_f1": 100,
+     "2016_f2": 50,
+     "2016_f3": 50,
+     "2016_f4": 100,
+     "2017_f0": 100,
+     "2017_f1": 50,
+     "2017_f2": 200,
+     "2017_f3": 50,
+     "2017_f4": 100,
+     "2018_f0": 50,
+     "2018_f1": 200,
+     "2018_f2": 50,
+     "2018_f3": 200,
+     "2018_f4": 100,
+     "2019_f0": 200,
+     "2019_f1": 200,
+     "2019_f2": 200,
+     "2019_f3": 200,
+     "2019_f4": 100,
+     "2020_f0": 100,
+     "2020_f1": 100,
+     "2020_f2": 200,
+     "2020_f3": 50,
+     "2020_f4": 200,
+     "2021_f0": 100,
+     "2021_f1": 200,
+     "2021_f2": 200,
+     "2021_f3": 100,
+     "2021_f4": 100
+    },
+    "D_full|P1": {
+     "2014_f0": 400,
+     "2014_f1": 400,
+     "2014_f2": 800,
+     "2014_f3": 400,
+     "2014_f4": 400,
+     "2015_f0": 400,
+     "2015_f1": 800,
+     "2015_f2": 200,
+     "2015_f3": 100,
+     "2015_f4": 400,
+     "2016_f0": 200,
+     "2016_f1": 50,
+     "2016_f2": 400,
+     "2016_f3": 50,
+     "2016_f4": 50,
+     "2017_f0": 50,
+     "2017_f1": 50,
+     "2017_f2": 100,
+     "2017_f3": 200,
+     "2017_f4": 50,
+     "2018_f0": 400,
+     "2018_f1": 800,
+     "2018_f2": 800,
+     "2018_f3": 800,
+     "2018_f4": 800,
+     "2019_f0": 800,
+     "2019_f1": 800,
+     "2019_f2": 800,
+     "2019_f3": 800,
+     "2019_f4": 800,
+     "2020_f0": 400,
+     "2020_f1": 100,
+     "2020_f2": 400,
+     "2020_f3": 400,
+     "2020_f4": 400,
+     "2021_f0": 200,
+     "2021_f1": 400,
+     "2021_f2": 800,
+     "2021_f3": 50,
+     "2021_f4": 200
+    },
+    "D_full|P2": {
+     "2014_f0": 800,
+     "2014_f1": 400,
+     "2014_f2": 200,
+     "2014_f3": 400,
+     "2014_f4": 50,
+     "2015_f0": 400,
+     "2015_f1": 100,
+     "2015_f2": 400,
+     "2015_f3": 400,
+     "2015_f4": 50,
+     "2016_f0": 50,
+     "2016_f1": 200,
+     "2016_f2": 50,
+     "2016_f3": 50,
+     "2016_f4": 200,
+     "2017_f0": 800,
+     "2017_f1": 800,
+     "2017_f2": 800,
+     "2017_f3": 800,
+     "2017_f4": 800,
+     "2018_f0": 100,
+     "2018_f1": 800,
+     "2018_f2": 800,
+     "2018_f3": 800,
+     "2018_f4": 50,
+     "2019_f0": 200,
+     "2019_f1": 800,
+     "2019_f2": 100,
+     "2019_f3": 50,
+     "2019_f4": 400,
+     "2020_f0": 800,
+     "2020_f1": 100,
+     "2020_f2": 800,
+     "2020_f3": 200,
+     "2020_f4": 800,
+     "2021_f0": 400,
+     "2021_f1": 200,
+     "2021_f2": 50,
+     "2021_f3": 100,
+     "2021_f4": 400
+    },
+    "D_full|P3": {
+     "2014_f0": 100,
+     "2014_f1": 100,
+     "2014_f2": 50,
+     "2014_f3": 100,
+     "2014_f4": 200,
+     "2015_f0": 100,
+     "2015_f1": 400,
+     "2015_f2": 800,
+     "2015_f3": 50,
+     "2015_f4": 50,
+     "2016_f0": 200,
+     "2016_f1": 400,
+     "2016_f2": 800,
+     "2016_f3": 200,
+     "2016_f4": 400,
+     "2017_f0": 400,
+     "2017_f1": 400,
+     "2017_f2": 400,
+     "2017_f3": 100,
+     "2017_f4": 400,
+     "2018_f0": 400,
+     "2018_f1": 800,
+     "2018_f2": 800,
+     "2018_f3": 200,
+     "2018_f4": 200,
+     "2019_f0": 400,
+     "2019_f1": 400,
+     "2019_f2": 800,
+     "2019_f3": 400,
+     "2019_f4": 400,
+     "2020_f0": 400,
+     "2020_f1": 400,
+     "2020_f2": 400,
+     "2020_f3": 200,
+     "2020_f4": 400,
+     "2021_f0": 400,
+     "2021_f1": 400,
+     "2021_f2": 800,
+     "2021_f3": 200,
+     "2021_f4": 200
+    }
+   },
+   "model_ranking_P3": [
+    "D_full",
+    "D_noEC",
+    "MG_2k"
+   ],
+   "new_hybrid_subset": {
+    "rule": "test envs with >= 10 test hybrids absent from the fold's training records",
+    "n_env": 112,
+    "r_P3": {
+     "MG_2k": 0.170096,
+     "D_noEC": 0.222376,
+     "D_full": 0.221285
+    },
+    "H9a": {
+     "mean": 0.05228,
+     "ci_low": 0.028595,
+     "ci_high": 0.077281,
+     "n_env": 112,
+     "p_one_sided_gt_0": 0.0005
+    },
+    "H9b": {
+     "mean": -0.001091,
+     "ci_low": -0.014378,
+     "ci_high": 0.011876,
+     "n_env": 112,
+     "p_one_sided_gt_0": 0.574713
+    }
+   },
+   "maturity_lambda_edge_fraction": 0.1,
+   "stage1_cv_r2_mean": 0.0457
+  },
+  "EXT_2022": {
+   "n_env": 27,
+   "n_folds_run": 1,
+   "r": {
+    "MG_2k|P1": 0.205152,
+    "MG_2k|P2": 0.331514,
+    "MG_2k|P3": 0.256905,
+    "D_noEC|P1": 0.258695,
+    "D_noEC|P2": 0.266562,
+    "D_noEC|P3": 0.258695,
+    "D_full|P1": 0.269162,
+    "D_full|P2": 0.28293,
+    "D_full|P3": 0.270588
+   },
+   "H9a_D_noEC_minus_MG": {
+    "mean": 0.00179,
+    "ci_low": -0.000924,
+    "ci_high": 0.004591,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.091954
+   },
+   "H9b_D_full_minus_D_noEC": {
+    "mean": 0.011893,
+    "ci_low": 0.004498,
+    "ci_high": 0.020332,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_MG": {
+    "mean": 0.013683,
+    "ci_low": 0.006418,
+    "ci_high": 0.021587,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "audit": {
+    "MG_2k": {
+     "loss_P2_minus_P1": {
+      "mean": 0.126362,
+      "ci_low": 0.100579,
+      "ci_high": 0.149268,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.074608,
+      "ci_low": 0.055018,
+      "ci_high": 0.09155,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.0,
+      "P2": 0.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_noEC": {
+     "loss_P2_minus_P1": {
+      "mean": 0.007867,
+      "ci_low": 0.004171,
+      "ci_high": 0.011636,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.007867,
+      "ci_low": 0.004171,
+      "ci_high": 0.011636,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 1.0,
+      "P2": 1.0,
+      "P3": 1.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_full": {
+     "loss_P2_minus_P1": {
+      "mean": 0.013768,
+      "ci_low": 0.007113,
+      "ci_high": 0.020933,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.012342,
+      "ci_low": 0.006597,
+      "ci_high": 0.018275,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 1.0,
+      "P2": 1.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    }
+   },
+   "chosen": {
+    "MG_2k|P1": {
+     "2022": 316.227766
+    },
+    "MG_2k|P2": {
+     "2022": 100000.0
+    },
+    "MG_2k|P3": {
+     "2022": 1000.0
+    },
+    "D_noEC|P1": {
+     "2022": 50
+    },
+    "D_noEC|P2": {
+     "2022": 800
+    },
+    "D_noEC|P3": {
+     "2022": 50
+    },
+    "D_full|P1": {
+     "2022": 50
+    },
+    "D_full|P2": {
+     "2022": 800
+    },
+    "D_full|P3": {
+     "2022": 100
+    }
+   },
+   "model_ranking_P3": [
+    "D_full",
+    "D_noEC",
+    "MG_2k"
+   ],
+   "new_hybrid_subset": {
+    "rule": "test envs with >= 10 test hybrids absent from the fold's training records",
+    "n_env": 27,
+    "r_P3": {
+     "MG_2k": 0.207098,
+     "D_noEC": 0.211443,
+     "D_full": 0.216435
+    },
+    "H9a": {
+     "mean": 0.004345,
+     "ci_low": 0.001879,
+     "ci_high": 0.006807,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.001499
+    },
+    "H9b": {
+     "mean": 0.004992,
+     "ci_low": -0.000693,
+     "ci_high": 0.011693,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.051974
+    }
+   },
+   "maturity_lambda_edge_fraction": 0.0,
+   "stage1_cv_r2_mean": 0.0632
+  },
+  "EXT_2023": {
+   "n_env": 26,
+   "n_folds_run": 1,
+   "r": {
+    "MG_2k|P1": 0.427132,
+    "MG_2k|P2": 0.444048,
+    "MG_2k|P3": 0.444048,
+    "D_noEC|P1": 0.399508,
+    "D_noEC|P2": 0.407039,
+    "D_noEC|P3": 0.403968,
+    "D_full|P1": 0.42068,
+    "D_full|P2": 0.422801,
+    "D_full|P3": 0.422801
+   },
+   "H9a_D_noEC_minus_MG": {
+    "mean": -0.040081,
+    "ci_low": -0.048553,
+    "ci_high": -0.031604,
+    "n_env": 26,
+    "p_one_sided_gt_0": 1.0
+   },
+   "H9b_D_full_minus_D_noEC": {
+    "mean": 0.018833,
+    "ci_low": 0.012533,
+    "ci_high": 0.025427,
+    "n_env": 26,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_MG": {
+    "mean": -0.021248,
+    "ci_low": -0.029483,
+    "ci_high": -0.012583,
+    "n_env": 26,
+    "p_one_sided_gt_0": 1.0
+   },
+   "audit": {
+    "MG_2k": {
+     "loss_P2_minus_P1": {
+      "mean": 0.016916,
+      "ci_low": 0.008477,
+      "ci_high": 0.023937,
+      "n_env": 26,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0
+     },
+     "edge_fraction": {
+      "P1": 0.0,
+      "P2": 0.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_noEC": {
+     "loss_P2_minus_P1": {
+      "mean": 0.007531,
+      "ci_low": 0.004376,
+      "ci_high": 0.010627,
+      "n_env": 26,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.003071,
+      "ci_low": 0.001099,
+      "ci_high": 0.005027,
+      "n_env": 26,
+      "p_one_sided_gt_0": 0.001
+     },
+     "edge_fraction": {
+      "P1": 0.0,
+      "P2": 1.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_full": {
+     "loss_P2_minus_P1": {
+      "mean": 0.00212,
+      "ci_low": -9.5e-05,
+      "ci_high": 0.004344,
+      "n_env": 26,
+      "p_one_sided_gt_0": 0.034483
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0
+     },
+     "edge_fraction": {
+      "P1": 1.0,
+      "P2": 0.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    }
+   },
+   "chosen": {
+    "MG_2k|P1": {
+     "2023": 100000.0
+    },
+    "MG_2k|P2": {
+     "2023": 3162.27766
+    },
+    "MG_2k|P3": {
+     "2023": 3162.27766
+    },
+    "D_noEC|P1": {
+     "2023": 400
+    },
+    "D_noEC|P2": {
+     "2023": 50
+    },
+    "D_noEC|P3": {
+     "2023": 200
+    },
+    "D_full|P1": {
+     "2023": 800
+    },
+    "D_full|P2": {
+     "2023": 400
+    },
+    "D_full|P3": {
+     "2023": 400
+    }
+   },
+   "model_ranking_P3": [
+    "MG_2k",
+    "D_full",
+    "D_noEC"
+   ],
+   "new_hybrid_subset": {
+    "n_env": 0
+   },
+   "maturity_lambda_edge_fraction": 0.0,
+   "stage1_cv_r2_mean": 0.0437
+  },
+  "EXT_pooled": {
+   "n_env": 53,
+   "n_folds_run": 2,
+   "r": {
+    "MG_2k|P1": 0.314048,
+    "MG_2k|P2": 0.386719,
+    "MG_2k|P3": 0.348711,
+    "D_noEC|P1": 0.327773,
+    "D_noEC|P2": 0.335475,
+    "D_noEC|P3": 0.329961,
+    "D_full|P1": 0.343492,
+    "D_full|P2": 0.351546,
+    "D_full|P3": 0.345258
+   },
+   "H9a_D_noEC_minus_MG": {
+    "mean": -0.018751,
+    "ci_low": -0.025874,
+    "ci_high": -0.011953,
+    "n_env": 53,
+    "p_one_sided_gt_0": 1.0
+   },
+   "H9b_D_full_minus_D_noEC": {
+    "mean": 0.015298,
+    "ci_low": 0.010247,
+    "ci_high": 0.02081,
+    "n_env": 53,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_MG": {
+    "mean": -0.003453,
+    "ci_low": -0.010204,
+    "ci_high": 0.003986,
+    "n_env": 53,
+    "p_one_sided_gt_0": 0.816092
+   },
+   "audit": {
+    "MG_2k": {
+     "loss_P2_minus_P1": {
+      "mean": 0.072671,
+      "ci_low": 0.05313,
+      "ci_high": 0.092531,
+      "n_env": 53,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.038008,
+      "ci_low": 0.024216,
+      "ci_high": 0.05161,
+      "n_env": 53,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.0,
+      "P2": 0.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_noEC": {
+     "loss_P2_minus_P1": {
+      "mean": 0.007702,
+      "ci_low": 0.005326,
+      "ci_high": 0.010124,
+      "n_env": 53,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.005515,
+      "ci_low": 0.003419,
+      "ci_high": 0.007812,
+      "n_env": 53,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.5,
+      "P2": 1.0,
+      "P3": 0.5
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_full": {
+     "loss_P2_minus_P1": {
+      "mean": 0.008054,
+      "ci_low": 0.004316,
+      "ci_high": 0.012331,
+      "n_env": 53,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.006288,
+      "ci_low": 0.003169,
+      "ci_high": 0.01011,
+      "n_env": 53,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 1.0,
+      "P2": 0.5,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    }
+   },
+   "chosen": {
+    "MG_2k|P1": {
+     "2022": 316.227766,
+     "2023": 100000.0
+    },
+    "MG_2k|P2": {
+     "2022": 100000.0,
+     "2023": 3162.27766
+    },
+    "MG_2k|P3": {
+     "2022": 1000.0,
+     "2023": 3162.27766
+    },
+    "D_noEC|P1": {
+     "2022": 50,
+     "2023": 400
+    },
+    "D_noEC|P2": {
+     "2022": 800,
+     "2023": 50
+    },
+    "D_noEC|P3": {
+     "2022": 50,
+     "2023": 200
+    },
+    "D_full|P1": {
+     "2022": 50,
+     "2023": 800
+    },
+    "D_full|P2": {
+     "2022": 800,
+     "2023": 400
+    },
+    "D_full|P3": {
+     "2022": 100,
+     "2023": 400
+    }
+   },
+   "model_ranking_P3": [
+    "MG_2k",
+    "D_full",
+    "D_noEC"
+   ],
+   "new_hybrid_subset": {
+    "rule": "test envs with >= 10 test hybrids absent from the fold's training records",
+    "n_env": 27,
+    "r_P3": {
+     "MG_2k": 0.207098,
+     "D_noEC": 0.211443,
+     "D_full": 0.216435
+    },
+    "H9a": {
+     "mean": 0.004345,
+     "ci_low": 0.001879,
+     "ci_high": 0.006807,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.001499
+    },
+    "H9b": {
+     "mean": 0.004992,
+     "ci_low": -0.000693,
+     "ci_high": 0.011693,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.051974
+    }
+   },
+   "maturity_lambda_edge_fraction": 0.0,
+   "stage1_cv_r2_mean": 0.0534
+  },
+  "S1_G2F_LOYO": {
+   "n_env": 211,
+   "n_folds_run": 8,
+   "r": {
+    "MG_2k|P1": 0.268007,
+    "MG_2k|P2": 0.303445,
+    "MG_2k|P3": 0.291401,
+    "D_noEC|P1": 0.310986,
+    "D_noEC|P2": 0.316161,
+    "D_noEC|P3": 0.312437,
+    "D_full|P1": 0.321722,
+    "D_full|P2": 0.325466,
+    "D_full|P3": 0.320565
+   },
+   "H9a_D_noEC_minus_MG": {
+    "mean": 0.021036,
+    "ci_low": 0.010674,
+    "ci_high": 0.031921,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "H9b_D_full_minus_D_noEC": {
+    "mean": 0.008127,
+    "ci_low": 0.003449,
+    "ci_high": 0.01308,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_MG": {
+    "mean": 0.029163,
+    "ci_low": 0.018623,
+    "ci_high": 0.040462,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "audit": {
+    "MG_2k": {
+     "loss_P2_minus_P1": {
+      "mean": 0.035438,
+      "ci_low": 0.026427,
+      "ci_high": 0.044737,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.012043,
+      "ci_low": 0.008254,
+      "ci_high": 0.015958,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.125,
+      "P2": 0.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_noEC": {
+     "loss_P2_minus_P1": {
+      "mean": 0.005174,
+      "ci_low": 0.002947,
+      "ci_high": 0.007556,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.003723,
+      "ci_low": 0.001989,
+      "ci_high": 0.005518,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.75,
+      "P2": 0.375,
+      "P3": 0.5
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_full": {
+     "loss_P2_minus_P1": {
+      "mean": 0.003743,
+      "ci_low": 0.000834,
+      "ci_high": 0.007086,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.003998
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.004901,
+      "ci_low": 0.002557,
+      "ci_high": 0.007034,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.375,
+      "P2": 0.375,
+      "P3": 0.25
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    }
+   },
+   "chosen": {
+    "MG_2k|P1": {
+     "2014": 31622.776602,
+     "2015": 31622.776602,
+     "2016": 10000.0,
+     "2017": 31622.776602,
+     "2018": 31.622777,
+     "2019": 1000000.0,
+     "2020": 316.227766,
+     "2021": 10000000.0
+    },
+    "MG_2k|P2": {
+     "2014": 3162.27766,
+     "2015": 31622.776602,
+     "2016": 3162.27766,
+     "2017": 31.622777,
+     "2018": 316.227766,
+     "2019": 316.227766,
+     "2020": 100.0,
+     "2021": 316.227766
+    },
+    "MG_2k|P3": {
+     "2014": 1000.0,
+     "2015": 1000.0,
+     "2016": 3162.27766,
+     "2017": 10000.0,
+     "2018": 3162.27766,
+     "2019": 3162.27766,
+     "2020": 3162.27766,
+     "2021": 3162.27766
+    },
+    "D_noEC|P1": {
+     "2014": 50,
+     "2015": 800,
+     "2016": 50,
+     "2017": 50,
+     "2018": 400,
+     "2019": 800,
+     "2020": 400,
+     "2021": 50
+    },
+    "D_noEC|P2": {
+     "2014": 200,
+     "2015": 200,
+     "2016": 50,
+     "2017": 400,
+     "2018": 50,
+     "2019": 400,
+     "2020": 100,
+     "2021": 50
+    },
+    "D_noEC|P3": {
+     "2014": 50,
+     "2015": 50,
+     "2016": 50,
+     "2017": 100,
+     "2018": 100,
+     "2019": 200,
+     "2020": 50,
+     "2021": 100
+    },
+    "D_full|P1": {
+     "2014": 400,
+     "2015": 800,
+     "2016": 100,
+     "2017": 100,
+     "2018": 800,
+     "2019": 800,
+     "2020": 200,
+     "2021": 100
+    },
+    "D_full|P2": {
+     "2014": 200,
+     "2015": 400,
+     "2016": 50,
+     "2017": 800,
+     "2018": 200,
+     "2019": 400,
+     "2020": 200,
+     "2021": 50
+    },
+    "D_full|P3": {
+     "2014": 50,
+     "2015": 50,
+     "2016": 400,
+     "2017": 400,
+     "2018": 400,
+     "2019": 400,
+     "2020": 200,
+     "2021": 400
+    }
+   },
+   "model_ranking_P3": [
+    "D_full",
+    "D_noEC",
+    "MG_2k"
+   ],
+   "new_hybrid_subset": {
+    "rule": "test envs with >= 10 test hybrids absent from the fold's training records",
+    "n_env": 111,
+    "r_P3": {
+     "MG_2k": 0.164082,
+     "D_noEC": 0.222097,
+     "D_full": 0.226633
+    },
+    "H9a": {
+     "mean": 0.058015,
+     "ci_low": 0.031645,
+     "ci_high": 0.083085,
+     "n_env": 111,
+     "p_one_sided_gt_0": 0.0005
+    },
+    "H9b": {
+     "mean": 0.004536,
+     "ci_low": -0.010307,
+     "ci_high": 0.019429,
+     "n_env": 111,
+     "p_one_sided_gt_0": 0.291354
+    }
+   },
+   "maturity_lambda_edge_fraction": 0.125,
+   "stage1_cv_r2_mean": 0.0488
+  },
+  "S2_G2F_LOLO": {
+   "n_env": 211,
+   "n_folds_run": 5,
+   "r": {
+    "MG_2k|P1": 0.370714,
+    "MG_2k|P2": 0.373458,
+    "MG_2k|P3": 0.371166,
+    "D_noEC|P1": 0.389016,
+    "D_noEC|P2": 0.389898,
+    "D_noEC|P3": 0.389316,
+    "D_full|P1": 0.392041,
+    "D_full|P2": 0.393602,
+    "D_full|P3": 0.392955
+   },
+   "H9a_D_noEC_minus_MG": {
+    "mean": 0.01815,
+    "ci_low": 0.014904,
+    "ci_high": 0.021354,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "H9b_D_full_minus_D_noEC": {
+    "mean": 0.003639,
+    "ci_low": -0.002993,
+    "ci_high": 0.010402,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.150425
+   },
+   "D_full_minus_MG": {
+    "mean": 0.021789,
+    "ci_low": 0.014633,
+    "ci_high": 0.029031,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "audit": {
+    "MG_2k": {
+     "loss_P2_minus_P1": {
+      "mean": 0.002745,
+      "ci_low": 0.00141,
+      "ci_high": 0.004107,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.002292,
+      "ci_low": 0.001178,
+      "ci_high": 0.003409,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "edge_fraction": {
+      "P1": 0.0,
+      "P2": 0.2,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_noEC": {
+     "loss_P2_minus_P1": {
+      "mean": 0.000881,
+      "ci_low": 0.000183,
+      "ci_high": 0.001634,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.007496
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.000582,
+      "ci_low": 1e-06,
+      "ci_high": 0.00124,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.025487
+     },
+     "edge_fraction": {
+      "P1": 0.0,
+      "P2": 0.0,
+      "P3": 0.0
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    },
+    "D_full": {
+     "loss_P2_minus_P1": {
+      "mean": 0.001561,
+      "ci_low": -0.000803,
+      "ci_high": 0.003913,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.090955
+     },
+     "loss_P2_minus_P3": {
+      "mean": 0.000648,
+      "ci_low": -0.000835,
+      "ci_high": 0.002073,
+      "n_env": 211,
+      "p_one_sided_gt_0": 0.185907
+     },
+     "edge_fraction": {
+      "P1": 0.4,
+      "P2": 0.8,
+      "P3": 0.6
+     },
+     "n_folds_P2_below_P3": 0,
+     "n_folds_P2_below_P1": 0
+    }
+   },
+   "chosen": {
+    "MG_2k|P1": {
+     "0": 0.316228,
+     "1": 316.227766,
+     "2": 31.622777,
+     "3": 10.0,
+     "4": 31.622777
+    },
+    "MG_2k|P2": {
+     "0": 0.01,
+     "1": 1.0,
+     "2": 100.0,
+     "3": 31.622777,
+     "4": 0.316228
+    },
+    "MG_2k|P3": {
+     "0": 31.622777,
+     "1": 100.0,
+     "2": 3.162278,
+     "3": 10.0,
+     "4": 31.622777
+    },
+    "D_noEC|P1": {
+     "0": 200,
+     "1": 200,
+     "2": 200,
+     "3": 400,
+     "4": 400
+    },
+    "D_noEC|P2": {
+     "0": 400,
+     "1": 400,
+     "2": 400,
+     "3": 400,
+     "4": 400
+    },
+    "D_noEC|P3": {
+     "0": 400,
+     "1": 200,
+     "2": 200,
+     "3": 400,
+     "4": 400
+    },
+    "D_full|P1": {
+     "0": 400,
+     "1": 400,
+     "2": 200,
+     "3": 800,
+     "4": 800
+    },
+    "D_full|P2": {
+     "0": 800,
+     "1": 800,
+     "2": 800,
+     "3": 400,
+     "4": 800
+    },
+    "D_full|P3": {
+     "0": 400,
+     "1": 400,
+     "2": 800,
+     "3": 800,
+     "4": 800
+    }
+   },
+   "model_ranking_P3": [
+    "D_full",
+    "D_noEC",
+    "MG_2k"
+   ],
+   "new_hybrid_subset": {
+    "rule": "test envs with >= 10 test hybrids absent from the fold's training records",
+    "n_env": 2,
+    "r_P3": {
+     "MG_2k": 0.164689,
+     "D_noEC": 0.218593,
+     "D_full": 0.122322
+    },
+    "H9a": {
+     "mean": 0.053905,
+     "ci_low": 0.043993,
+     "ci_high": 0.063817,
+     "n_env": 2,
+     "p_one_sided_gt_0": 0.0005
+    },
+    "H9b": {
+     "mean": -0.096271,
+     "ci_low": -0.12129,
+     "ci_high": -0.071252,
+     "n_env": 2,
+     "p_one_sided_gt_0": 1.0
+    }
+   },
+   "maturity_lambda_edge_fraction": 0.0,
+   "stage1_cv_r2_mean": 0.1067
+  }
+ },
+ "H9a": {
+  "quantity": "r(D_noEC(MG_2k)) - r(MG_2k)",
+  "rule": ">= 0.01 with paired env-bootstrap 95% CI lower > 0 in BOTH settings",
+  "per_setting": {
+   "S4_G2F_CV00": {
+    "mean": 0.0195,
+    "ci_low": 0.009349,
+    "ci_high": 0.029932,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.0005,
+    "meets_rule": true
+   },
+   "EXT_pooled": {
+    "mean": -0.018751,
+    "ci_low": -0.025874,
+    "ci_high": -0.011953,
+    "n_env": 53,
+    "p_one_sided_gt_0": 1.0,
+    "meets_rule": false
+   }
+  },
+  "reported": {
+   "EXT_2022": {
+    "mean": 0.00179,
+    "ci_low": -0.000924,
+    "ci_high": 0.004591,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.091954
+   },
+   "EXT_2023": {
+    "mean": -0.040081,
+    "ci_low": -0.048553,
+    "ci_high": -0.031604,
+    "n_env": 26,
+    "p_one_sided_gt_0": 1.0
+   }
+  },
+  "verdict": "NOT_CONFIRMED"
+ },
+ "H9b": {
+  "quantity": "r(D_full(MG_2k)) - r(D_noEC(MG_2k))",
+  "rule_confirmed": ">= 0.005 with CI lower > 0 in BOTH settings",
+  "rule_negligible": "CI upper < 0.01 in BOTH settings",
+  "per_setting": {
+   "S4_G2F_CV00": {
+    "mean": 0.003887,
+    "ci_low": -0.000779,
+    "ci_high": 0.008523,
+    "n_env": 211,
+    "p_one_sided_gt_0": 0.051474,
+    "meets_confirmed": false,
+    "meets_negligible": true
+   },
+   "EXT_pooled": {
+    "mean": 0.015298,
+    "ci_low": 0.010247,
+    "ci_high": 0.02081,
+    "n_env": 53,
+    "p_one_sided_gt_0": 0.0005,
+    "meets_confirmed": true,
+    "meets_negligible": false
+   }
+  },
+  "reported": {
+   "EXT_2022": {
+    "mean": 0.011893,
+    "ci_low": 0.004498,
+    "ci_high": 0.020332,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "EXT_2023": {
+    "mean": 0.018833,
+    "ci_low": 0.012533,
+    "ci_high": 0.025427,
+    "n_env": 26,
+    "p_one_sided_gt_0": 0.0005
+   }
+  },
+  "verdict": "INCONCLUSIVE"
+ },
+ "multiplicity": {
+  "note": "per-hypothesis p = max over the two gate settings of the one-sided env-bootstrap p (intersection-union); Holm over H9a and H9b only. The prereg's Holm across H9a-H9d needs track B's p-values.",
+  "p_iut": {
+   "H9a": 1.0,
+   "H9b": 0.051474
+  },
+  "p_holm_H9a_H9b": {
+   "H9a": 1.0,
+   "H9b": 0.102948
+  }
+ },
+ "secondary_ceris_window_search_leak_EXT": {
+  "EXT_pooled": {
+   "n_env": 53,
+   "r_envmean_nested": 0.488465,
+   "r_envmean_leaky": 0.508459,
+   "optimism": 0.019994,
+   "ci": [
+    -0.010733,
+    0.062769
+   ],
+   "p_one_sided_gt_0": 0.107946
+  },
+  "EXT_2022": {
+   "n_env": 27,
+   "r_envmean_nested": 0.447372,
+   "r_envmean_leaky": 0.447372,
+   "optimism": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "p_one_sided_gt_0": 1.0
+  },
+  "EXT_2023": {
+   "n_env": 26,
+   "r_envmean_nested": 0.534932,
+   "r_envmean_leaky": 0.582243,
+   "optimism": 0.04731,
+   "ci": [
+    -0.040108,
+    0.164272
+   ],
+   "p_one_sided_gt_0": 0.163418
+  },
+  "selected": {
+   "EXT_2022": {
+    "nested": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 95,
+     "r_train": -0.4167568336031925
+    },
+    "leaky": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 95,
+     "r_train_plus_test": -0.4160281677710966
+    }
+   },
+   "EXT_2023": {
+    "nested": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 95,
+     "r_train": -0.41089319221197673
+    },
+    "leaky": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 100,
+     "r_train_plus_test": -0.41581969171654826
+    }
+   }
+  }
+ },
+ "overall_verdict": "WEAK_GO",
+ "overall_verdict_mapping_declared": "H9a CONFIRMED -> GO; H9a rule met in exactly one of S4/EXT_pooled -> WEAK_GO; neither -> NO_GO. H9b is reported separately (C paper). Declared before the summary was run.",
+ "deviations_from_prereg": [
+  "[population] H9a/H9b use every hybrid with 2k genotypes (the v8 Q2 population); R8 Q1 ran S4 on the Lima common population, so the S4 test-env set can differ from that run.",
+  "[phenology] The predicted-maturity ridge keeps the round-1 grid; its lambda is chosen once per outer fold on the P1 validation fold (the training year nearest the test year; for EXT the last training year) and is held fixed across protocols, as in v7/v8.",
+  "[inner folds] P3 inner folds reuse the outer-fold feature construction (record-weighted SNP standardisation, EC anchors from the outer phenology model), as in v7/v8; no test-env data enters.",
+  "[D] Stage-2 residuals are cross-fitted over the P3 inner groups, with nested cross-fitting for the inner n_iter selection (as v8). Stage 1 is MG_2k at its P3 lambda in every protocol, and P1/P2 choose only n_iter (audit only).",
+  "[D features] D_noEC uses PC1..30 of the 2k set and predicted maturity; D_full adds the 21 round-1 EC_env variables, anchored at the env mean predicted maturity of the records (raw values), as in v8.",
+  "[multiplicity] Per-hypothesis p = max over S4 and EXT_pooled of the one-sided env-bootstrap p (intersection-union); Holm is applied over H9a and H9b only, and the prereg's Holm across H9a-H9d is left to the merge with track B.",
+  "[EXT_pooled] Bootstrap resamples the pooled 2022 + 2023 test envs without stratifying by year.",
+  "[S4] Test cells with no env meeting the >= 30 genotyped-hybrid rule are skipped (prereg) and listed in folds.",
+  "[CERIS secondary] Uses the R7 H1 procedure with v5 G2F variables and windows. In each EXT fold, nested = training envs and leaky = training + included test envs; env-mean OLS; pooled over the EXT_2022 and EXT_2023 test envs.",
+  "[compute] Every fold of every setting is computed on amax (x86_64, egp311 env) by 3 processes x 8 threads, from one data cache built from the 2025 release (sha256 recorded).",
+  "[overall_verdict] Mapping declared before the summary: H9a CONFIRMED -> GO; H9a rule met in exactly one of S4/EXT_pooled -> WEAK_GO; neither -> NO_GO; H9b is reported separately."
+ ]
+}

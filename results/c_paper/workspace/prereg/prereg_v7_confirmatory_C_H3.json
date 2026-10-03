@@ -1,0 +1,103 @@
+{
+ "title": "Round 7 (v7): confirmatory tests for the C paper (H1 window-search leakage, H2 EC gain vs tuning protocol) and the main line (H3 dense-SNP gain under oracle tuning)",
+ "frozen_at_utc": "2026-09-29T00:09:37Z",
+ "status": "FROZEN after R4-R6 results and the R5 post-hoc finding, before any R7 analysis. H1/H2 were generated on the G2F forward-year split (discovery); that split is EXCLUDED from H1/H2 confirmatory settings.",
+ "depends_on": {
+  "prereg_v5_sha256": "014f97ac79a2fd79853cc2f2833b159fbc54eb0b01f6d58d27a84875d0ace520",
+  "prereg_v6_sha256": "3029a04853a026d5b6fa088b06576845e804fffe4a95f1e953b6d9e20e875b5c",
+  "R5_results": "12244754-8f8e-4919-8a54-0a709e8dd6a5",
+  "R5_posthoc": "22cab697-487e-45a5-b61c-179c8e7b51af (sha256 7dfc962c33e723aa1b520222bf802ee9366b8feeb1ccfeb7ec6896d63ec8c751)",
+  "R6_results": "6195edb7-9a88-4a77-9f58-83cd497a58df",
+  "code": [
+   "v5_lib.py 2e9cabdf-7a4c-4e25-ab62-0f940762e336",
+   "v5_g2f.py 61539cf0-c2d1-4eb5-a91e-e0ad8bf2ce85",
+   "v5_briwecs.py 26a44f63-cf38-4378-b516-b2ec40c6715b",
+   "run_R6.py 3b50ac35-37ba-4176-a226-58ba4f779595",
+   "r6_lib.py e51c5d71-5e56-47c2-a61e-fff3e3b34e43"
+  ]
+ },
+ "settings": {
+  "S1_G2F_LOYO": "G2F 2014-2021; each year held out once, train on all other years; test env inclusion >=30 genotyped hybrids with yield (round-1 rule); round-1 features (2k SNP, PC1..30, 21 EC_env, predicted maturity)",
+  "S2_G2F_LOLO": "G2F leave-location-group-out: location = Env code with the trailing _YYYY removed; unique locations assigned to 5 folds by numpy default_rng(20260929).permutation of the sorted location list, fold = rank mod 5; all years of a held-out location are test; same inclusion rule",
+  "S3_BRIWECS_LOYO": "BRIWECS 2015-2020 (all years with phenotype + weather + >=30 genotyped cultivars per env); each year held out once; round-3 features (62,420 SNPs, PCs, 12 EC_env anchored at predicted heading)",
+  "S0_G2F_forward": "round-1 forward years 2019/2020/2021 (77 envs) - used ONLY for H3"
+ },
+ "penalty_grid": {
+  "grid": [
+   1.0,
+   3.162278,
+   10.0,
+   31.622777,
+   100.0,
+   316.227766,
+   1000.0,
+   3162.27766,
+   10000.0,
+   31622.776602,
+   100000.0,
+   316227.766017,
+   1000000.0,
+   3162277.660168,
+   10000000.0
+  ],
+  "note": "extended vs round 1 (grid-edge issue in R6); SNP-block penalty for 98k models = lambda * p_98k/p_2k as in R6; all protocols use this same grid; report fraction of folds where the chosen lambda is at a grid edge"
+ },
+ "tuning_protocols": {
+  "P1_single_year": "S1/S3: inner validation = the training year nearest in time to the held-out year (tie -> earlier year); S2: inner validation = 1 of the 4 training location folds, chosen as the next fold index mod 5; S0: last training year (round-1 rule). Select lambda by mean within-env r on the validation envs, refit on all training data.",
+  "P2_oracle": "lambda chosen per model per fold to maximize mean within-env r on the TEST envs (upper-bound / leaky reference)",
+  "P3_grouped_inner_cv": "S1/S3: leave-one-training-year-out inner CV over all training years; S2: 4-fold inner CV over the training location folds; select lambda maximizing the mean (over inner folds) of mean within-env r, refit on all training data"
+ },
+ "models": {
+  "M_G": "2k SNP main effects only (G2F) / 62k SNP (BRIWECS)",
+  "M0": "as R5",
+  "M0plus": "as R5",
+  "M0plus_98k": "as R6 E1 (G2F only)",
+  "M_G_98k": "98k SNP main effects only (G2F only, H3 secondary)"
+ },
+ "H1_window_search_leak": {
+  "procedure": "CERIS-style search as R5 C2. G2F variables and window grid as prereg v5. BRIWECS: all daily meteorological variables present for all sites in the DWD_Intpol files (list them before any yield-related computation), plus VPD by Tetens if temperature and relative humidity exist; windows in days from 1 January of the harvest year, d1 in 0..180 step 5, d2 in d1+10..d1+60 step 5. Nested = search on the fold's training envs; leaky = search on training + test envs. Env-mean model = linear regression of env-mean yield on the selected index, fit on training envs.",
+  "metric": "pooled out-of-fold env-mean r: Pearson between predicted and observed env-mean yield over all test envs of the setting (each env predicted once)",
+  "optimism": "r_envmean(leaky) - r_envmean(nested); also within-env r of the C2 GxE model as R5 (reported)",
+  "settings": [
+   "S1_G2F_LOYO",
+   "S2_G2F_LOLO",
+   "S3_BRIWECS_LOYO"
+  ],
+  "CONFIRMED": "optimism >= 0.05 with env-bootstrap 95% CI lower > 0 in >= 2 of the 3 settings"
+ },
+ "H2_EC_gain_tuning_dependence": {
+  "quantities": "Delta_EC(P) = r(M0plus) - r(M_G) under protocol P (both models tuned by the same protocol); D = Delta_EC(P1) - Delta_EC(P2)",
+  "settings": [
+   "S1_G2F_LOYO",
+   "S2_G2F_LOLO",
+   "S3_BRIWECS_LOYO"
+  ],
+  "CONFIRMED": "D >= 0.01 with paired env-bootstrap 95% CI lower > 0 in >= 2 of the 3 settings",
+  "also_report": "Delta_EC under P1, P2, P3 with CIs; M_G and M0plus tuning optimism r(P2)-r(P1); Delta_EC(P3) is the recommended honest estimate",
+  "direction_note": "If D is significantly NEGATIVE in >= 2 settings, report as 'EC gain larger under oracle tuning' (hypothesis refuted, opposite direction)"
+ },
+ "H3_dense_snp_under_oracle": {
+  "quantity": "Delta_98k(P) = r(M0plus_98k) - r(M0plus_2k), both tuned by protocol P",
+  "settings": [
+   "S0_G2F_forward",
+   "S1_G2F_LOYO"
+  ],
+  "CONFIRMED": "Delta_98k(P2) >= 0.01 with CI lower > 0 in BOTH settings, AND Delta_98k(P1) CI lower > 0 in S1",
+  "secondary": "r(M_G_98k) - r(M_G) under P1 and P2 (dense-SNP gain without EC terms)"
+ },
+ "paper_level_decision": {
+  "C_CONFIRMED_STRONG": "H1 and H2 both CONFIRMED -> C paper aimed at target tier",
+  "C_PARTIAL": "exactly one of H1/H2 CONFIRMED -> C paper built on the confirmed one; the other reported as not replicated",
+  "C_NOT_CONFIRMED": "neither -> C remains an evaluation-protocol note (stable tier)",
+  "MAINLINE": "H3 CONFIRMED -> 98k SNP default in the kernel-gated main line; otherwise report that the R6 gain depends on tuning"
+ },
+ "metric_and_uncertainty": "within-env Pearson equal-weight over out-of-fold test envs; paired env bootstrap 2000, seed 20260928; Holm across the settings of each hypothesis reported alongside (decision uses unadjusted CI as specified)",
+ "compute": "threads <=4 per process, resident memory <5 GB per process; two processes may run concurrently",
+ "reporting_rules": [
+  "all numbers reported",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256",
+  "no simulated or substitute data"
+ ]
+}

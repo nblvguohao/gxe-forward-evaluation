@@ -1,0 +1,8 @@
+{
+ "clac_fidelity_2022_vs_CLACsubmission5": {"common_cells": 11314, "cellwise_spearman": 0.9548, "within_env_spearman_median": 0.7798, "within_env_min": 0.7264, "within_env_max": 0.8276, "n_env": 26, "criterion": ">= 0.9 cell-wise (prereg 5.1)", "pass": true},
+ "fernandes_cv0_fidelity": {"paper_GA_E_pooled_pearson": 0.45, "paper_range": [0.41, 0.49], "paper_FA": 0.41, "ours_v1_all_threads": 0.327, "ours_v2_two_threads": 0.318, "criterion": "|diff| <= 0.03", "pass": false},
+ "fernandes_cv0_paired_cell_reml": {"pooled_pearson": {"lgbm": 0.318, "cell_reml": 0.419}, "within_pearson": {"lgbm": 0.166, "cell_reml": 0.320}, "within_spearman": {"lgbm": 0.136, "cell_reml": 0.296}, "n": "50 fold x seed"},
+ "clac_leakage_2016": {"original_vs_rerun_max_abs_diff": 0.0, "original_vs_junk_yield_ge2016_max_abs_diff": 0.0, "pass": true},
+ "lopez_cruz": {"2022_real": "done, 1h10m, peak 42.1 GB", "2024_real": "OOM at 48 GB (peak 50.3 GB)", "2024_hist": "OOM at 48 GB (peak 50.3 GB)", "rule": "addendum C: not reproducible on this machine"},
+ "clac_patches": ["Model B unseen levels -> 0", "marker sampling min(35000, 2425)", "builder drops envs without EC", "EigenGAU double precision", "mkr2X Vb2 alias VB2", "NaN spatial share -> use-pheno branch"]
+}

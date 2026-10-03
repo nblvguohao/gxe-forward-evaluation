@@ -1,0 +1,296 @@
+{
+ "pass": true,
+ "rule": "per target year: median >= 0.999 and min >= 0.99 (prereg \u00a74)",
+ "worst_median": 0.9999999999999999,
+ "worst_min": 0.9999997177015256,
+ "per_panel": [
+  {
+   "panel": "G2F_2016",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "G2F_2018",
+   "median": 1.0,
+   "min": 0.9999999358798562,
+   "bench_missing": 0
+  },
+  {
+   "panel": "G2F_2020",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "G2F_2022",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "G2F_2024",
+   "median": 1.0,
+   "min": 0.9999997177015256,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2005",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2006",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2007",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2008",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2009",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2010",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2011",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2012",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2013",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2014",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2015",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2016",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2017",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2019",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "NUST_2020",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_1999",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2000",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2001",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2002",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2003",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2004",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2008",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2009",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2014",
+   "median": 1.0,
+   "min": 1.0,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2015",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "URSN_2019",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2006",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2007",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2008",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2009",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2010",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2011",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2012",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2013",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2014",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2015",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2016",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "ESWYT_2017",
+   "median": 0.9999999999999999,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "GEM_IA_2016",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "GEM_IA_2017",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "GEM_IA_2018",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  },
+  {
+   "panel": "GEM_IA_2019",
+   "median": 1.0,
+   "min": 0.9999999999999998,
+   "bench_missing": 0
+  },
+  {
+   "panel": "MU_SOY_2020",
+   "median": 1.0,
+   "min": 0.9999999999999999,
+   "bench_missing": 0
+  }
+ ]
+}

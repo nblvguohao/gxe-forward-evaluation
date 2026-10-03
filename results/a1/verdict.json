@@ -1,0 +1,26 @@
+{
+ "F2024m": {
+  "pooled_pearson": {
+   "GEBiFormer_own": 0.22479756038016543,
+   "GEBiFormer_own_clean": 0.19221789816230564,
+   "GEBiFormer_fair": 0.15039498449576888,
+   "B1r_gblup_reml": 0.15023728038865886
+  },
+  "n_env": 21,
+  "N": 9064,
+  "resolution": 0.03151093619261758
+ },
+ "F2022m": {
+  "pooled_pearson": {
+   "GEBiFormer_own": 0.5333351094618948,
+   "GEBiFormer_own_clean": 0.5304035763858526,
+   "GEBiFormer_fair": 0.4585181251158586,
+   "B1r_gblup_reml": 0.1599007525117483
+  },
+  "n_env": 24,
+  "N": 10283,
+  "resolution": 0.029584302657432015
+ },
+ "prediction_1_O_pooled_positive_both": true,
+ "prediction_2_scale_smaller_than_sel_both": true
+}

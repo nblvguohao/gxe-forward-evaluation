@@ -1,0 +1,70 @@
+{
+ "title": "Round 4 (v4): nonlinear information-ceiling test for genotype-specific exposure (G2F + BRIWECS)",
+ "frozen_at_utc": "2026-09-28T18:45:33Z",
+ "status": "FROZEN before analysis. Motivation declared: linear oracle tests found no headroom (G2F -0.0102; BRIWECS +0.0015, dEC penalty at grid edge). This round asks whether a flexible nonlinear learner extracts information from oracle-aligned exposure deviations (dEC) that ridge missed. Earlier verdicts are unchanged.",
+ "depends_on": {
+  "A_results_sha256": "ddc22c7da2eff028e606677a0bcc6cd72fd7ea6a921c53a7ffcb3fb6792c327e",
+  "R3_oracle_results_sha256": "6b9b26193a3c4e93243eca461d3db8337ba88d6b5910bb7b436cc1beb03f5579",
+  "prereg_v3_sha256": "7c00afe8a63ae0ab82c2795bb9e95f518a95dc65b2599dcae8afa500293e81eb",
+  "code": {
+   "G2F": [
+    "run_A.py 6d564512-8872-4acf-a3e3-358d72a6b612",
+    "a_lib.py ba4978b2-445e-4070-b730-a83429b3381d",
+    "a_models.py d89052e1-97e0-44f3-86b0-1f560d70cf96"
+   ],
+   "BRIWECS": [
+    "run_R3.py a1de255f-5722-4ff6-89b2-b8875de2bb0a",
+    "r3_lib.py ede6a822-692f-44ba-86ac-1bc320fedd42",
+    "r2_lib.py ea08eac9-6173-4709-95d8-829fc11ef669"
+   ]
+  }
+ },
+ "datasets_and_splits": {
+  "G2F": "forward test years 2019, 2020, 2021 exactly as round 1 (77 test envs)",
+  "BRIWECS": "forward test years 2018, 2019 exactly as round 3 (23 test envs)"
+ },
+ "stage1_base": "M0plus exactly as previously specified per dataset (G2F: round-1 spec with its selected penalties; BRIWECS: round-3 spec with its selected penalties); produces base predictions for test rows and CROSS-FITTED residuals for training rows (5-fold GroupKFold by environment within the training years, base refit per fold with the same penalties)",
+ "stage2_learners": {
+  "learner": "sklearn HistGradientBoostingRegressor fitted to stage-1 cross-fitted training residuals",
+  "NL_noDEC_features": "PC1..10, predicted maturity z, EC_env (G2F 21 / BRIWECS 12)",
+  "NL_DEC_features": "NL_noDEC features + oracle dEC_ij (observed-phenology-aligned EC minus EC_env; same variables)",
+  "hyperparameter_grid": {
+   "max_depth": [
+    3,
+    5
+   ],
+   "min_samples_leaf": [
+    50,
+    200
+   ],
+   "l2_regularization": [
+    0.0,
+    1.0
+   ],
+   "learning_rate": [
+    0.05
+   ],
+   "max_iter": "early stopping on the last training year (patience 20, max 1000)"
+  },
+  "selection": "grid point and iteration count chosen by mean within-env Pearson of (base + stage2) on the last training year, stage-2 fitted on the remaining training years; then refit stage 2 on all training years with the chosen settings",
+  "seeds": "random_state 20260928"
+ },
+ "predictions": "final prediction = base prediction + stage-2 prediction",
+ "metric": "within-env Pearson of hybrid/cultivar means, equal-weight mean over test envs per dataset; paired env bootstrap 2000, seed 20260928",
+ "primary_contrast": "r(NL_DEC) - r(NL_noDEC) per dataset",
+ "secondary_contrasts": [
+  "r(NL_noDEC) - r(M0plus): nonlinear G x E on env-level ECs",
+  "r(NL_DEC) - r(M0plus)"
+ ],
+ "decision": {
+  "NONLINEAR_HEADROOM": "primary contrast >= 0.01 AND CI lower > 0 in at least one dataset -> genotype-specific exposure reopened for model development (prediction-time phenology would then need its own prereg)",
+  "NO_HEADROOM": "otherwise -> extrapolative G x E via genotype-specific exposure closed at the information level for G2F and BRIWECS",
+  "secondary_note": "if NL_noDEC - M0plus >= 0.01 with CI lower > 0, report as evidence of nonlinear env-level G x E headroom (informs step 3/level 2-3), without reopening A"
+ },
+ "reporting_rules": [
+  "all numbers reported",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256"
+ ]
+}

@@ -1,0 +1,118 @@
+{
+ "title": "Remediation round (v2): R1 one-step retest of angle B on G2F; R2 boundary screen (A1 only) of angle A on BRIWECS winter wheat; R3 data-acquisition manifest",
+ "frozen_at_utc": "2026-09-28T17:33:46Z",
+ "status": "FROZEN before any R1/R2 analysis. Round-1 verdicts (A NO_GO, B NO_GO on G2F; AB_gonogo_verdict.json sha256 e55c2496...) stand and are not revisited by this round.",
+ "depends_on": {
+  "prereg_v1_sha256": "df52f18a7c08600c8d6c0b0e4776cfa644deb82ebf249626846dca6535577eb8",
+  "round1_verdict_sha256": "e55c2496ec204efbcade25682698cc293a04b7a8df1e7182a81ad1e15343d63b",
+  "g2f_inputs": {
+   "1_Training_Trait_Data_2014_2021.csv": {
+    "path": "<local>/gp_project/data/raw/g2f/1_Training_Trait_Data_2014_2021.csv",
+    "bytes": 26404798,
+    "sha256": "502582195367608dda756d63aaf48d70e371a6468c3c9fa883d0367f9a383e72"
+   },
+   "2_Training_Meta_Data_2014_2021.csv": {
+    "path": "<local>/gp_project/data/raw/g2f/2_Training_Meta_Data_2014_2021.csv",
+    "bytes": 80005,
+    "sha256": "0b8ed470f5a8df9a4dcd9744a3d688974d2421e0b92ec3376dc2dfd756cadc14"
+   },
+   "3_Training_Soil_Data_2015_2021.csv": {
+    "path": "<local>/gp_project/data/raw/g2f/3_Training_Soil_Data_2015_2021.csv",
+    "bytes": 23184,
+    "sha256": "21429e3c5867a879fb9e3814c24aa78ef93504cb1c193b0d3e0d8a900b5ddafa"
+   },
+   "4_Training_Weather_Data_2014_2021.csv": {
+    "path": "<local>/gp_project/data/raw/g2f/4_Training_Weather_Data_2014_2021.csv",
+    "bytes": 8326135,
+    "sha256": "ed53f534cf813fd821e82e1b791256ef41d350624a16155cc0c3c67154e404f2"
+   },
+   "5_Genotype_Data_All_2014_2025_Hybrids.vcf": {
+    "path": "<local>/gp_project/data/raw/g2f/5_Genotype_Data_All_2014_2025_Hybrids.vcf",
+    "bytes": 57432657,
+    "sha256": "28f2e8c6c933539af4dfdd966df77f773dfdc925e6f3235ecb20d52b92acce6c"
+   },
+   "6_Training_EC_Data_2014_2021.csv": {
+    "path": "<local>/gp_project/data/raw/g2f/6_Training_EC_Data_2014_2021.csv",
+    "bytes": 1646754,
+    "sha256": "1c2d0b9a518ba2183acaa50915e4a3a378f2e2344be582a67ee457113ef7faa2"
+   }
+  },
+  "round1_code_artifacts": {
+   "run_b_track.py": "d28150ee-6678-488b-8568-77dc5dbf2014",
+   "b_track_lib.py": "2d13d67c-7b17-4560-9245-69576f4d4f4f",
+   "B_nulls_and_oof.npz": "38c8f5d0-4561-41a8-b787-3e8187b3a086",
+   "B_overlap_snps.csv": "2ebb7242-7e73-4834-9cb4-8939aa4d4501",
+   "run_A.py": "6d564512-8872-4acf-a3e3-358d72a6b612",
+   "a_lib.py": "ba4978b2-445e-4070-b730-a83429b3381d",
+   "a_models.py": "d89052e1-97e0-44f3-86b0-1f560d70cf96"
+  }
+ },
+ "why_this_round": "Round-1 diagnostics (post hoc): B4's two-step design attenuates correlations (BLUP slope reliability ~0.43) and used one temperature axis; A was untestable on G2F because within-env maturity spread is narrow (median hybrid-mean silking SD 2.64 d). R1 tests B with a higher-power one-step design; R2 tests whether any public panel offers enough within-env phenology spread for A to be testable at all.",
+ "R1_B_one_step": {
+  "score": "round-1 B3 projected growing-season temperature score (ridge alpha 3162 fitted on 4,053 SeeD landraces, 319 overlap SNPs, v5 coordinates) - regenerated from round-1 code without any re-tuning; standardized over analysed hybrids",
+  "data": "G2F 2014-2018 hybrid x env means (env-centred yield as in v1), genotyped hybrids with >=3 envs having the axis defined",
+  "env_anchor": "env mean over hybrids of observed hybrid-mean silking GDD (2014-2018 training data; same as round-1 B4)",
+  "axes": {
+   "T1": "env mean T2M_MAX in W1 [-400,-50] GDD around anchor",
+   "T2": "env mean T2M_MAX in W2 [-50,150] (round-1 B4 axis)",
+   "T3": "env mean T2M_MAX in W3 [150,750]",
+   "T4": "env mean T2M from env median planting date to anchor+750 GDD"
+  },
+  "model": "per axis k: y_ij = fixed[ T_k + s_i + s_i*T_k + tester dummies + tester*T_k + PC1..10 + PC1..10*T_k ] + random[ hybrid intercept + hybrid slope on T_k ] + e; T_k and s z-scored; REML (statsmodels MixedLM); PCs = round-1 G2F PCs",
+  "test": "Wald z of gamma_k = coefficient of s_i*T_k; pre-declared direction gamma_k > 0 (warmer-adapted score -> less negative response to warmer trial temperature)",
+  "multiplicity": "Bonferroni over 4 axes: two-sided p < 0.0125",
+  "permutation": "for every axis that passes the parametric test: 200 coefficient-permuted score projections (round-1 primary null), refit, empirical two-sided p < 0.05 required",
+  "PASS": ">=1 axis with gamma_k > 0, parametric p < 0.0125 and permutation p < 0.05",
+  "WRONG_SIGN": "significant but gamma_k < 0 -> counted as FAIL (structure-like, not adaptation)",
+  "FAIL": "otherwise; B on G2F closed under the higher-power design",
+  "report_also": "SE of gamma per axis and the minimal detectable |gamma| at 80% power (alpha 0.0125) in Mg/ha per SD of score per SD of T",
+  "if_PASS": "run round-1 prereg B5 exactly (M0plus from run_A.py + score_z x EC_env; forward years 2019-2021; GO/WEAK_GO/NO_GO as in v1)"
+ },
+ "R2_A_boundary_screen_BRIWECS": {
+  "data_preference": [
+   "BRIWECS extended MET dataset, figshare 10.6084/m9.figshare.27910269 (if it has plot/genotype-level heading, sowing date, daily weather)",
+   "else Sabir et al. 2023 Zenodo 10.5281/zenodo.8248543 (220 cultivars x 48 envs, daily climate_data.csv)"
+  ],
+  "env_definition": "location x year x management treatment as coded in the source (treatments shift phenology)",
+  "thermal_time": "base 0 C daily mean temperature ((Tmax+Tmin)/2 if Tmean absent) accumulated from env median sowing date",
+  "anchor": "cultivar x env heading date converted to thermal time",
+  "windows_Cd": {
+   "W1_pre": [
+    -600,
+    -100
+   ],
+   "W2_heading_flowering": [
+    -100,
+    200
+   ],
+   "W3_grainfill": [
+    200,
+    700
+   ]
+  },
+  "variables": [
+   "mean Tmax",
+   "mean Tmin",
+   "sum precipitation",
+   "mean global radiation",
+   "count days Tmax>30C"
+  ],
+  "n_ec": 15,
+  "within_env_share": "same definition as v1 A1 (equal-weight mean over envs of within-env variance / total variance of cultivar x env EC)",
+  "PASS": "median within-env heading SD >= 5 days AND >=2 of 15 ECs with within-env share >= 0.10",
+  "FAIL": "median within-env heading SD < 3 days OR all 15 ECs < 0.05",
+  "MARGINAL": "otherwise",
+  "genotype_feasibility": "locate public SNP genotypes for the BRIWECS cultivars (e.g., Voss-Fels et al. 2019 / Lichthardt et al. 2019 / Sci Data 2025 release); report n cultivars matched; no A2/A3 in this round",
+  "consequence": "PASS + genotypes available -> A2/A3 on BRIWECS in a later round with its own prereg; FAIL -> angle A closed on the public panels examined"
+ },
+ "R3_data_manifest": {
+  "deliverable": "manifest CSV (dataset, DOI/URL, files, size, license, access method, sandbox status) + official-API/official-tool download scripts with sha256 verification + counts of G2F hybrids whose both parents appear in each public dense inbred panel",
+  "access_policy": "official APIs/tools only, default User-Agent, rate-limited; no WAF/bot-challenge circumvention, no mirrors/proxies; blocked sources are recorded with manual or official-tool instructions for the user"
+ },
+ "reporting_rules": [
+  "all gate outcomes reported including failures",
+  "no threshold edits after results",
+  "deviations listed with reasons",
+  "results frozen as JSON with sha256"
+ ]
+}

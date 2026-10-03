@@ -1,0 +1,65 @@
+{
+ "title": "Round 3 (v3): oracle-headroom test of angle A on BRIWECS winter wheat",
+ "frozen_at_utc": "2026-09-28T18:12:50Z",
+ "status": "FROZEN before any R3-oracle analysis. POST-HOC ORIGIN DECLARED: this test was proposed AFTER seeing R2 (heading-SD component FAIL, EC-share component PASS). R2 verdict (NO_GO) stands and is not revised; this round asks whether R2's FAIL was driven by the indirect heading-SD criterion.",
+ "depends_on": {
+  "prereg_v2_sha256": "02505e00099d87e16166009357a33975a24fa225b7e09d42a5708a11167bf990",
+  "R2_results_sha256": "f292c2f9034810ca19cb4bce09d9676a9b387acb88cc4f19848925b4c1fc5493",
+  "round1_code": {
+   "run_A.py": "6d564512-8872-4acf-a3e3-358d72a6b612",
+   "a_lib.py": "ba4978b2-445e-4070-b730-a83429b3381d",
+   "a_models.py": "d89052e1-97e0-44f3-86b0-1f560d70cf96"
+  }
+ },
+ "data": {
+  "phenotypes_weather": "BRIWECS Figshare 10.6084/m9.figshare.27910269 curated table + DWD interpolated daily weather (as used in R2)",
+  "genotypes": "Lichthardt et al. 2019 135K Axiom (221 cultivars) as primary; if QC leaves <180 cultivars, use Voss-Fels 2019 15K (191) - choose by rule before modelling, not by results",
+  "genotype_qc": "biallelic, call rate >=0.9, MAF>=0.05, mean imputation; PCA K=30 on all genotyped cultivars (no phenotypes)",
+  "trait": "grain yield (the curated table's yield column), cultivar mean within env",
+  "env_definition": "location x year x treatment (as R2); envs with >=30 genotyped cultivars having yield and heading"
+ },
+ "splits": "forward years by harvest year: train years < t, test year t, for every t with >=3 prior training years and >=3 qualifying test envs (expected t = 2018, 2019); if only one test year qualifies, use it and declare",
+ "features": {
+  "thermal_time": "base 0 C, from env median sowing (as R2)",
+  "windows_Cd": {
+   "W1": [
+    -600,
+    -100
+   ],
+   "W2": [
+    -100,
+    200
+   ],
+   "W3": [
+    200,
+    700
+   ]
+  },
+  "variables": [
+   "mean Tmax",
+   "mean Tmin",
+   "sum precipitation",
+   "mean global radiation"
+  ],
+  "excluded_variable": "count days Tmax>30C excluded a priori (near-degenerate in R2: nonzero in 2.5% of records)",
+  "n_ec": 12
+ },
+ "models": {
+  "M0plus": "SNP main effects + (PC1..30 x EC_env) + (predicted heading z x EC_env); EC_env anchored at env mean PREDICTED heading (SNP ridge trained on training years)",
+  "M1oracle": "M0plus + dEC_ij main + (PC1..30 x dEC_ij), dEC_ij = EC anchored at OBSERVED cultivar-mean heading in that env minus EC_env (train and test)",
+  "M1plus_predicted": "same as M1oracle but anchored at predicted heading (reported, secondary)",
+  "estimation": "ridge; features z-scored on training rows; SEPARATE penalties for the base block and the dEC block (2-D grid, each 10^-2..10^6 step 0.5 log10) chosen on the last training year as validation, then refit on all training years (change vs round 1 declared: round 1 used one shared penalty)"
+ },
+ "metric": "within-env Pearson of cultivar means, equal-weight mean over test envs; paired env bootstrap 2000, seed 20260928",
+ "decision": {
+  "HEADROOM": "r(M1oracle) - r(M0plus) >= 0.01 AND CI lower > 0 -> angle A re-opened on BRIWECS; next round would test predicted alignment (A2/A3) under its own prereg",
+  "NO_HEADROOM": "otherwise -> angle A closed on BRIWECS irrespective of the R2 heading-SD criterion",
+  "note": "predicted-heading model M1plus_predicted is secondary and cannot by itself re-open A"
+ },
+ "reporting_rules": [
+  "report all numbers including failure",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256"
+ ]
+}

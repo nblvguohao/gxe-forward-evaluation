@@ -1,0 +1,72 @@
+{
+ "I-A": {
+  "GO": false,
+  "all48": {
+   "variant": "ia_main",
+   "range": "all48",
+   "metric": "spearman",
+   "scope": "all",
+   "resolution": 0.008717174147157603,
+   "est": 0.0054533158076236245,
+   "lo": 0.0009149054888790359,
+   "hi": 0.009991726126368214,
+   "tau2": 0.0001377110739268141,
+   "k": 48
+  },
+  "orig31": {
+   "variant": "ia_main",
+   "range": "orig31",
+   "metric": "spearman",
+   "scope": "all",
+   "resolution": 0.010153810585530542,
+   "est": 0.006056887057286432,
+   "lo": 0.0002624670258350101,
+   "hi": 0.011851307088737854,
+   "tau2": 0.0001471150429708115,
+   "k": 31
+  },
+  "new17": {
+   "variant": "ia_main",
+   "range": "new17",
+   "metric": "spearman",
+   "scope": "all",
+   "resolution": 0.016999418252085112,
+   "est": 0.004259250427209851,
+   "lo": -0.0030627292753114396,
+   "hi": 0.01158123012973114,
+   "tau2": 0.0001229677879671819,
+   "k": 17
+  },
+  "lodo_min": 0.004098041379950951
+ },
+ "I-B": {
+  "GO_general": true,
+  "GO_NUST": false,
+  "loc43": {
+   "variant": "ib_main",
+   "range": "loc4",
+   "metric": "spearman",
+   "scope": "all",
+   "resolution": 0.009061128693679749,
+   "est": 0.012029142820823275,
+   "lo": 0.005732307291052679,
+   "hi": 0.018325978350593873,
+   "tau2": 0.00011712322008499847,
+   "k": 43
+  },
+  "NUST": {
+   "variant": "ib_main",
+   "range": "NUST",
+   "metric": "spearman",
+   "scope": "all",
+   "resolution": 0.016579900395626457,
+   "est": 0.012055662143526328,
+   "lo": 0.0037620257373726027,
+   "hi": 0.020349298549680053,
+   "tau2": 2.7090751443256628e-05,
+   "k": 15
+  },
+  "lodo_min": 0.01076662918503009
+ },
+ "note": "descriptive headroom check; GO = worth a confirmatory pre-registration on new data"
+}

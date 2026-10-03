@@ -1,0 +1,51 @@
+{
+ "title": "Round 6 (v6): level-1 engineering improvements on the G2F forward-year benchmark - dense SNPs, GCA/SCA parental decomposition, multi-trait",
+ "frozen_at_utc": "2026-09-28T22:14:50Z",
+ "status": "FROZEN after round-4 results (NO_HEADROOM) and before any round-5 or round-6 result is seen. Round-6 design does not depend on round-5 outcomes.",
+ "motivation": "Rounds 1-4 closed genotype-specific exposure (A) and origin-trial bridging (B). This round asks whether standard, non-novel engineering levers raise forward-year within-env accuracy on G2F; positive results feed the user's kernel-gated main line, negative results feed thesis ch.4.",
+ "depends_on": {
+  "prereg_v4_sha256": "4f07fed9d6ca4b867b4f750447db0bae9dfd8c75a92795c60eeec45feeae8df8",
+  "prereg_v5_sha256": "014f97ac79a2fd79853cc2f2833b159fbc54eb0b01f6d58d27a84875d0ace520",
+  "code": [
+   "run_A.py 6d564512-8872-4acf-a3e3-358d72a6b612",
+   "a_lib.py ba4978b2-445e-4070-b730-a83429b3381d",
+   "a_models.py d89052e1-97e0-44f3-86b0-1f560d70cf96"
+  ],
+  "dense_genotypes": "Lima et al. 2023 Nat Commun curated G2F data (figshare), artifact a73c6fa7-ea15-4df7-9e30-355d773485dc, data/GENO.csv (4,372 hybrids x 98,026 SNPs), data/MAP.csv"
+ },
+ "data_split": "G2F round-1 forward years: train 2014..t-1, test t in {2019, 2020, 2021}; test env inclusion >=30 genotyped hybrids with yield; features (21 EC_env) as round 1",
+ "common_population": "All contrasts evaluated on the SAME plots: hybrids present in BOTH the local 2,425-SNP VCF and the Lima 98k GENO matrix (training and test). Report how many test envs / plots / hybrids are lost vs round 1; if fewer than 70 of the 77 round-1 test envs remain, report and continue (no gate change).",
+ "baseline": "M0plus_2k: round-1 M0plus refit on the common population (2,425 SNP main effects + PC1..30 x EC_env + EC_env main), penalties by the round-1 rule (select on last training year, refit on all training years).",
+ "contrasts": {
+  "E1_dense_snp": {
+   "model": "M0plus_98k: identical to M0plus_2k except SNP main effects use the 98k matrix (MAF>=0.05 on training hybrids, mean-imputed) and PCs are recomputed from the 98k matrix on all genotyped hybrids (no phenotypes). Implementation may use the kernel (dual) form of ridge for the SNP block; the penalty grid is the round-1 grid rescaled by p_98k/p_2k.",
+   "primary": "r(M0plus_98k) - r(M0plus_2k)"
+  },
+  "E2_gca_sca": {
+   "model": "M0plus_2k + GCA_P1 + GCA_P2 + tester x EC_env: ridge on one-hot Hybrid_Parent1 and Hybrid_Parent2 identities (separate penalty block, same penalty-selection rule), plus interaction of one-hot tester (Parent2, levels with >=50 training plots; others pooled) with EC_env. SCA is the residual hybrid term already captured by SNP main effects; no separate hybrid-identity term (it would be zero for new hybrids).",
+   "primary": "r(M0plus_2k+GCA) - r(M0plus_2k)",
+   "extra": "report separately for test hybrids with (i) both parents seen in training, (ii) one parent seen, (iii) neither"
+  },
+  "E3_multitrait": {
+   "E3a_forward": "stacked multi-trait: for each hybrid, SNP-ridge predictions (trained on training years only) of hybrid-mean silking_GDD, plant height and grain moisture are added as 3 genotype-level features plus their interaction with EC_env; no test-env secondary-trait data used. primary: r(E3a) - r(M0plus_2k)",
+   "E3b_in_season": "SEPARATE use case (NOT an improvement claim over M0plus): test-env observed plot silking and plant height are allowed (yield unknown), reported only as the in-season upper reference; no gate.",
+   "secondary_dataset": "BRIWECS round-3 split with heading and plant height as secondary traits, E3a only, reported without gate"
+  },
+  "E4_combined": "M0plus_98k + GCA + E3a (reported, no gate)"
+ },
+ "metric_and_uncertainty": "within-env Pearson of yield, equal-weight mean over test envs; paired env bootstrap 2000, seed 20260928; also Spearman and within-env top-10% overlap; new-hybrid subset (hybrids never in training years) reported for every contrast.",
+ "decision": {
+  "LEVEL1_GAIN": "any of E1, E2, E3a has primary >= 0.01 with 95% CI lower bound > 0 on G2F -> adopt that lever as a default component of the kernel-gated main line",
+  "LEVEL1_MARGINAL": "CI lower bound > 0 but point estimate < 0.01 -> report as small, not adopted by default",
+  "LEVEL1_NONE": "otherwise -> standard engineering levers do not move forward-year accuracy on G2F; report as negative evidence (thesis ch.4)",
+  "multiplicity": "three primary contrasts; also report Holm-adjusted bootstrap p-values (two-sided, from the bootstrap distribution); decision uses unadjusted CI per prereg, adjusted values reported alongside"
+ },
+ "compute": "threads <=4, resident memory <5 GB (another round runs concurrently)",
+ "reporting_rules": [
+  "all numbers reported",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256",
+  "no simulated or substitute data"
+ ]
+}

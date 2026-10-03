@@ -1,0 +1,5 @@
+{
+ "criterion": "pooled_pearson",
+ "chosen": "epoch01",
+ "selected_on_report": true
+}

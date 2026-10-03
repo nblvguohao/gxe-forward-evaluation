@@ -1,0 +1,31 @@
+{
+ "GO": false,
+ "main_m2_m1": {
+  "fraction": 0.25,
+  "contrast": "m2-m1",
+  "metric": "sp",
+  "range": "all48",
+  "resolution": 0.010319825241431135,
+  "est": 7.00855742278932e-05,
+  "lo": -0.0029081026286554798,
+  "hi": 0.003048273777111266,
+  "tau2": 2.5442040921466297e-05,
+  "k": 46
+ },
+ "m1_m0": {
+  "fraction": 0.25,
+  "contrast": "m1-m0",
+  "metric": "sp",
+  "range": "all48",
+  "resolution": 0.010319825241431135,
+  "est": 0.018699457888536292,
+  "lo": 0.013561715715865272,
+  "hi": 0.023837200061207313,
+  "tau2": 0.00017916525855069828,
+  "k": 46
+ },
+ "lodo_min": -0.0007722281872282302,
+ "N_f25": 84508,
+ "N_f50": 45642,
+ "note": "descriptive headroom check; GO = worth a confirmatory pre-registration on data not used here"
+}

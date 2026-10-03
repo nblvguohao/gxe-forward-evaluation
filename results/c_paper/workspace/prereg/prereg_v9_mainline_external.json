@@ -1,0 +1,87 @@
+{
+ "title": "Round 9 (v9): confirm the main-line stack (98k SNP + P3 + non-linear genetic stage) and isolate the EC increment, including a true external validation on G2F 2022-2023; secondary deep-model check on GPU",
+ "frozen_at_utc": "2026-09-29T13:41:40Z",
+ "status": "FROZEN before any 2022-2023 phenotype is analysed (the download only verified file sizes and year/env counts) and before any R9 model is fitted. The v8 post-hoc ablation (D_noEC vs D_full) generated H9a/H9b; settings used in that ablation (S1 LOYO, S2 LOLO) are REPLICATION only.",
+ "depends_on": {
+  "prereg_v8_sha256": "bdfc1550ea00db1d3f7cbe5b9dc004292c638b29d61741058192f1b07584b703",
+  "R8_Q1_results": "7044e9ac-435b-4586-b0fb-28651a1e5fae",
+  "R8_Q2_results": "a40a5931-68f1-441a-a2df-ce08d875dc53 (sha256 0f143c8747149deb1ec73a1621450fc696c71a270aa0d42769d03c0a16ed62e2)",
+  "code": [
+   "v8_lib.py 250334ff-92e8-4921-b3b7-26e55a44a13e",
+   "v8_g2f.py 27d5a11f-23de-424e-8f1d-ee2dc8768aa3",
+   "r8_q1.py 2f8ec3a1-4400-4512-91fd-14d82f06c45d"
+  ]
+ },
+ "compute": "amax only (per user 2026-09-29): all files under <server>/egp_gxe; env <server>/egp_gxe/envs/egp311; CPU <= 48 threads total; GPU: one H200 (shared host). All folds of a given setting are computed on the same machine; no cross-machine mixing within a setting.",
+ "data": {
+  "G2F_2025_release": "<server>/egp_gxe/data/g2f_2025/Training_data (CyVerse 10.25739/78mn-4394; trait/meta/weather/EC 2014-2023). The whole v9 pipeline is rebuilt from these files; before any model fit, report agreement of the 2014-2021 subset with the local 2014-2021 files used in R1-R8 (row counts, env set, yield values).",
+  "dense_genotypes": "98k SNP set (P8 figshare MAP.csv) for all hybrids 2014-2023. If the G2F inbred 437k VCF (CyVerse 10.25739/ragt-7213) is obtainable, hybrid dosages at the 98k positions are built as parent1 + parent2 inbred calls; validity check on hybrids present in the P8 GENO matrix: per-SNP dosage concordance >= 0.98 median and kinship correlation >= 0.95. If unobtainable or the check fails, EXT settings use the 2k SNP set only and every 98k contrast is restricted to S4 (declared, no threshold change).",
+  "weather": "4_Training_Weather_Data_2014_2023_full_year.csv (same variables as R1)"
+ },
+ "settings": {
+  "EXT_2022": "train 2014-2021, test 2022 (test env inclusion >= 30 genotyped hybrids with yield)",
+  "EXT_2023": "train 2014-2022, test 2023",
+  "EXT_pooled": "EXT_2022 and EXT_2023 test envs pooled (primary external setting)",
+  "S4_G2F_CV00": "as v8 (years 2014-2021 only, same location folds rng 20260929)",
+  "S1_G2F_LOYO / S2_G2F_LOLO": "REPLICATION only"
+ },
+ "tuning": "P3 grouped inner CV (leave-one-training-year-out for EXT and S4) is the only protocol used for decisions; penalty grid 1e-2..1e7 (19 values) as v8; HGB n_iter from {50,100,200,400,800} chosen by the same inner folds; P1/P2 reported for the audit only.",
+ "models": {
+  "MG_2k": "SNP main effects only, 2k SNP set",
+  "MG_98k": "SNP main effects only, 98k SNP set (kernel ridge as R6/R8)",
+  "D_noEC(stage1)": "two-stage: stage 1 = MG_(2k|98k) tuned by P3; stage 2 = HistGradientBoosting (learning_rate 0.05, max_leaf_nodes 31, min_samples_leaf 200, random_state 20260928) on stage-1 residuals cross-fitted over the P3 inner groups, features = PC1..30 (from the same SNP set as stage 1) + predicted phenology (round-1 maturity ridge)",
+  "D_full(stage1)": "as D_noEC plus EC_env (21 G2F variables, raw) as stage-2 features"
+ },
+ "hypotheses": {
+  "H9a_nonlinear_genetic_stage": {
+   "quantity": "r(D_noEC(MG_2k)) - r(MG_2k)",
+   "settings": [
+    "S4_G2F_CV00",
+    "EXT_pooled"
+   ],
+   "CONFIRMED": ">= 0.01 with paired env-bootstrap 95% CI lower > 0 in BOTH settings"
+  },
+  "H9b_EC_increment": {
+   "quantity": "r(D_full(MG_2k)) - r(D_noEC(MG_2k))",
+   "settings": [
+    "S4_G2F_CV00",
+    "EXT_pooled"
+   ],
+   "CONFIRMED": ">= 0.005 with CI lower > 0 in BOTH settings",
+   "NEGLIGIBLE": "CI upper < 0.01 in BOTH settings",
+   "else": "INCONCLUSIVE"
+  },
+  "H9c_stack_on_dense_snp": {
+   "quantity": "r(D_noEC(MG_98k)) - r(MG_98k)",
+   "settings": [
+    "S4_G2F_CV00",
+    "EXT_pooled (only if dense genotypes pass the validity check)"
+   ],
+   "CONFIRMED": ">= 0.01 with CI lower > 0 in every available setting"
+  },
+  "H9d_dense_snp_external": {
+   "quantity": "r(MG_98k) - r(MG_2k)",
+   "settings": [
+    "EXT_pooled"
+   ],
+   "CONFIRMED": ">= 0.01 with CI lower > 0",
+   "note": "external replication of R8 Q1 with SNP-only models"
+  }
+ },
+ "secondary_no_gate": {
+  "window_search_leak_external": "CERIS nested vs leaky env-mean r on EXT_pooled as R7 H1 (report optimism and CI)",
+  "deep_model_check_GPU": "two-tower MLP in PyTorch: genotype tower = linear(98k or 2k SNP -> 512) + GELU + dropout 0.3 + linear(512 -> 128); env tower = linear(EC_env(21) + predicted phenology -> 64) + GELU; head = MLP([128+64] -> 128 -> 1) on the concatenation; target = env-centred yield; AdamW lr 1e-3, weight decay 1e-4, batch 1024, max 60 epochs, early stopping on one inner validation year (the training year nearest the test year); 5 seeds, predictions averaged. Variants DL_full and DL_noEC (env tower removed). Report r(DL_full), r(DL_noEC), their difference and differences vs MG_98k, with CIs, on S4 and EXT_pooled. Declared as a robustness check of H9b, not a confirmatory test."
+ },
+ "metric_and_uncertainty": "within-env Pearson of yield, equal-weight mean over test envs; paired env bootstrap 2000, seed 20260928; Holm across H9a-H9d reported alongside; new-hybrid subset reported",
+ "decision": {
+  "MAINLINE": "H9a and H9c CONFIRMED -> default = 98k SNP + P3 + non-linear genetic stage; H9a only -> non-linear stage adopted with 2k; neither -> keep 98k SNP + P3",
+  "C_PAPER": "H9b NEGLIGIBLE or INCONCLUSIVE -> 'EC adds < 0.01 within-environment' reported as confirmed/unresolved accordingly; H9b CONFIRMED -> report a small but real non-linear EC increment"
+ },
+ "reporting_rules": [
+  "all numbers reported",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256",
+  "no simulated or substitute data"
+ ]
+}

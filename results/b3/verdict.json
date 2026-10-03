@@ -1,0 +1,48 @@
+{
+ "N_cells": 87294,
+ "resolution": 0.010153810585530542,
+ "holm": [
+  {
+   "contrast": "H2",
+   "a": "R_STK_FW",
+   "b": "R_FW",
+   "est": 0.015458795713691893,
+   "level": 0.975,
+   "lo": 0.003497592537563224,
+   "hi": 0.027419998889820562,
+   "p": 0.0037697257484988734,
+   "verdict": "better"
+  },
+  {
+   "contrast": "H1",
+   "a": "R_FW",
+   "b": "R_CV",
+   "est": 0.0010336374713674822,
+   "level": 0.95,
+   "lo": -0.00507562081176724,
+   "hi": 0.007142895754502204,
+   "p": 0.7401836343583634,
+   "verdict": "tied"
+  }
+ ],
+ "prediction_H1_FW_ge_CV": true,
+ "prediction_H2_tied": false,
+ "years_cv_pick_eq_fw_pick": {
+  "G2F": "3/5",
+  "NUST": "12/15",
+  "URSN": "3/11"
+ },
+ "years_fw_pick_eq_oracle": {
+  "G2F": "1/5",
+  "NUST": "8/15",
+  "URSN": "0/11"
+ },
+ "years_cv_pick_eq_oracle": {
+  "G2F": "1/5",
+  "NUST": "8/15",
+  "URSN": "0/11"
+ },
+ "e5_mean_tau_cv": 0.30120829479667144,
+ "e5_mean_tau_fw": 0.4320448642300748,
+ "e5_mean_share_pairs_below_resolution": 0.8028673835125449
+}

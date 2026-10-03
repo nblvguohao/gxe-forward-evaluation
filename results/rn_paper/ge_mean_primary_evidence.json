@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "record_name": "TAG Paper A equal-weight genotype-environment primary evidence",
+  "created_utc": "2026-08-26T04:20:23.124162+00:00",
+  "analysis_unit": "one unadjusted mean per genotype-environment cell throughout fitting and evaluation",
+  "bootstrap_unit": "held-out environment",
+  "states": {
+    "observed": {
+      "n_environments": 266,
+      "n_source_plot_rows": 162703,
+      "n_genotype_environment_units": 106468,
+      "kernel_gated_vs_additive": {
+        "msed": {
+          "estimate": -0.2688414254005627,
+          "ci_low": -0.3323434973668463,
+          "ci_high": -0.20711511454593864,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "spearman": {
+          "estimate": 0.02249404823393918,
+          "ci_low": 0.01500461760736253,
+          "ci_high": 0.030105625235551343,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "selection_gain_10": {
+          "estimate": 0.05262203413741033,
+          "ci_low": 0.009025267774897412,
+          "ci_high": 0.0965773419890188,
+          "sign_probability": 0.9926,
+          "n_environments": 266
+        },
+        "selection_regret_10": {
+          "estimate": -0.05262203189663421,
+          "ci_low": -0.09599976434295339,
+          "ci_high": -0.009849075446451527,
+          "sign_probability": 0.9936,
+          "n_environments": 266
+        },
+        "squared_error": {
+          "estimate": -0.1381032152296719,
+          "ci_low": -0.45312618391695086,
+          "ci_high": 0.2032197604655282,
+          "sign_probability": 0.7954,
+          "n_environments": 266
+        }
+      },
+      "kernel_gated_vs_fw": {
+        "msed": {
+          "estimate": -0.2988163478800083,
+          "ci_low": -0.5187262261065018,
+          "ci_high": -0.13063704277534446,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "spearman": {
+          "estimate": 0.001993930534226996,
+          "ci_low": -0.004864886652991179,
+          "ci_high": 0.009354323485912234,
+          "sign_probability": 0.7146,
+          "n_environments": 266
+        },
+        "selection_gain_10": {
+          "estimate": -0.01423825088300203,
+          "ci_low": -0.051954108756735805,
+          "ci_high": 0.023594160377979255,
+          "sign_probability": 0.2288,
+          "n_environments": 266
+        },
+        "selection_regret_10": {
+          "estimate": 0.014238254020088598,
+          "ci_low": -0.024737510297979628,
+          "ci_high": 0.054416184172146276,
+          "sign_probability": 0.2384,
+          "n_environments": 266
+        },
+        "squared_error": {
+          "estimate": -0.5810436018302781,
+          "ci_low": -1.0086214675197647,
+          "ci_high": -0.15460587366616765,
+          "sign_probability": 0.9964,
+          "n_environments": 266
+        }
+      },
+      "fw_vs_additive": {
+        "msed": {
+          "estimate": 0.029974922479445647,
+          "ci_low": -0.14131254647011904,
+          "ci_high": 0.24106955390296467,
+          "sign_probability": 0.4188,
+          "n_environments": 266
+        },
+        "spearman": {
+          "estimate": 0.020500117699712182,
+          "ci_low": 0.01278324031362362,
+          "ci_high": 0.028159821559010086,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "selection_gain_10": {
+          "estimate": 0.06686028502041236,
+          "ci_low": 0.024188371663703058,
+          "ci_high": 0.11042682615886056,
+          "sign_probability": 0.9992,
+          "n_environments": 266
+        },
+        "selection_regret_10": {
+          "estimate": -0.0668602859167228,
+          "ci_low": -0.10725205742326895,
+          "ci_high": -0.02549142584316716,
+          "sign_probability": 0.999,
+          "n_environments": 266
+        },
+        "squared_error": {
+          "estimate": 0.44294038660060636,
+          "ci_low": 0.03006105458144094,
+          "ci_high": 0.8640928221238017,
+          "sign_probability": 0.0192,
+          "n_environments": 266
+        }
+      },
+      "clustered_kernel_gated_vs_additive": {
+        "msed": {
+          "location": {
+            "estimate": -0.2688414254005627,
+            "ci_low": -0.3472865342243848,
+            "ci_high": -0.19898876521665057,
+            "sign_probability": 1.0,
+            "n_environments": 266,
+            "n_clusters": 47,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": -0.2688414254005627,
+            "ci_low": -0.3584458083313383,
+            "ci_high": -0.18941172659978656,
+            "sign_probability": 1.0,
+            "n_environments": 266,
+            "n_clusters": 10,
+            "cluster_unit": "year"
+          }
+        },
+        "spearman": {
+          "location": {
+            "estimate": 0.022494048233939183,
+            "ci_low": 0.014899592430542674,
+            "ci_high": 0.030672886688207127,
+            "sign_probability": 1.0,
+            "n_environments": 266,
+            "n_clusters": 47,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.022494048233939183,
+            "ci_low": 0.013578314608952678,
+            "ci_high": 0.03117258733538127,
+            "sign_probability": 1.0,
+            "n_environments": 266,
+            "n_clusters": 10,
+            "cluster_unit": "year"
+          }
+        },
+        "selection_gain_10": {
+          "location": {
+            "estimate": 0.05262203373045114,
+            "ci_low": 0.005744066511910643,
+            "ci_high": 0.09578274270681546,
+            "sign_probability": 0.9864,
+            "n_environments": 266,
+            "n_clusters": 47,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.05262203373045114,
+            "ci_low": -0.015621921929122626,
+            "ci_high": 0.11270136396469715,
+            "sign_probability": 0.9362,
+            "n_environments": 266,
+            "n_clusters": 10,
+            "cluster_unit": "year"
+          }
+        },
+        "squared_error": {
+          "location": {
+            "estimate": -0.1381032152296719,
+            "ci_low": -0.5183932103048942,
+            "ci_high": 0.2897586601022097,
+            "sign_probability": 0.75,
+            "n_environments": 266,
+            "n_clusters": 47,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": -0.1381032152296719,
+            "ci_low": -0.4639737300222758,
+            "ci_high": 0.21770502147524592,
+            "sign_probability": 0.792,
+            "n_environments": 266,
+            "n_clusters": 10,
+            "cluster_unit": "year"
+          }
+        }
+      },
+      "small_cluster_t_kernel_gated_vs_additive_msed": {
+        "location": {
+          "estimate": -0.2688414254005627,
+          "standard_error": 0.038951843129685346,
+          "ci_low": -0.34724741900610634,
+          "ci_high": -0.1904354317950191,
+          "confidence": 0.95,
+          "critical_value": 2.0128955989194286,
+          "degrees_freedom": 46,
+          "n_environments": 266,
+          "n_clusters": 47,
+          "cluster_unit": "location",
+          "method": "CR1 cluster-robust standard error with Student-t(G-1) critical value"
+        },
+        "year": {
+          "estimate": -0.2688414254005627,
+          "standard_error": 0.04527044981083507,
+          "ci_low": -0.3712502977057703,
+          "ci_high": -0.16643255309535515,
+          "confidence": 0.95,
+          "critical_value": 2.2621571628540993,
+          "degrees_freedom": 9,
+          "n_environments": 266,
+          "n_clusters": 10,
+          "cluster_unit": "year",
+          "method": "CR1 cluster-robust standard error with Student-t(G-1) critical value"
+        }
+      },
+      "evidence": {
+        "benchmark_manifest": "data/processed/functional_envgxe/strict_benchmark_ge_mean/manifest.json",
+        "benchmark_manifest_sha256": "d55277d5428fecb37a979e7e40a4ecc60463514097c466062d814ec83a2f2350",
+        "summary": "outputs/strict_ge_mean_markerpc_256/strict_benchmark_summary.json",
+        "summary_sha256": "c29c9161c1912a6885f2b3b2248e31c2edd289b996eb866bec61c1c820c139bd",
+        "fw_summary": "outputs/cross_repo/fw_baseline_ge_mean/observed/fw_summary.json",
+        "fw_summary_sha256": "3732a8267d0b31344022b7138c8af7c59612698c5e6fa5e885bfe8f26d3f6738",
+        "per_environment_baseline_sha256": "0255ba6ae48d7688d4f51ccc2ec1412289bc7849e6e039b47898a86cae2614ca",
+        "per_environment_kernel_gated_sha256": "99ec2c735b9976b9158aca548c85ce745a9e57d51144370469143205956f612e"
+      }
+    },
+    "preseason": {
+      "n_environments": 204,
+      "n_source_plot_rows": 126894,
+      "n_genotype_environment_units": 81547,
+      "kernel_gated_vs_additive": {
+        "msed": {
+          "estimate": -0.15836061709312113,
+          "ci_low": -0.225278890882751,
+          "ci_high": -0.09345423034146808,
+          "sign_probability": 1.0,
+          "n_environments": 204
+        },
+        "spearman": {
+          "estimate": 0.00955674508940473,
+          "ci_low": 0.00040263181690739186,
+          "ci_high": 0.01839755532730786,
+          "sign_probability": 0.9802,
+          "n_environments": 204
+        },
+        "selection_gain_10": {
+          "estimate": 0.04388066834094478,
+          "ci_low": 0.007298213725580889,
+          "ci_high": 0.08193033854751025,
+          "sign_probability": 0.99,
+          "n_environments": 204
+        },
+        "selection_regret_10": {
+          "estimate": -0.04388066892530404,
+          "ci_low": -0.08299445162216823,
+          "ci_high": -0.007325794752322027,
+          "sign_probability": 0.9898,
+          "n_environments": 204
+        },
+        "squared_error": {
+          "estimate": 0.052294495896189556,
+          "ci_low": -0.31894443187702126,
+          "ci_high": 0.442870124327665,
+          "sign_probability": 0.3956,
+          "n_environments": 204
+        }
+      },
+      "kernel_gated_vs_fw": {
+        "msed": {
+          "estimate": -0.22003525585630793,
+          "ci_low": -0.4844960496294591,
+          "ci_high": -0.02557109243886193,
+          "sign_probability": 0.991,
+          "n_environments": 204
+        },
+        "spearman": {
+          "estimate": -0.0031553595964020974,
+          "ci_low": -0.013736395379079619,
+          "ci_high": 0.007066304003420995,
+          "sign_probability": 0.2808,
+          "n_environments": 204
+        },
+        "selection_gain_10": {
+          "estimate": -0.014505407389472513,
+          "ci_low": -0.060237352199414194,
+          "ci_high": 0.03141235335200439,
+          "sign_probability": 0.2748,
+          "n_environments": 204
+        },
+        "selection_regret_10": {
+          "estimate": 0.014505407389472513,
+          "ci_low": -0.03175046072871077,
+          "ci_high": 0.061096380095855864,
+          "sign_probability": 0.2768,
+          "n_environments": 204
+        },
+        "squared_error": {
+          "estimate": -0.03848871546930934,
+          "ci_low": -0.5903592049698501,
+          "ci_high": 0.5293612261437911,
+          "sign_probability": 0.5494,
+          "n_environments": 204
+        }
+      },
+      "fw_vs_additive": {
+        "msed": {
+          "estimate": 0.06167463876318682,
+          "ci_low": -0.13190252915322442,
+          "ci_high": 0.314909825315829,
+          "sign_probability": 0.296,
+          "n_environments": 204
+        },
+        "spearman": {
+          "estimate": 0.012712104685806825,
+          "ci_low": 0.004073573899840641,
+          "ci_high": 0.021422701448367085,
+          "sign_probability": 0.9978,
+          "n_environments": 204
+        },
+        "selection_gain_10": {
+          "estimate": 0.05838607573041729,
+          "ci_low": 0.012949458714209352,
+          "ci_high": 0.10561098114532581,
+          "sign_probability": 0.9932,
+          "n_environments": 204
+        },
+        "selection_regret_10": {
+          "estimate": -0.058386076314776554,
+          "ci_low": -0.10633256809384214,
+          "ci_high": -0.011944137864253138,
+          "sign_probability": 0.993,
+          "n_environments": 204
+        },
+        "squared_error": {
+          "estimate": 0.09078321136549904,
+          "ci_low": -0.380510489801235,
+          "ci_high": 0.5668425436828228,
+          "sign_probability": 0.3476,
+          "n_environments": 204
+        }
+      },
+      "clustered_kernel_gated_vs_additive": {
+        "msed": {
+          "location": {
+            "estimate": -0.1583606170931211,
+            "ci_low": -0.22692735830222963,
+            "ci_high": -0.09155715075467791,
+            "sign_probability": 1.0,
+            "n_environments": 204,
+            "n_clusters": 45,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": -0.1583606170931211,
+            "ci_low": -0.21270982952320075,
+            "ci_high": -0.09843930827301009,
+            "sign_probability": 1.0,
+            "n_environments": 204,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        },
+        "spearman": {
+          "location": {
+            "estimate": 0.009556745089404729,
+            "ci_low": 0.0010007366958249878,
+            "ci_high": 0.0176232127671395,
+            "sign_probability": 0.9862,
+            "n_environments": 204,
+            "n_clusters": 45,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.009556745089404729,
+            "ci_low": -0.0060418034506927905,
+            "ci_high": 0.0226408524741354,
+            "sign_probability": 0.8982,
+            "n_environments": 204,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        },
+        "selection_gain_10": {
+          "location": {
+            "estimate": 0.04388066686764706,
+            "ci_low": 0.00965707384181529,
+            "ci_high": 0.07800443311094787,
+            "sign_probability": 0.994,
+            "n_environments": 204,
+            "n_clusters": 45,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.04388066686764706,
+            "ci_low": -0.0026900973055755555,
+            "ci_high": 0.08348924512198955,
+            "sign_probability": 0.9724,
+            "n_environments": 204,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        },
+        "squared_error": {
+          "location": {
+            "estimate": 0.052294495896189494,
+            "ci_low": -0.3372082458789428,
+            "ci_high": 0.44361595256894604,
+            "sign_probability": 0.4012,
+            "n_environments": 204,
+            "n_clusters": 45,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.052294495896189494,
+            "ci_low": -0.25668218179828917,
+            "ci_high": 0.3560144632570201,
+            "sign_probability": 0.3714,
+            "n_environments": 204,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        }
+      },
+      "small_cluster_t_kernel_gated_vs_additive_msed": {
+        "location": {
+          "estimate": -0.1583606170931211,
+          "standard_error": 0.03485543541300536,
+          "ci_low": -0.22860713141761096,
+          "ci_high": -0.08811410276863123,
+          "confidence": 0.95,
+          "critical_value": 2.0153675744437636,
+          "degrees_freedom": 44,
+          "n_environments": 204,
+          "n_clusters": 45,
+          "cluster_unit": "location",
+          "method": "CR1 cluster-robust standard error with Student-t(G-1) critical value"
+        },
+        "year": {
+          "estimate": -0.1583606170931211,
+          "standard_error": 0.030896847021565615,
+          "ci_low": -0.23142005085806744,
+          "ci_high": -0.08530118332817475,
+          "confidence": 0.95,
+          "critical_value": 2.3646242515927844,
+          "degrees_freedom": 7,
+          "n_environments": 204,
+          "n_clusters": 8,
+          "cluster_unit": "year",
+          "method": "CR1 cluster-robust standard error with Student-t(G-1) critical value"
+        }
+      },
+      "evidence": {
+        "benchmark_manifest": "data/processed/functional_envgxe/cfs_tmp2m_preseason_multivariate_benchmark_ge_mean/manifest.json",
+        "benchmark_manifest_sha256": "bcf079973dd95fcc1892245fb441f88d85905dc8011c127bd0c824e725335c71",
+        "summary": "outputs/cfs_tmp2m_preseason_ge_mean_markerpc_256/strict_benchmark_summary.json",
+        "summary_sha256": "c0f9ac8834065f075795361375d9057f7a6676ec92a629ae73e578500b9ea8b6",
+        "fw_summary": "outputs/cross_repo/fw_baseline_ge_mean/preseason/fw_summary.json",
+        "fw_summary_sha256": "d26190020d22fdaee9f20cdfe5a8cc658f651bc0e1c0ceb699ee1312abe8a0b2",
+        "per_environment_baseline_sha256": "3a6e45ee00ef841fa94fc17f34e7bc6d5170cf9ee9000c4834726e17bfa6b4fe",
+        "per_environment_kernel_gated_sha256": "77ef6e6b701385e70dd78a9ddd77397c992f8ff44fad3907cf0090378eda2d26"
+      }
+    },
+    "inseason": {
+      "n_environments": 206,
+      "n_source_plot_rows": 126521,
+      "n_genotype_environment_units": 85197,
+      "kernel_gated_vs_additive": {
+        "msed": {
+          "estimate": -0.2749239868872807,
+          "ci_low": -0.35212243654766523,
+          "ci_high": -0.20229660933365665,
+          "sign_probability": 1.0,
+          "n_environments": 206
+        },
+        "spearman": {
+          "estimate": 0.02258848858662562,
+          "ci_low": 0.01384497302380332,
+          "ci_high": 0.03152177246922895,
+          "sign_probability": 1.0,
+          "n_environments": 206
+        },
+        "selection_gain_10": {
+          "estimate": 0.04482069119666387,
+          "ci_low": -0.013720662009368821,
+          "ci_high": 0.10004334082302535,
+          "sign_probability": 0.9372,
+          "n_environments": 206
+        },
+        "selection_regret_10": {
+          "estimate": -0.04482069061797799,
+          "ci_low": -0.10293993868874116,
+          "ci_high": 0.016077248448307064,
+          "sign_probability": 0.9306,
+          "n_environments": 206
+        },
+        "squared_error": {
+          "estimate": -0.12852464065843044,
+          "ci_low": -0.5535615673791723,
+          "ci_high": 0.307473822211434,
+          "sign_probability": 0.7276,
+          "n_environments": 206
+        }
+      },
+      "kernel_gated_vs_fw": {
+        "msed": {
+          "estimate": -0.03238347062056705,
+          "ci_low": -0.12560246876405176,
+          "ci_high": 0.053666268842753384,
+          "sign_probability": 0.7624,
+          "n_environments": 206
+        },
+        "spearman": {
+          "estimate": 0.0010757047287591665,
+          "ci_low": -0.007457772551439937,
+          "ci_high": 0.01028409443082719,
+          "sign_probability": 0.5884,
+          "n_environments": 206
+        },
+        "selection_gain_10": {
+          "estimate": -0.01174701186059748,
+          "ci_low": -0.07633397295637037,
+          "ci_high": 0.049188012781652406,
+          "sign_probability": 0.3592,
+          "n_environments": 206
+        },
+        "selection_regret_10": {
+          "estimate": 0.011747013017969224,
+          "ci_low": -0.04717794789851291,
+          "ci_high": 0.07625874541338196,
+          "sign_probability": 0.3634,
+          "n_environments": 206
+        },
+        "squared_error": {
+          "estimate": -0.02691066326167174,
+          "ci_low": -0.7626407042404431,
+          "ci_high": 0.724851286216108,
+          "sign_probability": 0.5356,
+          "n_environments": 206
+        }
+      },
+      "fw_vs_additive": {
+        "msed": {
+          "estimate": -0.24254051626671372,
+          "ci_low": -0.33284711997439836,
+          "ci_high": -0.14660733334463646,
+          "sign_probability": 1.0,
+          "n_environments": 206
+        },
+        "spearman": {
+          "estimate": 0.021512783857866452,
+          "ci_low": 0.012985145507963055,
+          "ci_high": 0.02994743903423029,
+          "sign_probability": 1.0,
+          "n_environments": 206
+        },
+        "selection_gain_10": {
+          "estimate": 0.056567703057261345,
+          "ci_low": 0.0055859856379842305,
+          "ci_high": 0.10492575826864796,
+          "sign_probability": 0.9844,
+          "n_environments": 206
+        },
+        "selection_regret_10": {
+          "estimate": -0.056567703635947215,
+          "ci_low": -0.1070806996625604,
+          "ci_high": -0.006803615752933119,
+          "sign_probability": 0.985,
+          "n_environments": 206
+        },
+        "squared_error": {
+          "estimate": -0.10161397739675872,
+          "ci_low": -0.6844427539940184,
+          "ci_high": 0.5024053166970714,
+          "sign_probability": 0.631,
+          "n_environments": 206
+        }
+      },
+      "clustered_kernel_gated_vs_additive": {
+        "msed": {
+          "location": {
+            "estimate": -0.27492398688728065,
+            "ci_low": -0.346180440535317,
+            "ci_high": -0.20791960651201127,
+            "sign_probability": 1.0,
+            "n_environments": 206,
+            "n_clusters": 46,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": -0.27492398688728065,
+            "ci_low": -0.37640143522309566,
+            "ci_high": -0.18195146031280438,
+            "sign_probability": 1.0,
+            "n_environments": 206,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        },
+        "spearman": {
+          "location": {
+            "estimate": 0.02258848858662562,
+            "ci_low": 0.013945791051158564,
+            "ci_high": 0.03152780092881719,
+            "sign_probability": 1.0,
+            "n_environments": 206,
+            "n_clusters": 46,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.02258848858662562,
+            "ci_low": 0.010960766156930776,
+            "ci_high": 0.03551787879041538,
+            "sign_probability": 1.0,
+            "n_environments": 206,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        },
+        "selection_gain_10": {
+          "location": {
+            "estimate": 0.044820691461165046,
+            "ci_low": -0.021521318697849456,
+            "ci_high": 0.10829959572236782,
+            "sign_probability": 0.9106,
+            "n_environments": 206,
+            "n_clusters": 46,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": 0.044820691461165046,
+            "ci_low": -0.02422350073466101,
+            "ci_high": 0.11257795661954313,
+            "sign_probability": 0.8952,
+            "n_environments": 206,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        },
+        "squared_error": {
+          "location": {
+            "estimate": -0.12852464065843053,
+            "ci_low": -0.5996395891924644,
+            "ci_high": 0.42994059824451547,
+            "sign_probability": 0.687,
+            "n_environments": 206,
+            "n_clusters": 46,
+            "cluster_unit": "location"
+          },
+          "year": {
+            "estimate": -0.12852464065843053,
+            "ci_low": -0.39353143658151146,
+            "ci_high": 0.12630617287882312,
+            "sign_probability": 0.8272,
+            "n_environments": 206,
+            "n_clusters": 8,
+            "cluster_unit": "year"
+          }
+        }
+      },
+      "small_cluster_t_kernel_gated_vs_additive_msed": {
+        "location": {
+          "estimate": -0.27492398688728065,
+          "standard_error": 0.034952868974069434,
+          "ci_low": -0.3453226787390621,
+          "ci_high": -0.2045252950354992,
+          "confidence": 0.95,
+          "critical_value": 2.014103388880846,
+          "degrees_freedom": 45,
+          "n_environments": 206,
+          "n_clusters": 46,
+          "cluster_unit": "location",
+          "method": "CR1 cluster-robust standard error with Student-t(G-1) critical value"
+        },
+        "year": {
+          "estimate": -0.27492398688728065,
+          "standard_error": 0.052122819351056233,
+          "ci_low": -0.39817486958617787,
+          "ci_high": -0.1516731041883834,
+          "confidence": 0.95,
+          "critical_value": 2.3646242515927844,
+          "degrees_freedom": 7,
+          "n_environments": 206,
+          "n_clusters": 8,
+          "cluster_unit": "year",
+          "method": "CR1 cluster-robust standard error with Student-t(G-1) critical value"
+        }
+      },
+      "evidence": {
+        "benchmark_manifest": "data/processed/functional_envgxe/cfs_tmp2m_calendar_inseason_multivariate_benchmark_ge_mean/manifest.json",
+        "benchmark_manifest_sha256": "0ffb6eb81c86f17ad93e5b7c81ab85d94fe198e4f0a405cd42ac94e2f7af9a3e",
+        "summary": "outputs/cfs_tmp2m_calendar_inseason_ge_mean_markerpc_256/strict_benchmark_summary.json",
+        "summary_sha256": "1e0eff7aeea464719982b299beffa03e284994e600e1d263edda609fa654c06e",
+        "fw_summary": "outputs/cross_repo/fw_baseline_ge_mean/inseason/fw_summary.json",
+        "fw_summary_sha256": "085ebedd85192c2e9285263b39b1e50e5c23610257f6923f854ae8493691b367",
+        "per_environment_baseline_sha256": "9ee5536dfb6f0c3829e1edc18f03fba9e03743438d338503d85dcfa34aab9793",
+        "per_environment_kernel_gated_sha256": "c4a88993229e0dfed72a54cb7e3831209273493847c1bb8bcf2617f63574f8ff"
+      }
+    }
+  },
+  "interpretation": [
+    "Kernel-gated MSED is lower than additive G+E in observed, pre-season and in-season states under the equal-weight GE estimand.",
+    "Kernel-gated MSED is lower than tune-selected Finlay-Wilkinson in observed and pre-season states, but the in-season contrast is unresolved.",
+    "SelectionGain@10 versus additive is supported in observed and pre-season states but unresolved in-season.",
+    "No state supports a kernel-gated absolute squared-error improvement versus additive G+E.",
+    "Configuration development history remains incompletely reconstructable; this record establishes analysis-unit and inference robustness, not prospective model-selection independence."
+  ]
+}

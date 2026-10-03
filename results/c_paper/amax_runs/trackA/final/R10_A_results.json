@@ -1,0 +1,2164 @@
+{
+ "track": "R10_A_partG_2k_G1_G2_G3_G4",
+ "generated_utc": "2026-09-30T03:06:43Z",
+ "prereg": {
+  "file": "prereg_v10_final_confirmation.json",
+  "sha256": "dfc8e990551241c72d04e3d74f2526dca52209d677884bbcd88edfb6644e015b",
+  "frozen_at_utc": "2026-09-30T01:45:45Z"
+ },
+ "compute": {
+  "host": "amax (x86_64, egp311)",
+  "note": "2022/2023 folds from R9 (amax, 3 x 8 threads); 2024 fold on amax, 1 x 24 threads; every setting's folds on one machine",
+  "computed_on": {
+   "2022": {
+    "machine": "x86_64",
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "threads": "8"
+   },
+   "2023": {
+    "machine": "x86_64",
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "threads": "8"
+   },
+   "2024": {
+    "machine": "x86_64",
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "threads": "24"
+   }
+  }
+ },
+ "inputs": {
+  "R9_A_results_sha256": "f946231b4707af79e398163027f07c9f141dbfcd8a32d5a900e69edc88403a4b",
+  "cell_sha256": {
+   "2022": "545da7454d1d2fb201aa326ea30b1bb54936d4d4b9593cc84a09ec43894ceb53",
+   "2023": "1a284f3be603a7c11be7bed97aad8d63dfcfde736b87ff7f42bc6283914a1efe",
+   "2024": "4ec90afc261de208e93965b8c45ed61c74c0da2805071e36355fffb5b8866258"
+  },
+  "rescore_checks": {
+   "2022": {
+    "max_abs_diff_saved_path_vs_recomputed_from_float32_preds": 6.034548333255785e-09,
+    "max_abs_diff_vs_R9_csv_6dp": 4.991320777247843e-07,
+    "same_env_set_as_R9": true
+   },
+   "2023": {
+    "max_abs_diff_saved_path_vs_recomputed_from_float32_preds": 3.250384406072726e-09,
+    "max_abs_diff_vs_R9_csv_6dp": 4.929013944776628e-07,
+    "same_env_set_as_R9": true
+   },
+   "2024": {
+    "max_abs_diff_saved_path_vs_recomputed_from_float32_preds": 7.06372574321712e-09
+   }
+  }
+ },
+ "data_2024": {
+  "integrity": {
+   "7_Testing_Observed_Values.csv": {
+    "sha256": "8bd354c44bce50abd09a9839272112fdb34bdb96ec6e37ae644eda916aeeabcc",
+    "in_SHA256SUMS": true,
+    "matches_SHA256SUMS": true
+   },
+   "4_Testing_Weather_Data_2024_full_year.csv": {
+    "sha256": "1a9db3c7a992e89e0de1e48b7dc4afae0c9181abc3413b48a9fd86767793a1a8",
+    "in_SHA256SUMS": true,
+    "matches_SHA256SUMS": true
+   },
+   "2_Testing_Meta_Data_2024.csv": {
+    "sha256": "10bdecd20bc15bfe7354a6b1ee39eb0b9d206f0dfe4d220386c17dea86fffdab",
+    "in_SHA256SUMS": true,
+    "matches_SHA256SUMS": true
+   }
+  },
+  "files": {
+   "observed": "7_Testing_Observed_Values.csv",
+   "weather": "4_Testing_Weather_Data_2024_full_year.csv",
+   "meta": "2_Testing_Meta_Data_2024.csv"
+  },
+  "observed": {
+   "n_rows": 9486,
+   "n_env": 22,
+   "envs": [
+    "DEH1_2024",
+    "GAH1_2024",
+    "GAH2_2024",
+    "IAH2_2024",
+    "IAH4_2024",
+    "ILH1_2024",
+    "INH1_2024",
+    "MIH1_2024",
+    "MNH1_2024",
+    "MOH1_2024",
+    "NCH1_2024",
+    "NEH1_2024",
+    "NEH2_2024",
+    "NEH3_2024",
+    "NYH2_2024",
+    "NYH3_2024",
+    "OHH1_2024",
+    "ONH3_2024",
+    "TXH1_2024",
+    "WIH1_2024",
+    "WIH2_2024",
+    "WIH3_2024"
+   ],
+   "n_yield_nan": 0,
+   "n_rows_genotyped": 9486,
+   "n_hybrids": 1063,
+   "n_hybrids_not_in_training_records": 959
+  },
+  "envs_meta": [
+   "DEH1_2024",
+   "GAH1_2024",
+   "GAH2_2024",
+   "IAH2_2024",
+   "IAH4_2024",
+   "ILH1_2024",
+   "INH1_2024",
+   "MIH1_2024",
+   "MNH1_2024",
+   "MOH1_2024",
+   "NCH1_2024",
+   "NEH1_2024",
+   "NEH2_2024",
+   "NEH3_2024",
+   "NYH2_2024",
+   "NYH3_2024",
+   "OHH1_2024",
+   "ONH3_2024",
+   "SCH1_2024",
+   "TXH1_2024",
+   "WIH1_2024",
+   "WIH2_2024",
+   "WIH3_2024"
+  ],
+  "envs_weather": [
+   "DEH1_2024",
+   "GAH1_2024",
+   "GAH2_2024",
+   "IAH2_2024",
+   "IAH4_2024",
+   "ILH1_2024",
+   "INH1_2024",
+   "MIH1_2024",
+   "MNH1_2024",
+   "MOH1_2024",
+   "NCH1_2024",
+   "NEH1_2024",
+   "NEH2_2024",
+   "NEH3_2024",
+   "NYH2_2024",
+   "NYH3_2024",
+   "OHH1_2024",
+   "ONH3_2024",
+   "SCH1_2024",
+   "TXH1_2024",
+   "WIH1_2024",
+   "WIH2_2024",
+   "WIH3_2024"
+  ],
+  "envs_meta_without_observed": [
+   "SCH1_2024"
+  ],
+  "envs_observed_without_season": [],
+  "planting_date": {
+   "DEH1_2024": "2024-04-25",
+   "GAH1_2024": "2024-03-29",
+   "GAH2_2024": "2024-04-15",
+   "IAH2_2024": "2024-06-05",
+   "IAH4_2024": "2024-05-29",
+   "ILH1_2024": "2024-05-13",
+   "INH1_2024": "2024-05-11",
+   "MIH1_2024": "2024-05-29",
+   "MNH1_2024": "2024-05-22",
+   "MOH1_2024": "2024-05-30",
+   "NCH1_2024": "2024-04-15",
+   "NEH1_2024": "2024-05-15",
+   "NEH2_2024": "2024-05-17",
+   "NEH3_2024": "2024-05-17",
+   "NYH2_2024": "2024-05-20",
+   "NYH3_2024": "2024-05-20",
+   "OHH1_2024": "2024-05-31",
+   "ONH3_2024": "2024-05-10",
+   "SCH1_2024": "2024-04-23",
+   "TXH1_2024": "2024-03-08",
+   "WIH1_2024": "2024-05-06",
+   "WIH2_2024": "2024-06-03",
+   "WIH3_2024": "2024-05-03"
+  },
+  "weather_last_date": {
+   "DEH1_2024": "2024-11-10",
+   "GAH1_2024": "2024-11-10",
+   "GAH2_2024": "2024-11-10",
+   "IAH2_2024": "2024-11-10",
+   "IAH4_2024": "2024-11-10",
+   "ILH1_2024": "2024-11-10",
+   "INH1_2024": "2024-11-10",
+   "MIH1_2024": "2024-11-10",
+   "MNH1_2024": "2024-11-10",
+   "MOH1_2024": "2024-11-10",
+   "NCH1_2024": "2024-11-10",
+   "NEH1_2024": "2024-11-10",
+   "NEH2_2024": "2024-11-10",
+   "NEH3_2024": "2024-11-10",
+   "NYH2_2024": "2024-11-10",
+   "NYH3_2024": "2024-11-10",
+   "OHH1_2024": "2024-11-10",
+   "ONH3_2024": "2024-11-10",
+   "SCH1_2024": "2024-11-10",
+   "TXH1_2024": "2024-11-10",
+   "WIH1_2024": "2024-11-10",
+   "WIH2_2024": "2024-11-10",
+   "WIH3_2024": "2024-11-10"
+  },
+  "season_days_2024": {
+   "DEH1_2024": 200,
+   "GAH1_2024": 227,
+   "GAH2_2024": 210,
+   "IAH2_2024": 159,
+   "IAH4_2024": 166,
+   "ILH1_2024": 182,
+   "INH1_2024": 184,
+   "MIH1_2024": 166,
+   "MNH1_2024": 173,
+   "MOH1_2024": 165,
+   "NCH1_2024": 210,
+   "NEH1_2024": 180,
+   "NEH2_2024": 178,
+   "NEH3_2024": 178,
+   "NYH2_2024": 175,
+   "NYH3_2024": 175,
+   "OHH1_2024": 164,
+   "ONH3_2024": 185,
+   "SCH1_2024": 202,
+   "TXH1_2024": 248,
+   "WIH1_2024": 189,
+   "WIH2_2024": 161,
+   "WIH3_2024": 192
+  },
+  "season_days_training": {
+   "min": 196,
+   "median": 236.0,
+   "max": 306
+  },
+  "ceris_max_window_end_day": 200,
+  "n_env_2024_season_shorter_than_ceris_max": 18,
+  "records_per_env": {
+   "DEH1_2024": 600,
+   "GAH1_2024": 354,
+   "GAH2_2024": 369,
+   "IAH2_2024": 651,
+   "IAH4_2024": 759,
+   "ILH1_2024": 370,
+   "INH1_2024": 273,
+   "MIH1_2024": 407,
+   "MNH1_2024": 397,
+   "MOH1_2024": 583,
+   "NCH1_2024": 773,
+   "NEH1_2024": 239,
+   "NEH2_2024": 238,
+   "NEH3_2024": 238,
+   "NYH2_2024": 349,
+   "NYH3_2024": 370,
+   "OHH1_2024": 341,
+   "ONH3_2024": 422,
+   "TXH1_2024": 237,
+   "WIH1_2024": 354,
+   "WIH2_2024": 741,
+   "WIH3_2024": 421
+  },
+  "n_env_ge30": 22,
+  "envs_ge30": [
+   "DEH1_2024",
+   "GAH1_2024",
+   "GAH2_2024",
+   "IAH2_2024",
+   "IAH4_2024",
+   "ILH1_2024",
+   "INH1_2024",
+   "MIH1_2024",
+   "MNH1_2024",
+   "MOH1_2024",
+   "NCH1_2024",
+   "NEH1_2024",
+   "NEH2_2024",
+   "NEH3_2024",
+   "NYH2_2024",
+   "NYH3_2024",
+   "OHH1_2024",
+   "ONH3_2024",
+   "TXH1_2024",
+   "WIH1_2024",
+   "WIH2_2024",
+   "WIH3_2024"
+  ],
+  "n_test_records_ge30": 9486,
+  "cache_sha256": "1ef929594e800de32313ef99365a710d1961c52387a41ccf60132895b25bbe46"
+ },
+ "fold_2024": {
+  "n_train_records": 106037,
+  "n_train_envs": 269,
+  "n_test_records": 9486,
+  "n_test_envs": 22,
+  "test_envs": [
+   "DEH1_2024",
+   "GAH1_2024",
+   "GAH2_2024",
+   "IAH2_2024",
+   "IAH4_2024",
+   "ILH1_2024",
+   "INH1_2024",
+   "MIH1_2024",
+   "MNH1_2024",
+   "MOH1_2024",
+   "NCH1_2024",
+   "NEH1_2024",
+   "NEH2_2024",
+   "NEH3_2024",
+   "NYH2_2024",
+   "NYH3_2024",
+   "OHH1_2024",
+   "ONH3_2024",
+   "TXH1_2024",
+   "WIH1_2024",
+   "WIH2_2024",
+   "WIH3_2024"
+  ],
+  "p1_key": 2023,
+  "inner_keys": [
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023
+  ],
+  "maturity": {
+   "lam": 1000.0,
+   "lam_idx": 10
+  },
+  "stage1_cv_r2": 0.0968,
+  "new_hybrid_fraction": 0.8764,
+  "ec_window_complete_fraction": {
+   "test_2024": {
+    "W1_pre": 0.0,
+    "W2_flowering": 0.0,
+    "W3_grainfill": 0.0
+   },
+   "train": {
+    "W1_pre": 1.0,
+    "W2_flowering": 1.0,
+    "W3_grainfill": 0.8401486988847584
+   },
+   "test_2024_incomplete_envs": {
+    "W1_pre": [
+     "DEH1_2024",
+     "GAH1_2024",
+     "GAH2_2024",
+     "IAH2_2024",
+     "IAH4_2024",
+     "ILH1_2024",
+     "INH1_2024",
+     "MIH1_2024",
+     "MNH1_2024",
+     "MOH1_2024",
+     "NCH1_2024",
+     "NEH1_2024",
+     "NEH2_2024",
+     "NEH3_2024",
+     "NYH2_2024",
+     "NYH3_2024",
+     "OHH1_2024",
+     "ONH3_2024",
+     "TXH1_2024",
+     "WIH1_2024",
+     "WIH2_2024",
+     "WIH3_2024"
+    ],
+    "W2_flowering": [
+     "DEH1_2024",
+     "GAH1_2024",
+     "GAH2_2024",
+     "IAH2_2024",
+     "IAH4_2024",
+     "ILH1_2024",
+     "INH1_2024",
+     "MIH1_2024",
+     "MNH1_2024",
+     "MOH1_2024",
+     "NCH1_2024",
+     "NEH1_2024",
+     "NEH2_2024",
+     "NEH3_2024",
+     "NYH2_2024",
+     "NYH3_2024",
+     "OHH1_2024",
+     "ONH3_2024",
+     "TXH1_2024",
+     "WIH1_2024",
+     "WIH2_2024",
+     "WIH3_2024"
+    ],
+    "W3_grainfill": [
+     "DEH1_2024",
+     "GAH1_2024",
+     "GAH2_2024",
+     "IAH2_2024",
+     "IAH4_2024",
+     "ILH1_2024",
+     "INH1_2024",
+     "MIH1_2024",
+     "MNH1_2024",
+     "MOH1_2024",
+     "NCH1_2024",
+     "NEH1_2024",
+     "NEH2_2024",
+     "NEH3_2024",
+     "NYH2_2024",
+     "NYH3_2024",
+     "OHH1_2024",
+     "ONH3_2024",
+     "TXH1_2024",
+     "WIH1_2024",
+     "WIH2_2024",
+     "WIH3_2024"
+    ]
+   }
+  },
+  "computed_on": {
+   "machine": "x86_64",
+   "python": "3.11.16",
+   "numpy": "2.4.6",
+   "threads": "24"
+  }
+ },
+ "n_env_by_year": {
+  "2022": 27,
+  "2023": 26,
+  "2024": 22
+ },
+ "r_mean": {
+  "EXT3_pooled": {
+   "MG_2k|P1": 0.311363,
+   "MG_2k|P2": 0.366114,
+   "MG_2k|P3": 0.335859,
+   "D_noEC|P1": 0.326111,
+   "D_noEC|P2": 0.33386,
+   "D_noEC|P3": 0.329749,
+   "D_full|P1": 0.337818,
+   "D_full|P2": 0.343841,
+   "D_full|P3": 0.339066
+  },
+  "2022": {
+   "MG_2k|P1": 0.205152,
+   "MG_2k|P2": 0.331514,
+   "MG_2k|P3": 0.256905,
+   "D_noEC|P1": 0.258695,
+   "D_noEC|P2": 0.266562,
+   "D_noEC|P3": 0.258695,
+   "D_full|P1": 0.269162,
+   "D_full|P2": 0.28293,
+   "D_full|P3": 0.270588
+  },
+  "2023": {
+   "MG_2k|P1": 0.427132,
+   "MG_2k|P2": 0.444048,
+   "MG_2k|P3": 0.444048,
+   "D_noEC|P1": 0.399508,
+   "D_noEC|P2": 0.407039,
+   "D_noEC|P3": 0.403968,
+   "D_full|P1": 0.42068,
+   "D_full|P2": 0.422801,
+   "D_full|P3": 0.422801
+  },
+  "2024": {
+   "MG_2k|P1": 0.304895,
+   "MG_2k|P2": 0.316474,
+   "MG_2k|P3": 0.304895,
+   "D_noEC|P1": 0.322107,
+   "D_noEC|P2": 0.329969,
+   "D_noEC|P3": 0.329238,
+   "D_full|P1": 0.324149,
+   "D_full|P2": 0.32528,
+   "D_full|P3": 0.324149
+  }
+ },
+ "G1_enhancements_external": {
+  "rule": "pooled EXT3 Delta >= 0.01 with CI lower > 0 AND Delta > 0 in >= 2 of 3 years",
+  "contrasts": {
+   "D_noEC_minus_MG_2k": {
+    "quantity": "r(D_noEC|P3) - r(MG_2k|P3)",
+    "EXT3_pooled": {
+     "mean": -0.00611,
+     "ci_low": -0.009973,
+     "ci_high": -0.002182,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 0.998001
+    },
+    "per_year": {
+     "2022": {
+      "mean": 0.00179,
+      "ci_low": -0.000924,
+      "ci_high": 0.004591,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.091954,
+      "sign": "+"
+     },
+     "2023": {
+      "mean": -0.040081,
+      "ci_low": -0.048553,
+      "ci_high": -0.031604,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0,
+      "sign": "-"
+     },
+     "2024": {
+      "mean": 0.024343,
+      "ci_low": 0.016892,
+      "ci_high": 0.031756,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.0005,
+      "sign": "+"
+     }
+    },
+    "n_years_positive": 2,
+    "year_2024_alone": {
+     "mean": 0.024343,
+     "ci_low": 0.016892,
+     "ci_high": 0.031756,
+     "n_env": 22,
+     "p_one_sided_gt_0": 0.0005,
+     "sign": "+"
+    },
+    "USEFUL": false,
+    "verdict": "NOT_USEFUL"
+   },
+   "D_full_minus_MG_2k": {
+    "quantity": "r(D_full|P3) - r(MG_2k|P3)",
+    "EXT3_pooled": {
+     "mean": 0.003208,
+     "ci_low": -0.001896,
+     "ci_high": 0.008162,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 0.106947
+    },
+    "per_year": {
+     "2022": {
+      "mean": 0.013683,
+      "ci_low": 0.006418,
+      "ci_high": 0.021587,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005,
+      "sign": "+"
+     },
+     "2023": {
+      "mean": -0.021248,
+      "ci_low": -0.029483,
+      "ci_high": -0.012583,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0,
+      "sign": "-"
+     },
+     "2024": {
+      "mean": 0.019254,
+      "ci_low": 0.01027,
+      "ci_high": 0.029287,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.0005,
+      "sign": "+"
+     }
+    },
+    "n_years_positive": 2,
+    "year_2024_alone": {
+     "mean": 0.019254,
+     "ci_low": 0.01027,
+     "ci_high": 0.029287,
+     "n_env": 22,
+     "p_one_sided_gt_0": 0.0005,
+     "sign": "+"
+    },
+    "USEFUL": false,
+    "verdict": "NOT_USEFUL"
+   }
+  },
+  "trackA_part_of_family_claim_holds": true,
+  "note": "family claim C_final_no_external_gain also requires track B's MG_98k - MG_2k"
+ },
+ "G2_EC_increment": {
+  "rule_confirmed": "pooled EXT3 >= 0.005 with CI lower > 0 AND > 0 in >= 2 of 3 years",
+  "rule_negligible": "pooled CI upper < 0.01",
+  "quantity": "r(D_full|P3) - r(D_noEC|P3)",
+  "EXT3_pooled": {
+   "mean": 0.009318,
+   "ci_low": 0.004963,
+   "ci_high": 0.013819,
+   "n_env": 75,
+   "n_env_by_year": {
+    "2022": 27,
+    "2023": 26,
+    "2024": 22
+   },
+   "p_one_sided_gt_0": 0.0005
+  },
+  "per_year": {
+   "2022": {
+    "mean": 0.011893,
+    "ci_low": 0.004498,
+    "ci_high": 0.020332,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.0005,
+    "sign": "+"
+   },
+   "2023": {
+    "mean": 0.018833,
+    "ci_low": 0.012533,
+    "ci_high": 0.025427,
+    "n_env": 26,
+    "p_one_sided_gt_0": 0.0005,
+    "sign": "+"
+   },
+   "2024": {
+    "mean": -0.005089,
+    "ci_low": -0.012344,
+    "ci_high": 0.001915,
+    "n_env": 22,
+    "p_one_sided_gt_0": 0.925537,
+    "sign": "-"
+   }
+  },
+  "n_years_positive": 2,
+  "year_2024_alone": {
+   "mean": -0.005089,
+   "ci_low": -0.012344,
+   "ci_high": 0.001915,
+   "n_env": 22,
+   "p_one_sided_gt_0": 0.925537,
+   "sign": "-"
+  },
+  "verdict": "CONFIRMED"
+ },
+ "G3_window_search_leak": {
+  "procedure": "as R7 H1 (v5 variables/windows)",
+  "rule": "pooled optimism >= 0.05 with CI lower > 0",
+  "EXT3_pooled": {
+   "n_env": 55,
+   "r_envmean_nested": 0.508275,
+   "r_envmean_leaky": 0.524075,
+   "optimism": 0.0158,
+   "ci": [
+    -0.015253,
+    0.055834
+   ],
+   "p_one_sided_gt_0": 0.167416,
+   "bootstrap": "stratified by year"
+  },
+  "per_year": {
+   "2022": {
+    "n_env": 27,
+    "r_envmean_nested": 0.447372,
+    "r_envmean_leaky": 0.447372,
+    "optimism": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "p_one_sided_gt_0": 1.0,
+    "bootstrap": "unstratified (single year)",
+    "sign": "0"
+   },
+   "2023": {
+    "n_env": 26,
+    "r_envmean_nested": 0.534932,
+    "r_envmean_leaky": 0.582243,
+    "optimism": 0.04731,
+    "ci": [
+     -0.040108,
+     0.164272
+    ],
+    "p_one_sided_gt_0": 0.163418,
+    "bootstrap": "unstratified (single year)",
+    "sign": "+"
+   },
+   "2024": {
+    "n_env": 2,
+    "r_envmean_nested": 1.0,
+    "r_envmean_leaky": 1.0,
+    "optimism": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "p_one_sided_gt_0": 0.492754,
+    "bootstrap": "unstratified (single year)",
+    "sign": "0"
+   }
+  },
+  "selected": {
+   "2022": {
+    "nested": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 95,
+     "r_train": -0.4167568336031925
+    },
+    "leaky": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 95,
+     "r_train_plus_test": -0.4160281677710966
+    }
+   },
+   "2023": {
+    "nested": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 95,
+     "r_train": -0.41089319221197673
+    },
+    "leaky": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 100,
+     "r_train_plus_test": -0.41581969171654826
+    }
+   },
+   "2024": {
+    "nested": {
+     "var": "T2M",
+     "d1": 80,
+     "d2": 100,
+     "r_train": -0.41543414053937566
+    },
+    "leaky": {
+     "var": "ALLSKY_SFC_SW_DWN",
+     "d1": 135,
+     "d2": 155,
+     "r_train_plus_test": -0.32128923202978293
+    }
+   }
+  },
+  "envs_dropped_nan_prediction": {
+   "2022": [],
+   "2023": [],
+   "2024": [
+    "DEH1_2024",
+    "GAH2_2024",
+    "IAH2_2024",
+    "IAH4_2024",
+    "ILH1_2024",
+    "INH1_2024",
+    "MIH1_2024",
+    "MNH1_2024",
+    "MOH1_2024",
+    "NCH1_2024",
+    "NEH1_2024",
+    "NEH2_2024",
+    "NEH3_2024",
+    "NYH2_2024",
+    "NYH3_2024",
+    "OHH1_2024",
+    "ONH3_2024",
+    "WIH1_2024",
+    "WIH2_2024",
+    "WIH3_2024"
+   ]
+  },
+  "ceris_candidates_finite_2024": {
+   "nested": 2226,
+   "leaky": 389,
+   "total": 2233
+  },
+  "rescore_check_max_abs_diff_vs_R9_csv": {
+   "2022": 4.95699298497243e-07,
+   "2023": 4.99323492775261e-07
+  },
+  "year_2024_alone": {
+   "n_env": 2,
+   "r_envmean_nested": 1.0,
+   "r_envmean_leaky": 1.0,
+   "optimism": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "p_one_sided_gt_0": 0.492754,
+   "bootstrap": "unstratified (single year)",
+   "sign": "0"
+  },
+  "verdict": "NOT_REPLICATED_EXTERNALLY"
+ },
+ "G4_tuning_audit": {
+  "MG_2k": {
+   "P2_minus_P3": {
+    "EXT3_pooled": {
+     "mean": 0.030255,
+     "ci_low": 0.022956,
+     "ci_high": 0.036719,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 0.0005
+    },
+    "per_year": {
+     "2022": {
+      "mean": 0.074608,
+      "ci_low": 0.055018,
+      "ci_high": 0.09155,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "2023": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0
+     },
+     "2024": {
+      "mean": 0.011579,
+      "ci_low": 0.005461,
+      "ci_high": 0.017707,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.0005
+     }
+    }
+   },
+   "P1_minus_P3": {
+    "EXT3_pooled": {
+     "mean": -0.024495,
+     "ci_low": -0.028593,
+     "ci_high": -0.019998,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 1.0
+    },
+    "per_year": {
+     "2022": {
+      "mean": -0.051753,
+      "ci_low": -0.06014,
+      "ci_high": -0.042459,
+      "n_env": 27,
+      "p_one_sided_gt_0": 1.0
+     },
+     "2023": {
+      "mean": -0.016916,
+      "ci_low": -0.023937,
+      "ci_high": -0.008477,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0
+     },
+     "2024": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 22,
+      "p_one_sided_gt_0": 1.0
+     }
+    }
+   },
+   "chosen": {
+    "P1": {
+     "2022": 316.227766,
+     "2023": 100000.0,
+     "2024": 3162.27766
+    },
+    "P2": {
+     "2022": 100000.0,
+     "2023": 3162.27766,
+     "2024": 10000.0
+    },
+    "P3": {
+     "2022": 1000.0,
+     "2023": 3162.27766,
+     "2024": 3162.27766
+    }
+   },
+   "edge_P3": {
+    "2022": false,
+    "2023": false,
+    "2024": false
+   },
+   "years_P2_below_P3": []
+  },
+  "D_noEC": {
+   "P2_minus_P3": {
+    "EXT3_pooled": {
+     "mean": 0.004111,
+     "ci_low": 0.002437,
+     "ci_high": 0.005773,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 0.0005
+    },
+    "per_year": {
+     "2022": {
+      "mean": 0.007867,
+      "ci_low": 0.004171,
+      "ci_high": 0.011636,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "2023": {
+      "mean": 0.003071,
+      "ci_low": 0.001099,
+      "ci_high": 0.005027,
+      "n_env": 26,
+      "p_one_sided_gt_0": 0.001
+     },
+     "2024": {
+      "mean": 0.00073,
+      "ci_low": -0.001321,
+      "ci_high": 0.002684,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.253373
+     }
+    }
+   },
+   "P1_minus_P3": {
+    "EXT3_pooled": {
+     "mean": -0.003638,
+     "ci_low": -0.005102,
+     "ci_high": -0.002126,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 1.0
+    },
+    "per_year": {
+     "2022": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 27,
+      "p_one_sided_gt_0": 1.0
+     },
+     "2023": {
+      "mean": -0.00446,
+      "ci_low": -0.005804,
+      "ci_high": -0.002998,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0
+     },
+     "2024": {
+      "mean": -0.007131,
+      "ci_low": -0.011905,
+      "ci_high": -0.00261,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.998501
+     }
+    }
+   },
+   "chosen": {
+    "P1": {
+     "2022": 50,
+     "2023": 400,
+     "2024": 50
+    },
+    "P2": {
+     "2022": 800,
+     "2023": 50,
+     "2024": 400
+    },
+    "P3": {
+     "2022": 50,
+     "2023": 200,
+     "2024": 200
+    }
+   },
+   "edge_P3": {
+    "2022": true,
+    "2023": false,
+    "2024": false
+   },
+   "years_P2_below_P3": []
+  },
+  "D_full": {
+   "P2_minus_P3": {
+    "EXT3_pooled": {
+     "mean": 0.004775,
+     "ci_low": 0.002171,
+     "ci_high": 0.007452,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 0.0005
+    },
+    "per_year": {
+     "2022": {
+      "mean": 0.012342,
+      "ci_low": 0.006597,
+      "ci_high": 0.018275,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.0005
+     },
+     "2023": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 26,
+      "p_one_sided_gt_0": 1.0
+     },
+     "2024": {
+      "mean": 0.001131,
+      "ci_low": -0.003919,
+      "ci_high": 0.006351,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.334333
+     }
+    }
+   },
+   "P1_minus_P3": {
+    "EXT3_pooled": {
+     "mean": -0.001248,
+     "ci_low": -0.002208,
+     "ci_high": -0.000279,
+     "n_env": 75,
+     "n_env_by_year": {
+      "2022": 27,
+      "2023": 26,
+      "2024": 22
+     },
+     "p_one_sided_gt_0": 0.994003
+    },
+    "per_year": {
+     "2022": {
+      "mean": -0.001426,
+      "ci_low": -0.003041,
+      "ci_high": 0.00013,
+      "n_env": 27,
+      "p_one_sided_gt_0": 0.961519
+     },
+     "2023": {
+      "mean": -0.00212,
+      "ci_low": -0.004344,
+      "ci_high": 9.5e-05,
+      "n_env": 26,
+      "p_one_sided_gt_0": 0.966017
+     },
+     "2024": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n_env": 22,
+      "p_one_sided_gt_0": 1.0
+     }
+    }
+   },
+   "chosen": {
+    "P1": {
+     "2022": 50,
+     "2023": 800,
+     "2024": 400
+    },
+    "P2": {
+     "2022": 800,
+     "2023": 400,
+     "2024": 800
+    },
+    "P3": {
+     "2022": 100,
+     "2023": 400,
+     "2024": 400
+    }
+   },
+   "edge_P3": {
+    "2022": false,
+    "2023": false,
+    "2024": false
+   },
+   "years_P2_below_P3": []
+  }
+ },
+ "POST_HOC_new_hybrid_subset": {
+  "label": "POST-HOC, descriptive only: test envs with >= 10 test hybrids absent from the fold's training records",
+  "2022": {
+   "n_env": 27,
+   "r_P3": {
+    "MG_2k": 0.207098,
+    "D_noEC": 0.211443,
+    "D_full": 0.216435
+   },
+   "D_noEC_minus_MG_2k": {
+    "mean": 0.004345,
+    "ci_low": 0.001879,
+    "ci_high": 0.006807,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.001499
+   },
+   "D_full_minus_MG_2k": {
+    "mean": 0.009337,
+    "ci_low": 0.003571,
+    "ci_high": 0.015724,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_D_noEC": {
+    "mean": 0.004992,
+    "ci_low": -0.000693,
+    "ci_high": 0.011693,
+    "n_env": 27,
+    "p_one_sided_gt_0": 0.051974
+   }
+  },
+  "2023": {
+   "n_env": 0
+  },
+  "2024": {
+   "n_env": 22,
+   "r_P3": {
+    "MG_2k": 0.185383,
+    "D_noEC": 0.217741,
+    "D_full": 0.21465
+   },
+   "D_noEC_minus_MG_2k": {
+    "mean": 0.032358,
+    "ci_low": 0.021865,
+    "ci_high": 0.042953,
+    "n_env": 22,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_MG_2k": {
+    "mean": 0.029268,
+    "ci_low": 0.018457,
+    "ci_high": 0.041488,
+    "n_env": 22,
+    "p_one_sided_gt_0": 0.0005
+   },
+   "D_full_minus_D_noEC": {
+    "mean": -0.00309,
+    "ci_low": -0.011785,
+    "ci_high": 0.005274,
+    "n_env": 22,
+    "p_one_sided_gt_0": 0.756622
+   }
+  }
+ },
+ "uncertainty_note": "env bootstrap stratified by year (2000, seed 20260928) and the per-year signs; year-level uncertainty is acknowledged as not captured by env resampling",
+ "multiplicity": "prereg v10 specifies no multiplicity correction; one-sided bootstrap p reported for information",
+ "overall_verdict": "WEAK_GO",
+ "overall_verdict_mapping_declared": "GO if D_noEC - MG_2k or D_full - MG_2k is USEFUL on EXT3 (an external enhancement exists); WEAK_GO if neither is USEFUL but G2 is CONFIRMED; NO_GO if neither is USEFUL and G2 is not CONFIRMED. NO_GO here is the outcome that supports C_final_no_external_gain for the track-A contrasts; the family claim also needs track B's MG_98k - MG_2k.",
+ "deviations_from_prereg": [
+  "[test data] 7_Testing_Observed_Values.csv contains 22 envs (9,486 rows), not the 23 named in the prereg status line: SCH1_2024 appears in the meta, weather and submission-template files but has no observed yields. All 9,486 rows are genotyped hybrids and all 22 envs meet the >= 30 rule. The 2024 test records are the released env x hybrid means, the same unit as the training records (env x hybrid means of plots).",
+  "[2024 inputs] No plot-level trait file exists for 2024, so each env's planting date is Date_Planted from 2_Testing_Meta_Data_2024.csv (one value per env) rather than the median plot planting date used for 2014-2023. Weather is 4_Testing_Weather_Data_2024_full_year.csv, which ends on 2024-11-10 (training files run to Dec 31); EC windows that extend past that date are computed from the available days, and their completeness is reported.",
+  "[CERIS 2024] With the shorter 2024 weather record, CERIS candidate windows that end beyond an env's last day are undefined for that env and drop out of the leaky (training + 2024) search, but not out of the nested search. The number of finite candidates is reported, and any env whose selected-window prediction is undefined is listed and dropped from the CERIS metric.",
+  "[EXT3 re-scoring] 2022 and 2023 enter EXT3 from R9's saved cells (runs/A/out/cells, not refit). Per-env r are read at each protocol's selected index from the saved per-env paths; this is checked against a recomputation from the saved predictions (< 1e-5) and against the R9 per-env CSVs (< 1e-6). The 2024 fold trains on all 2014-2023 records, validates P1 on 2023, and uses leave-one-year-out P3 over 2014-2023.",
+  "[models] The 2024 fold reuses R9's v9_lib.run_fold_v9 and exec's R9's v9_run.py helpers verbatim (sha256 checked): the same maturity-lambda rule (P1 year), stage 1 = MG_2k at its P3 lambda in every protocol, cross-fitted HGB residuals with nested cross-fitting for n_iter, D_noEC = PC1..30 + predicted maturity, D_full = + 21 EC_env.",
+  "[bootstrap] Every EXT3 statistic resamples envs within each year (2000 draws, seed 20260928, one draw set reused across contrasts). The pooled value is the equal-env-weight mean over the 2022 + 2023 + 2024 envs, with a percentile CI and a one-sided p = (1 + #draws <= 0)/(B + 1). Per-year values use an unstratified bootstrap within that year. The prereg specifies no multiplicity correction, so none is applied.",
+  "[G3 pooled] The pooled CERIS optimism is r(leaky) - r(nested) of the env-mean predictions over the pooled 2022-2024 env means, with year-stratified resampling. R9's EXT_pooled CERIS bootstrap was unstratified, so R9's 2022-2023 pooled numbers are not reused.",
+  "[compute] The 2024 fold ran on amax (x86_64, egp311) as 1 process x 24 threads; the 2022/2023 folds are R9's amax runs (3 processes x 8 threads). Every setting's folds come from one machine.",
+  "[overall_verdict] Mapping declared in r10_summarize.py before the summary was run: GO if D_noEC - MG_2k or D_full - MG_2k is USEFUL on EXT3; WEAK_GO if neither is USEFUL but G2 is CONFIRMED; NO_GO otherwise. MG_98k - MG_2k (G1's third contrast) belongs to track B; this track supplies the record-level MG_2k 2024 predictions for it.",
+  "[post-hoc] The new-hybrid subset (test envs with >= 10 hybrids absent from training) is reported as POST-HOC descriptive, following the R9 interpretation; it enters no gate.",
+  "[POST-HOC data defect, found after the primary summary] The released 2024 weather has T2M_MAX, T2M_MIN, T2M, RH2M and PRECTOTCORR missing on 2024-07-12..14 in all 23 envs, and GWETROOT missing from 2024-07-02 on; the training weather has none. Under the unchanged R9 pipeline these gaps make every 2024 weather window after 2024-07-11 undefined. The primary gates are reported as run. D_full (G1 D_full - MG_2k, G2) and the 2024 CERIS part of G3 (only 2 of 22 envs usable) rest on defective inputs; MG_2k and D_noEC are unaffected.",
+  "[POST-HOC sensitivity] The 2024 fold was refit with only the 3-day interior gap of those five variables linearly interpolated within each env (GWETROOT left missing, no substitute variable), using the same code and summariser; 2022/2023 are unchanged. Its G1-G4 results are reported beside the primary ones and do not replace them."
+ ],
+ "code_sha256": {
+  "r10_data.py": "3a2177cf9042b02653618c3b16a39797f6a44ae33c75c69e99030cc0d2f99b01",
+  "r10_run.py": "c0ef19c4e547204b7e93c0f5093407fc09041bec91b6458f2ae2e63d6d53cec4",
+  "r10_summarize.py": "18dc09174a36210310dc2c5593d20660a34120edc51ec7ddb3874412e3681600"
+ },
+ "asrun_primary_results": {
+  "file": "R10_A_results_asrun.json",
+  "sha256": "29455efcb2d9880f953cd5a4b6aa3f51265331a1d807e9dc12fc6cf6af7cc048",
+  "note": "all primary blocks below are copied unchanged from this as-run summary"
+ },
+ "data_defect_2024_weather": {
+  "summary": "Released 2024 weather (both the full-year and seasons-only files) has T2M_MAX, T2M_MIN, T2M, RH2M and PRECTOTCORR missing on 2024-07-12..14 in all 23 envs and GWETROOT missing from 2024-07-02 to 2024-11-10; the 2014-2023 training weather has no missing values. In the primary run (R9 pipeline, no imputation) the gap propagates through cumulative GDD and prefix sums, so every 2024 window after 2024-07-11 is undefined.",
+  "nan_by_var_2024": {
+   "T2M_MAX": 69,
+   "T2M_MIN": 69,
+   "T2M": 69,
+   "RH2M": 69,
+   "PRECTOTCORR": 69,
+   "ALLSKY_SFC_SW_DWN": 0,
+   "GWETROOT": 3036
+  },
+  "nan_dates_by_var_2024": {
+   "T2M_MAX": {
+    "first": "2024-07-12",
+    "last": "2024-07-14"
+   },
+   "T2M_MIN": {
+    "first": "2024-07-12",
+    "last": "2024-07-14"
+   },
+   "T2M": {
+    "first": "2024-07-12",
+    "last": "2024-07-14"
+   },
+   "RH2M": {
+    "first": "2024-07-12",
+    "last": "2024-07-14"
+   },
+   "PRECTOTCORR": {
+    "first": "2024-07-12",
+    "last": "2024-07-14"
+   },
+   "ALLSKY_SFC_SW_DWN": {
+    "first": null,
+    "last": null
+   },
+   "GWETROOT": {
+    "first": "2024-07-02",
+    "last": "2024-11-10"
+   }
+  },
+  "envs_with_nan_by_var_2024": {
+   "T2M_MAX": 23,
+   "T2M_MIN": 23,
+   "T2M": 23,
+   "RH2M": 23,
+   "PRECTOTCORR": 23,
+   "ALLSKY_SFC_SW_DWN": 0,
+   "GWETROOT": 23
+  },
+  "nan_by_var_training": {
+   "T2M_MAX": 0,
+   "T2M_MIN": 0,
+   "T2M": 0,
+   "RH2M": 0,
+   "PRECTOTCORR": 0,
+   "ALLSKY_SFC_SW_DWN": 0,
+   "GWETROOT": 0
+  },
+  "season_cum_gdd_nan_days_2024": {
+   "DEH1_2024": 122,
+   "GAH1_2024": 122,
+   "GAH2_2024": 122,
+   "IAH2_2024": 122,
+   "IAH4_2024": 122,
+   "ILH1_2024": 122,
+   "INH1_2024": 122,
+   "MIH1_2024": 122,
+   "MNH1_2024": 122,
+   "MOH1_2024": 122,
+   "NCH1_2024": 122,
+   "NEH1_2024": 122,
+   "NEH2_2024": 122,
+   "NEH3_2024": 122,
+   "NYH2_2024": 122,
+   "NYH3_2024": 122,
+   "OHH1_2024": 122,
+   "ONH3_2024": 122,
+   "TXH1_2024": 122,
+   "WIH1_2024": 122,
+   "WIH2_2024": 122,
+   "WIH3_2024": 122
+  },
+  "ceris_candidates": {
+   "total": 2233,
+   "finite_all_training": 2226,
+   "finite_all_2024": 389,
+   "finite_2024_by_var": {
+    "T2M_MAX": 21,
+    "T2M_MIN": 21,
+    "T2M": 21,
+    "PRECTOTCORR": 21,
+    "ALLSKY_SFC_SW_DWN": 274,
+    "GWETROOT": 10,
+    "VPD": 21
+   },
+   "n_2024_envs_finite_T2M_80_100": 2
+  },
+  "affected_primary_quantities": [
+   "D_full 2024 predictions (EC_env windows after 2024-07-11 undefined) -> G1 D_full - MG_2k, G2 D_full - D_noEC",
+   "CERIS 2024: nested-window predictions undefined in 20 of 22 envs -> G3 2024 alone and the 2024 part of EXT3"
+  ],
+  "unaffected_primary_quantities": [
+   "MG_2k and D_noEC (no weather inputs) -> G1 D_noEC - MG_2k; G4 for MG_2k and D_noEC; the MG_2k file for track B"
+  ]
+ },
+ "POST_HOC_sensitivity_wx_gap_interpolated": {
+  "label": "POST-HOC sensitivity, declared after the primary summary: 2024 fold refit with the 3-day interior gap of five weather variables filled by linear interpolation (GWETROOT left missing); 2022/2023 unchanged; identical summariser. It does not replace the primary gates.",
+  "data": {
+   "primary_cache_sha256": "1ef929594e800de32313ef99365a710d1961c52387a41ccf60132895b25bbe46",
+   "rule": "linear interpolation in time within env, limit 3 days, interior only; GWETROOT left missing",
+   "nan_before": {
+    "T2M_MAX": 69,
+    "T2M_MIN": 69,
+    "T2M": 69,
+    "RH2M": 69,
+    "PRECTOTCORR": 69,
+    "GWETROOT": 3036
+   },
+   "nan_after": {
+    "T2M_MAX": 0,
+    "T2M_MIN": 0,
+    "T2M": 0,
+    "RH2M": 0,
+    "PRECTOTCORR": 0,
+    "GWETROOT": 3036
+   },
+   "season_cum_gdd_nan_2024_after": {
+    "DEH1_2024": 0,
+    "GAH1_2024": 0,
+    "GAH2_2024": 0,
+    "IAH2_2024": 0,
+    "IAH4_2024": 0,
+    "ILH1_2024": 0,
+    "INH1_2024": 0,
+    "MIH1_2024": 0,
+    "MNH1_2024": 0,
+    "MOH1_2024": 0,
+    "NCH1_2024": 0,
+    "NEH1_2024": 0,
+    "NEH2_2024": 0,
+    "NEH3_2024": 0,
+    "NYH2_2024": 0,
+    "NYH3_2024": 0,
+    "OHH1_2024": 0,
+    "ONH3_2024": 0,
+    "TXH1_2024": 0,
+    "WIH1_2024": 0,
+    "WIH2_2024": 0,
+    "WIH3_2024": 0
+   },
+   "cache_sha256": "b0960c93a5504a88863b60ff557f7554a5e1d04b4869cfdc2cdc29da920df5e6"
+  },
+  "source_results_sha256": "f6cb7bde476baa3dcbe85ef9dd9e298df0a2fbb1d30e8b433829eab966f2c9a0",
+  "G1_enhancements_external": {
+   "rule": "pooled EXT3 Delta >= 0.01 with CI lower > 0 AND Delta > 0 in >= 2 of 3 years",
+   "contrasts": {
+    "D_noEC_minus_MG_2k": {
+     "quantity": "r(D_noEC|P3) - r(MG_2k|P3)",
+     "EXT3_pooled": {
+      "mean": -0.00611,
+      "ci_low": -0.009973,
+      "ci_high": -0.002182,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 0.998001
+     },
+     "per_year": {
+      "2022": {
+       "mean": 0.00179,
+       "ci_low": -0.000924,
+       "ci_high": 0.004591,
+       "n_env": 27,
+       "p_one_sided_gt_0": 0.091954,
+       "sign": "+"
+      },
+      "2023": {
+       "mean": -0.040081,
+       "ci_low": -0.048553,
+       "ci_high": -0.031604,
+       "n_env": 26,
+       "p_one_sided_gt_0": 1.0,
+       "sign": "-"
+      },
+      "2024": {
+       "mean": 0.024343,
+       "ci_low": 0.016892,
+       "ci_high": 0.031756,
+       "n_env": 22,
+       "p_one_sided_gt_0": 0.0005,
+       "sign": "+"
+      }
+     },
+     "n_years_positive": 2,
+     "year_2024_alone": {
+      "mean": 0.024343,
+      "ci_low": 0.016892,
+      "ci_high": 0.031756,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.0005,
+      "sign": "+"
+     },
+     "USEFUL": false,
+     "verdict": "NOT_USEFUL"
+    },
+    "D_full_minus_MG_2k": {
+     "quantity": "r(D_full|P3) - r(MG_2k|P3)",
+     "EXT3_pooled": {
+      "mean": 0.004467,
+      "ci_low": -0.000451,
+      "ci_high": 0.009202,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 0.037981
+     },
+     "per_year": {
+      "2022": {
+       "mean": 0.013683,
+       "ci_low": 0.006418,
+       "ci_high": 0.021587,
+       "n_env": 27,
+       "p_one_sided_gt_0": 0.0005,
+       "sign": "+"
+      },
+      "2023": {
+       "mean": -0.021248,
+       "ci_low": -0.029483,
+       "ci_high": -0.012583,
+       "n_env": 26,
+       "p_one_sided_gt_0": 1.0,
+       "sign": "-"
+      },
+      "2024": {
+       "mean": 0.023546,
+       "ci_low": 0.015279,
+       "ci_high": 0.032715,
+       "n_env": 22,
+       "p_one_sided_gt_0": 0.0005,
+       "sign": "+"
+      }
+     },
+     "n_years_positive": 2,
+     "year_2024_alone": {
+      "mean": 0.023546,
+      "ci_low": 0.015279,
+      "ci_high": 0.032715,
+      "n_env": 22,
+      "p_one_sided_gt_0": 0.0005,
+      "sign": "+"
+     },
+     "USEFUL": false,
+     "verdict": "NOT_USEFUL"
+    }
+   },
+   "trackA_part_of_family_claim_holds": true,
+   "note": "family claim C_final_no_external_gain also requires track B's MG_98k - MG_2k"
+  },
+  "G2_EC_increment": {
+   "rule_confirmed": "pooled EXT3 >= 0.005 with CI lower > 0 AND > 0 in >= 2 of 3 years",
+   "rule_negligible": "pooled CI upper < 0.01",
+   "quantity": "r(D_full|P3) - r(D_noEC|P3)",
+   "EXT3_pooled": {
+    "mean": 0.010577,
+    "ci_low": 0.006282,
+    "ci_high": 0.014873,
+    "n_env": 75,
+    "n_env_by_year": {
+     "2022": 27,
+     "2023": 26,
+     "2024": 22
+    },
+    "p_one_sided_gt_0": 0.0005
+   },
+   "per_year": {
+    "2022": {
+     "mean": 0.011893,
+     "ci_low": 0.004498,
+     "ci_high": 0.020332,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.0005,
+     "sign": "+"
+    },
+    "2023": {
+     "mean": 0.018833,
+     "ci_low": 0.012533,
+     "ci_high": 0.025427,
+     "n_env": 26,
+     "p_one_sided_gt_0": 0.0005,
+     "sign": "+"
+    },
+    "2024": {
+     "mean": -0.000797,
+     "ci_low": -0.007159,
+     "ci_high": 0.00563,
+     "n_env": 22,
+     "p_one_sided_gt_0": 0.58021,
+     "sign": "-"
+    }
+   },
+   "n_years_positive": 2,
+   "year_2024_alone": {
+    "mean": -0.000797,
+    "ci_low": -0.007159,
+    "ci_high": 0.00563,
+    "n_env": 22,
+    "p_one_sided_gt_0": 0.58021,
+    "sign": "-"
+   },
+   "verdict": "CONFIRMED"
+  },
+  "G3_window_search_leak": {
+   "procedure": "as R7 H1 (v5 variables/windows)",
+   "rule": "pooled optimism >= 0.05 with CI lower > 0",
+   "EXT3_pooled": {
+    "n_env": 75,
+    "r_envmean_nested": 0.550206,
+    "r_envmean_leaky": 0.563518,
+    "optimism": 0.013312,
+    "ci": [
+     -0.005595,
+     0.038396
+    ],
+    "p_one_sided_gt_0": 0.098451,
+    "bootstrap": "stratified by year"
+   },
+   "per_year": {
+    "2022": {
+     "n_env": 27,
+     "r_envmean_nested": 0.447372,
+     "r_envmean_leaky": 0.447372,
+     "optimism": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "p_one_sided_gt_0": 1.0,
+     "bootstrap": "unstratified (single year)",
+     "sign": "0"
+    },
+    "2023": {
+     "n_env": 26,
+     "r_envmean_nested": 0.534932,
+     "r_envmean_leaky": 0.582243,
+     "optimism": 0.04731,
+     "ci": [
+      -0.040108,
+      0.164272
+     ],
+     "p_one_sided_gt_0": 0.163418,
+     "bootstrap": "unstratified (single year)",
+     "sign": "+"
+    },
+    "2024": {
+     "n_env": 22,
+     "r_envmean_nested": 0.653787,
+     "r_envmean_leaky": 0.653787,
+     "optimism": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "p_one_sided_gt_0": 1.0,
+     "bootstrap": "unstratified (single year)",
+     "sign": "0"
+    }
+   },
+   "selected": {
+    "2022": {
+     "nested": {
+      "var": "T2M",
+      "d1": 80,
+      "d2": 95,
+      "r_train": -0.4167568336031925
+     },
+     "leaky": {
+      "var": "T2M",
+      "d1": 80,
+      "d2": 95,
+      "r_train_plus_test": -0.4160281677710966
+     }
+    },
+    "2023": {
+     "nested": {
+      "var": "T2M",
+      "d1": 80,
+      "d2": 95,
+      "r_train": -0.41089319221197673
+     },
+     "leaky": {
+      "var": "T2M",
+      "d1": 80,
+      "d2": 100,
+      "r_train_plus_test": -0.41581969171654826
+     }
+    },
+    "2024": {
+     "nested": {
+      "var": "T2M",
+      "d1": 80,
+      "d2": 100,
+      "r_train": -0.41543414053937566
+     },
+     "leaky": {
+      "var": "T2M",
+      "d1": 80,
+      "d2": 100,
+      "r_train_plus_test": -0.44691965680625556
+     }
+    }
+   },
+   "envs_dropped_nan_prediction": {
+    "2022": [],
+    "2023": [],
+    "2024": []
+   },
+   "ceris_candidates_finite_2024": {
+    "nested": 2226,
+    "leaky": 1654,
+    "total": 2233
+   },
+   "rescore_check_max_abs_diff_vs_R9_csv": {
+    "2022": 4.95699298497243e-07,
+    "2023": 4.99323492775261e-07
+   },
+   "year_2024_alone": {
+    "n_env": 22,
+    "r_envmean_nested": 0.653787,
+    "r_envmean_leaky": 0.653787,
+    "optimism": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "p_one_sided_gt_0": 1.0,
+    "bootstrap": "unstratified (single year)",
+    "sign": "0"
+   },
+   "verdict": "NOT_REPLICATED_EXTERNALLY"
+  },
+  "G4_tuning_audit": {
+   "MG_2k": {
+    "P2_minus_P3": {
+     "EXT3_pooled": {
+      "mean": 0.030255,
+      "ci_low": 0.022956,
+      "ci_high": 0.036719,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 0.0005
+     },
+     "per_year": {
+      "2022": {
+       "mean": 0.074608,
+       "ci_low": 0.055018,
+       "ci_high": 0.09155,
+       "n_env": 27,
+       "p_one_sided_gt_0": 0.0005
+      },
+      "2023": {
+       "mean": 0.0,
+       "ci_low": 0.0,
+       "ci_high": 0.0,
+       "n_env": 26,
+       "p_one_sided_gt_0": 1.0
+      },
+      "2024": {
+       "mean": 0.011579,
+       "ci_low": 0.005461,
+       "ci_high": 0.017707,
+       "n_env": 22,
+       "p_one_sided_gt_0": 0.0005
+      }
+     }
+    },
+    "P1_minus_P3": {
+     "EXT3_pooled": {
+      "mean": -0.024495,
+      "ci_low": -0.028593,
+      "ci_high": -0.019998,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 1.0
+     },
+     "per_year": {
+      "2022": {
+       "mean": -0.051753,
+       "ci_low": -0.06014,
+       "ci_high": -0.042459,
+       "n_env": 27,
+       "p_one_sided_gt_0": 1.0
+      },
+      "2023": {
+       "mean": -0.016916,
+       "ci_low": -0.023937,
+       "ci_high": -0.008477,
+       "n_env": 26,
+       "p_one_sided_gt_0": 1.0
+      },
+      "2024": {
+       "mean": 0.0,
+       "ci_low": 0.0,
+       "ci_high": 0.0,
+       "n_env": 22,
+       "p_one_sided_gt_0": 1.0
+      }
+     }
+    },
+    "chosen": {
+     "P1": {
+      "2022": 316.227766,
+      "2023": 100000.0,
+      "2024": 3162.27766
+     },
+     "P2": {
+      "2022": 100000.0,
+      "2023": 3162.27766,
+      "2024": 10000.0
+     },
+     "P3": {
+      "2022": 1000.0,
+      "2023": 3162.27766,
+      "2024": 3162.27766
+     }
+    },
+    "edge_P3": {
+     "2022": false,
+     "2023": false,
+     "2024": false
+    },
+    "years_P2_below_P3": []
+   },
+   "D_noEC": {
+    "P2_minus_P3": {
+     "EXT3_pooled": {
+      "mean": 0.004111,
+      "ci_low": 0.002437,
+      "ci_high": 0.005773,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 0.0005
+     },
+     "per_year": {
+      "2022": {
+       "mean": 0.007867,
+       "ci_low": 0.004171,
+       "ci_high": 0.011636,
+       "n_env": 27,
+       "p_one_sided_gt_0": 0.0005
+      },
+      "2023": {
+       "mean": 0.003071,
+       "ci_low": 0.001099,
+       "ci_high": 0.005027,
+       "n_env": 26,
+       "p_one_sided_gt_0": 0.001
+      },
+      "2024": {
+       "mean": 0.00073,
+       "ci_low": -0.001321,
+       "ci_high": 0.002684,
+       "n_env": 22,
+       "p_one_sided_gt_0": 0.253373
+      }
+     }
+    },
+    "P1_minus_P3": {
+     "EXT3_pooled": {
+      "mean": -0.003638,
+      "ci_low": -0.005102,
+      "ci_high": -0.002126,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 1.0
+     },
+     "per_year": {
+      "2022": {
+       "mean": 0.0,
+       "ci_low": 0.0,
+       "ci_high": 0.0,
+       "n_env": 27,
+       "p_one_sided_gt_0": 1.0
+      },
+      "2023": {
+       "mean": -0.00446,
+       "ci_low": -0.005804,
+       "ci_high": -0.002998,
+       "n_env": 26,
+       "p_one_sided_gt_0": 1.0
+      },
+      "2024": {
+       "mean": -0.007131,
+       "ci_low": -0.011905,
+       "ci_high": -0.00261,
+       "n_env": 22,
+       "p_one_sided_gt_0": 0.998501
+      }
+     }
+    },
+    "chosen": {
+     "P1": {
+      "2022": 50,
+      "2023": 400,
+      "2024": 50
+     },
+     "P2": {
+      "2022": 800,
+      "2023": 50,
+      "2024": 400
+     },
+     "P3": {
+      "2022": 50,
+      "2023": 200,
+      "2024": 200
+     }
+    },
+    "edge_P3": {
+     "2022": true,
+     "2023": false,
+     "2024": false
+    },
+    "years_P2_below_P3": []
+   },
+   "D_full": {
+    "P2_minus_P3": {
+     "EXT3_pooled": {
+      "mean": 0.004443,
+      "ci_low": 0.002375,
+      "ci_high": 0.006579,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 0.0005
+     },
+     "per_year": {
+      "2022": {
+       "mean": 0.012342,
+       "ci_low": 0.006597,
+       "ci_high": 0.018275,
+       "n_env": 27,
+       "p_one_sided_gt_0": 0.0005
+      },
+      "2023": {
+       "mean": 0.0,
+       "ci_low": 0.0,
+       "ci_high": 0.0,
+       "n_env": 26,
+       "p_one_sided_gt_0": 1.0
+      },
+      "2024": {
+       "mean": 0.0,
+       "ci_low": 0.0,
+       "ci_high": 0.0,
+       "n_env": 22,
+       "p_one_sided_gt_0": 1.0
+      }
+     }
+    },
+    "P1_minus_P3": {
+     "EXT3_pooled": {
+      "mean": -0.001248,
+      "ci_low": -0.002208,
+      "ci_high": -0.000279,
+      "n_env": 75,
+      "n_env_by_year": {
+       "2022": 27,
+       "2023": 26,
+       "2024": 22
+      },
+      "p_one_sided_gt_0": 0.994003
+     },
+     "per_year": {
+      "2022": {
+       "mean": -0.001426,
+       "ci_low": -0.003041,
+       "ci_high": 0.00013,
+       "n_env": 27,
+       "p_one_sided_gt_0": 0.961519
+      },
+      "2023": {
+       "mean": -0.00212,
+       "ci_low": -0.004344,
+       "ci_high": 9.5e-05,
+       "n_env": 26,
+       "p_one_sided_gt_0": 0.966017
+      },
+      "2024": {
+       "mean": 0.0,
+       "ci_low": 0.0,
+       "ci_high": 0.0,
+       "n_env": 22,
+       "p_one_sided_gt_0": 1.0
+      }
+     }
+    },
+    "chosen": {
+     "P1": {
+      "2022": 50,
+      "2023": 800,
+      "2024": 400
+     },
+     "P2": {
+      "2022": 800,
+      "2023": 400,
+      "2024": 400
+     },
+     "P3": {
+      "2022": 100,
+      "2023": 400,
+      "2024": 400
+     }
+    },
+    "edge_P3": {
+     "2022": false,
+     "2023": false,
+     "2024": false
+    },
+    "years_P2_below_P3": []
+   }
+  },
+  "r_mean": {
+   "EXT3_pooled": {
+    "MG_2k|P1": 0.311363,
+    "MG_2k|P2": 0.366114,
+    "MG_2k|P3": 0.335859,
+    "D_noEC|P1": 0.326111,
+    "D_noEC|P2": 0.33386,
+    "D_noEC|P3": 0.329749,
+    "D_full|P1": 0.339077,
+    "D_full|P2": 0.344769,
+    "D_full|P3": 0.340326
+   },
+   "2022": {
+    "MG_2k|P1": 0.205152,
+    "MG_2k|P2": 0.331514,
+    "MG_2k|P3": 0.256905,
+    "D_noEC|P1": 0.258695,
+    "D_noEC|P2": 0.266562,
+    "D_noEC|P3": 0.258695,
+    "D_full|P1": 0.269162,
+    "D_full|P2": 0.28293,
+    "D_full|P3": 0.270588
+   },
+   "2023": {
+    "MG_2k|P1": 0.427132,
+    "MG_2k|P2": 0.444048,
+    "MG_2k|P3": 0.444048,
+    "D_noEC|P1": 0.399508,
+    "D_noEC|P2": 0.407039,
+    "D_noEC|P3": 0.403968,
+    "D_full|P1": 0.42068,
+    "D_full|P2": 0.422801,
+    "D_full|P3": 0.422801
+   },
+   "2024": {
+    "MG_2k|P1": 0.304895,
+    "MG_2k|P2": 0.316474,
+    "MG_2k|P3": 0.304895,
+    "D_noEC|P1": 0.322107,
+    "D_noEC|P2": 0.329969,
+    "D_noEC|P3": 0.329238,
+    "D_full|P1": 0.328442,
+    "D_full|P2": 0.328442,
+    "D_full|P3": 0.328442
+   }
+  },
+  "fold_2024": {
+   "n_train_records": 106037,
+   "n_train_envs": 269,
+   "n_test_records": 9486,
+   "n_test_envs": 22,
+   "test_envs": [
+    "DEH1_2024",
+    "GAH1_2024",
+    "GAH2_2024",
+    "IAH2_2024",
+    "IAH4_2024",
+    "ILH1_2024",
+    "INH1_2024",
+    "MIH1_2024",
+    "MNH1_2024",
+    "MOH1_2024",
+    "NCH1_2024",
+    "NEH1_2024",
+    "NEH2_2024",
+    "NEH3_2024",
+    "NYH2_2024",
+    "NYH3_2024",
+    "OHH1_2024",
+    "ONH3_2024",
+    "TXH1_2024",
+    "WIH1_2024",
+    "WIH2_2024",
+    "WIH3_2024"
+   ],
+   "p1_key": 2023,
+   "inner_keys": [
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+   ],
+   "maturity": {
+    "lam": 1000.0,
+    "lam_idx": 10
+   },
+   "stage1_cv_r2": 0.0968,
+   "new_hybrid_fraction": 0.8764,
+   "ec_window_complete_fraction": {
+    "test_2024": {
+     "W1_pre": 1.0,
+     "W2_flowering": 1.0,
+     "W3_grainfill": 0.8636363636363636
+    },
+    "train": {
+     "W1_pre": 1.0,
+     "W2_flowering": 1.0,
+     "W3_grainfill": 0.8401486988847584
+    },
+    "test_2024_incomplete_envs": {
+     "W1_pre": [],
+     "W2_flowering": [],
+     "W3_grainfill": [
+      "MIH1_2024",
+      "ONH3_2024",
+      "WIH2_2024"
+     ]
+    }
+   },
+   "computed_on": {
+    "machine": "x86_64",
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "threads": "24"
+   }
+  },
+  "POST_HOC_new_hybrid_subset": {
+   "label": "POST-HOC, descriptive only: test envs with >= 10 test hybrids absent from the fold's training records",
+   "2022": {
+    "n_env": 27,
+    "r_P3": {
+     "MG_2k": 0.207098,
+     "D_noEC": 0.211443,
+     "D_full": 0.216435
+    },
+    "D_noEC_minus_MG_2k": {
+     "mean": 0.004345,
+     "ci_low": 0.001879,
+     "ci_high": 0.006807,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.001499
+    },
+    "D_full_minus_MG_2k": {
+     "mean": 0.009337,
+     "ci_low": 0.003571,
+     "ci_high": 0.015724,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.0005
+    },
+    "D_full_minus_D_noEC": {
+     "mean": 0.004992,
+     "ci_low": -0.000693,
+     "ci_high": 0.011693,
+     "n_env": 27,
+     "p_one_sided_gt_0": 0.051974
+    }
+   },
+   "2023": {
+    "n_env": 0
+   },
+   "2024": {
+    "n_env": 22,
+    "r_P3": {
+     "MG_2k": 0.185383,
+     "D_noEC": 0.217741,
+     "D_full": 0.212582
+    },
+    "D_noEC_minus_MG_2k": {
+     "mean": 0.032358,
+     "ci_low": 0.021865,
+     "ci_high": 0.042953,
+     "n_env": 22,
+     "p_one_sided_gt_0": 0.0005
+    },
+    "D_full_minus_MG_2k": {
+     "mean": 0.0272,
+     "ci_low": 0.017127,
+     "ci_high": 0.038231,
+     "n_env": 22,
+     "p_one_sided_gt_0": 0.0005
+    },
+    "D_full_minus_D_noEC": {
+     "mean": -0.005158,
+     "ci_low": -0.011493,
+     "ci_high": 0.00143,
+     "n_env": 22,
+     "p_one_sided_gt_0": 0.941529
+    }
+   }
+  },
+  "overall_verdict_under_same_mapping": "WEAK_GO",
+  "refit_abs_diff_2024_mean_r_weather_free_models": {
+   "MG_2k|P1": 0.0,
+   "MG_2k|P2": 0.0,
+   "MG_2k|P3": 0.0,
+   "D_noEC|P1": 0.0,
+   "D_noEC|P2": 0.0,
+   "D_noEC|P3": 0.0
+  }
+ },
+ "primary_vs_sensitivity": {
+  "G1_D_noEC_minus_MG_2k": [
+   "NOT_USEFUL",
+   "NOT_USEFUL"
+  ],
+  "G1_D_full_minus_MG_2k": [
+   "NOT_USEFUL",
+   "NOT_USEFUL"
+  ],
+  "G2": [
+   "CONFIRMED",
+   "CONFIRMED"
+  ],
+  "G3": [
+   "NOT_REPLICATED_EXTERNALLY",
+   "NOT_REPLICATED_EXTERNALLY"
+  ],
+  "overall": [
+   "WEAK_GO",
+   "WEAK_GO"
+  ],
+  "order": [
+   "primary (as run)",
+   "POST-HOC sensitivity"
+  ]
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "title": "Round 8 (v8): grouped inner-CV (P3) as default tuning; Q1 dense-SNP gain on unseen settings, Q2 robustness of the 'no within-env EC gain' finding across EC specifications, Q3 tuning-protocol audit (descriptive)",
+ "frozen_at_utc": "2026-09-29T04:43:14Z",
+ "status": "FROZEN after R7 results, before any R8 analysis. Results already seen under P3 (S0/S1 dense SNP; S1/S2/S3 M0plus vs M_G) are labelled REPLICATION and never enter a confirmatory gate.",
+ "depends_on": {
+  "prereg_v7_sha256": "18406b3c99e31649c6bba5a4f970045ba7e0d0a166ac7cb3b5188ee798f69b7a",
+  "R7_H1H2_results": "ac909ac1-667e-4f44-bd3e-a162c3df14f0 (sha256 04d330469770fbed65c11764d25321674ec84dc9ce41931e8b69a97f89449ebd)",
+  "R7_H3_results": "8d3e4393-ca62-4f08-b55b-86e3ab2fa6c4",
+  "R4_code": [
+   "v4_lib.py 0752965b-31bc-49cb-89f6-1a9e35c95713",
+   "v4_g2f.py aae6a39e-72d7-498f-9981-b55d0221c036"
+  ]
+ },
+ "penalty_grid": {
+  "grid": [
+   0.01,
+   0.031623,
+   0.1,
+   0.316228,
+   1.0,
+   3.162278,
+   10.0,
+   31.622777,
+   100.0,
+   316.227766,
+   1000.0,
+   3162.27766,
+   10000.0,
+   31622.776602,
+   100000.0,
+   316227.766017,
+   1000000.0,
+   3162277.660168,
+   10000000.0
+  ],
+  "fix": "v7 grid omitted 1e-2..1e0 (design error, see R7 H3); v8 grid spans 1e-2..1e7. Report edge-selection fraction per model x setting; grid is NOT extended after results."
+ },
+ "default_tuning": "P3 grouped inner CV exactly as v7 (S1/S3: leave-one-training-year-out; S2: 4-fold over training location folds; S4: see below). P1 and P2 reported as references.",
+ "settings": {
+  "S1_G2F_LOYO": "as v7",
+  "S2_G2F_LOLO": "as v7 (same 5 location folds, rng 20260929)",
+  "S3_BRIWECS_LOYO": "as v7 (98 envs)",
+  "S0_G2F_forward": "as v7 (replication only)",
+  "S4_G2F_CV00": "new-year AND new-location: for each held-out year y (2014..2021) and location fold k (v7 S2 folds), test = envs with year y and location in fold k; training = envs with year != y AND location not in fold k. Test cells with no env meeting the >=30 genotyped-hybrid rule are skipped. P3 inner CV = leave-one-training-year-out within the training set. Every env is tested once."
+ },
+ "Q1_dense_snp_mainline": {
+  "models": "M0plus_2k, M0plus_98k, M_G, M_G_98k on the Lima common population (as R6/R7)",
+  "confirmatory_settings": [
+   "S2_G2F_LOLO",
+   "S4_G2F_CV00"
+  ],
+  "replication_settings": [
+   "S0_G2F_forward",
+   "S1_G2F_LOYO"
+  ],
+  "quantity": "Delta_98k(P3) = r(M0plus_98k) - r(M0plus_2k); secondary Delta_98k_MG(P3) = r(M_G_98k) - r(M_G)",
+  "CONFIRMED": "Delta_98k(P3) >= 0.01 with paired env-bootstrap 95% CI lower > 0 in BOTH confirmatory settings",
+  "decision": "CONFIRMED -> 98k SNP + P3 become the main-line default; otherwise report the setting-specific gain and keep 2k"
+ },
+ "Q2_EC_specification_robustness": {
+  "reference": "M_G (2k SNP main effects only), tuned by P3",
+  "specifications": {
+   "A_M0plus": "as R7 (SNP + PC1..30 x EC_env + predicted maturity x EC_env) - REPLICATION only",
+   "B_PC200xEC": "SNP main + PC1..200 x EC_env (standardized EC, PCs from all genotyped hybrids without phenotypes; BRIWECS: min(200, n_cultivars-1) PCs) + predicted maturity x EC_env; two penalty blocks: main lambda from grid, interaction lambda = lambda x {0.1, 1, 10}",
+   "C_SNPxEnvIndex": "JGRA-type reaction norm: SNP main + SNP x e_hat, where e_hat is the env-mean yield predicted by a ridge of env-mean yield on EC_env fitted on the fold's training envs (penalty chosen by the same inner folds); two penalty blocks as B",
+   "D_NL_env": "two-stage: stage 1 = M_G (P3-tuned); stage 2 = HistGradientBoosting (learning_rate 0.05, max_leaf_nodes 31, min_samples_leaf 200, random_state 20260928) on cross-fitted stage-1 residuals with features EC_env + PC1..30 + predicted maturity; number of iterations chosen from {50,100,200,400,800} by the same P3 inner folds"
+  },
+  "settings": [
+   "S1_G2F_LOYO",
+   "S2_G2F_LOLO",
+   "S3_BRIWECS_LOYO"
+  ],
+  "quantity": "Delta_spec = r(spec) - r(M_G), both P3-tuned, per setting",
+  "multiplicity": "Holm across the 3 new specifications (B, C, D) within each setting",
+  "EC_GAIN_EXISTS": "any new specification with Delta >= 0.01 and Holm-adjusted p < 0.05 (and CI lower > 0) in >= 2 of 3 settings -> report that specification as the EC route of the main line",
+  "NO_WITHIN_ENV_EC_GAIN": "for every new specification, the 95% CI upper bound of Delta < 0.01 in >= 2 of 3 settings -> robust negative finding enters the C paper",
+  "INCONCLUSIVE": "otherwise"
+ },
+ "Q3_tuning_audit": {
+  "type": "descriptive, no gate",
+  "report": "for every setting x model: r under P1, P2, P3; losses P2-P1 and P2-P3 with CIs; fraction of folds with edge-selected lambda; model-ranking changes across protocols"
+ },
+ "metric_and_uncertainty": "within-env Pearson of yield, equal-weight mean over out-of-fold test envs; paired env bootstrap 2000, seed 20260928; Spearman and new-hybrid subset reported",
+ "compute": "threads <=4 per process, resident memory <5 GB per process; two processes may run concurrently; write per-setting checkpoints so interrupted runs can resume",
+ "reporting_rules": [
+  "all numbers reported",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256",
+  "no simulated or substitute data"
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "identity_max_abs_error": 3.885780586188048e-16,
+ "runs": 18,
+ "E1_1_phi": {
+  "n_used": 18,
+  "in_direction": 18,
+  "p_one_sided": 3.814697265625e-06
+ },
+ "E1_2_abslog": {
+  "n_used": 16,
+  "in_direction": 12,
+  "p_one_sided": 0.0384063720703125
+ },
+ "median_cv_of_tj": 0.2799857756934146
+}

@@ -1,0 +1,429 @@
+{
+  "schema_version": "1.0",
+  "analysis_unit": "one unadjusted genotype-environment mean throughout fitting and evaluation",
+  "bootstrap_unit": "environment",
+  "cv1_rule": "collapse the five out-of-fold genotype subsets within each environment before metrics; no fold pseudo-replication",
+  "cells": {
+    "cv0_strict": {
+      "n_prediction_rows": 106468,
+      "n_environments": 266,
+      "n_excluded_lt20_genotypes": 0,
+      "excluded_environments": [],
+      "collapse_out_of_fold_genotype_predictions": false,
+      "vs_additive_g_e": {
+        "msed": {
+          "estimate": -0.2688414254005627,
+          "ci_low": -0.33160356265127156,
+          "ci_high": -0.2078033330391336,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "spearman": {
+          "estimate": 0.02249404823393918,
+          "ci_low": 0.015058335661172841,
+          "ci_high": 0.03032372748554231,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "selection_gain_10": {
+          "estimate": 0.05262203413741033,
+          "ci_low": 0.01025969779356978,
+          "ci_high": 0.09636269545644745,
+          "sign_probability": 0.9912,
+          "n_environments": 266
+        },
+        "selection_regret_10": {
+          "estimate": -0.05262203189663421,
+          "ci_low": -0.09696377505709354,
+          "ci_high": -0.010256278268376698,
+          "sign_probability": 0.9922,
+          "n_environments": 266
+        },
+        "squared_error": {
+          "estimate": -0.1381032152296719,
+          "ci_low": -0.4655375398574184,
+          "ci_high": 0.21716208031959666,
+          "sign_probability": 0.7982,
+          "n_environments": 266
+        }
+      }
+    },
+    "cv1": {
+      "n_prediction_rows": 106468,
+      "n_environments": 266,
+      "n_excluded_lt20_genotypes": 0,
+      "excluded_environments": [],
+      "collapse_out_of_fold_genotype_predictions": true,
+      "vs_additive_g_e": {
+        "msed": {
+          "estimate": -0.46962004951622816,
+          "ci_low": -0.5380439589732173,
+          "ci_high": -0.4027062280435019,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "spearman": {
+          "estimate": 0.12204859732894496,
+          "ci_low": 0.10974681285220739,
+          "ci_high": 0.13454938620910833,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "selection_gain_10": {
+          "estimate": 0.2867549581635267,
+          "ci_low": 0.2347913352282424,
+          "ci_high": 0.33946283871966193,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "selection_regret_10": {
+          "estimate": -0.2867549572672163,
+          "ci_low": -0.3384392432252267,
+          "ci_high": -0.2339276388623662,
+          "sign_probability": 1.0,
+          "n_environments": 266
+        },
+        "squared_error": {
+          "estimate": -0.08318571616809699,
+          "ci_low": -0.35366334268830985,
+          "ci_high": 0.2008544564391298,
+          "sign_probability": 0.7234,
+          "n_environments": 266
+        }
+      }
+    },
+    "cv00": {
+      "n_prediction_rows": 21147,
+      "n_environments": 258,
+      "n_excluded_lt20_genotypes": 8,
+      "excluded_environments": [
+        "COH1_2022",
+        "COH1_2023",
+        "GAH2_2016",
+        "NYS1_2020",
+        "NYS1_2021",
+        "GAH2_2017",
+        "NEH3_2017",
+        "NEH4_2017"
+      ],
+      "collapse_out_of_fold_genotype_predictions": false,
+      "vs_additive_g_e": {
+        "msed": {
+          "estimate": 0.004118555665286025,
+          "ci_low": -0.046583043764631266,
+          "ci_high": 0.05182551498307324,
+          "sign_probability": 0.4336,
+          "n_environments": 258
+        },
+        "spearman": {
+          "estimate": -0.0021622556807536497,
+          "ci_low": -0.01482310759236456,
+          "ci_high": 0.010090875042703118,
+          "sign_probability": 0.356,
+          "n_environments": 258
+        },
+        "selection_gain_10": {
+          "estimate": -0.022577750590420508,
+          "ci_low": -0.09845866195915282,
+          "ci_high": 0.051938655094582856,
+          "sign_probability": 0.2778,
+          "n_environments": 258
+        },
+        "selection_regret_10": {
+          "estimate": 0.02257774966631749,
+          "ci_low": -0.05386389207470325,
+          "ci_high": 0.09488530075827305,
+          "sign_probability": 0.27,
+          "n_environments": 258
+        },
+        "squared_error": {
+          "estimate": -0.008321540601084337,
+          "ci_low": -0.2944562082936517,
+          "ci_high": 0.2709300684669478,
+          "sign_probability": 0.5218,
+          "n_environments": 258
+        }
+      }
+    },
+    "cohort_matched_forward": {
+      "n_prediction_rows": 31120,
+      "n_environments": 82,
+      "n_excluded_lt20_genotypes": 0,
+      "excluded_environments": [],
+      "collapse_out_of_fold_genotype_predictions": false,
+      "vs_additive_g_e": {
+        "msed": {
+          "estimate": -0.6620617015482394,
+          "ci_low": -0.9678883197282225,
+          "ci_high": -0.39032776156225535,
+          "sign_probability": 1.0,
+          "n_environments": 82
+        },
+        "spearman": {
+          "estimate": 0.042623018315171936,
+          "ci_low": 0.022830859340113002,
+          "ci_high": 0.0654706340174438,
+          "sign_probability": 1.0,
+          "n_environments": 82
+        },
+        "selection_gain_10": {
+          "estimate": 0.08883568717212212,
+          "ci_low": -0.030149566691096235,
+          "ci_high": 0.2037565447935243,
+          "sign_probability": 0.9336,
+          "n_environments": 82
+        },
+        "selection_regret_10": {
+          "estimate": -0.08883568717212212,
+          "ci_low": -0.20370501425208115,
+          "ci_high": 0.026732159678528905,
+          "sign_probability": 0.935,
+          "n_environments": 82
+        },
+        "squared_error": {
+          "estimate": -1.5637992469956805,
+          "ci_low": -2.4604663040253225,
+          "ci_high": -0.6725474228864647,
+          "sign_probability": 0.9996,
+          "n_environments": 82
+        }
+      }
+    },
+    "forward_year": {
+      "n_prediction_rows": 48364,
+      "n_environments": 106,
+      "n_excluded_lt20_genotypes": 0,
+      "excluded_environments": [],
+      "collapse_out_of_fold_genotype_predictions": false,
+      "vs_additive_g_e": {
+        "msed": {
+          "estimate": 0.06053406634745048,
+          "ci_low": 0.02170155202311954,
+          "ci_high": 0.0947219282868593,
+          "sign_probability": 0.0012,
+          "n_environments": 106
+        },
+        "spearman": {
+          "estimate": -0.038569663882071344,
+          "ci_low": -0.05688770505355903,
+          "ci_high": -0.01934588694391338,
+          "sign_probability": 0.0,
+          "n_environments": 106
+        },
+        "selection_gain_10": {
+          "estimate": -0.25451826824332185,
+          "ci_low": -0.3435573114539092,
+          "ci_high": -0.1675207531114794,
+          "sign_probability": 0.0,
+          "n_environments": 106
+        },
+        "selection_regret_10": {
+          "estimate": 0.25451826824332185,
+          "ci_low": 0.16932675422362561,
+          "ci_high": 0.34223552008844765,
+          "sign_probability": 0.0,
+          "n_environments": 106
+        },
+        "squared_error": {
+          "estimate": -0.3404293792164482,
+          "ci_low": -0.6594800979853441,
+          "ci_high": 0.003480870769329925,
+          "sign_probability": 0.9736,
+          "n_environments": 106
+        }
+      }
+    },
+    "forward_year_v2": {
+      "n_prediction_rows": 48364,
+      "n_environments": 106,
+      "n_excluded_lt20_genotypes": 0,
+      "excluded_environments": [],
+      "collapse_out_of_fold_genotype_predictions": false,
+      "vs_additive_g_e": {
+        "msed": {
+          "estimate": 0.020811408637691684,
+          "ci_low": -0.013667843347441803,
+          "ci_high": 0.05338552041697198,
+          "sign_probability": 0.1038,
+          "n_environments": 106
+        },
+        "spearman": {
+          "estimate": 0.002813363402510522,
+          "ci_low": -0.011040122130639334,
+          "ci_high": 0.016562138512606954,
+          "sign_probability": 0.659,
+          "n_environments": 106
+        },
+        "selection_gain_10": {
+          "estimate": 0.06016341020476143,
+          "ci_low": 0.008388570457134608,
+          "ci_high": 0.11135519220019287,
+          "sign_probability": 0.9882,
+          "n_environments": 106
+        },
+        "selection_regret_10": {
+          "estimate": -0.06016341020476143,
+          "ci_low": -0.11151676431017102,
+          "ci_high": -0.009171652681422704,
+          "sign_probability": 0.9888,
+          "n_environments": 106
+        },
+        "squared_error": {
+          "estimate": -0.5590526924299155,
+          "ci_low": -0.916256630634217,
+          "ci_high": -0.19672255194573374,
+          "sign_probability": 0.999,
+          "n_environments": 106
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "genotype_shift_at_unseen_environment": {
+      "cell_a": "cv00",
+      "cell_b": "cv0_strict",
+      "msed": {
+        "estimate": 0.2704662439359779,
+        "ci_low": 0.2041857962621143,
+        "ci_high": 0.33424725872630273,
+        "sign_probability": 0.0,
+        "n_environments": 258,
+        "design": "paired common-environment bootstrap"
+      },
+      "spearman": {
+        "estimate": -0.023588458559809213,
+        "ci_low": -0.03666640848526101,
+        "ci_high": -0.01091169021323954,
+        "sign_probability": 0.0,
+        "n_environments": 258,
+        "design": "paired common-environment bootstrap"
+      },
+      "selection_gain_10": {
+        "estimate": -0.07875279215879219,
+        "ci_low": -0.1594555111240971,
+        "ci_high": 0.0005402350957079097,
+        "sign_probability": 0.0256,
+        "n_environments": 258,
+        "design": "paired common-environment bootstrap"
+      }
+    },
+    "environment_shift_at_unseen_genotype": {
+      "cell_a": "cv00",
+      "cell_b": "cv1",
+      "msed": {
+        "estimate": 0.4653439704115628,
+        "ci_low": 0.38741511396363676,
+        "ci_high": 0.5448026251425748,
+        "sign_probability": 0.0,
+        "n_environments": 258,
+        "design": "paired common-environment bootstrap"
+      },
+      "spearman": {
+        "estimate": -0.12416929644969399,
+        "ci_low": -0.14128630473033624,
+        "ci_high": -0.10760283868089644,
+        "sign_probability": 0.0,
+        "n_environments": 258,
+        "design": "paired common-environment bootstrap"
+      },
+      "selection_gain_10": {
+        "estimate": -0.30813062422035276,
+        "ci_low": -0.39308005825493686,
+        "ci_high": -0.2207858121556829,
+        "sign_probability": 0.0,
+        "n_environments": 258,
+        "design": "paired common-environment bootstrap"
+      }
+    },
+    "pure_time_shift_matched_germplasm": {
+      "cell_a": "cohort_matched_forward",
+      "cell_b": "cv0_strict",
+      "msed": {
+        "estimate": -0.4525735096328638,
+        "ci_low": -0.7132312580299741,
+        "ci_high": -0.23226412134598037,
+        "sign_probability": 1.0,
+        "n_environments": 82,
+        "design": "paired common-environment bootstrap"
+      },
+      "spearman": {
+        "estimate": 0.02599878515540798,
+        "ci_low": 0.012561283401057567,
+        "ci_high": 0.04148776484162675,
+        "sign_probability": 1.0,
+        "n_environments": 82,
+        "design": "paired common-environment bootstrap"
+      },
+      "selection_gain_10": {
+        "estimate": 0.06404178026245862,
+        "ci_low": -0.061206328432734415,
+        "ci_high": 0.21854455892632638,
+        "sign_probability": 0.818,
+        "n_environments": 82,
+        "design": "paired common-environment bootstrap"
+      }
+    },
+    "germplasm_turnover_in_forward_year": {
+      "cell_a": "forward_year",
+      "cell_b": "cohort_matched_forward",
+      "msed": {
+        "estimate": 0.7225957678956899,
+        "ci_low": 0.4403403257164222,
+        "ci_high": 1.042014887604919,
+        "probability_positive": 1.0,
+        "n_environments_a": 106,
+        "n_environments_b": 82,
+        "design": "independent environment bootstrap"
+      },
+      "spearman": {
+        "estimate": -0.08119268219724328,
+        "ci_low": -0.11010770005580066,
+        "ci_high": -0.053156040416580126,
+        "probability_positive": 0.0,
+        "n_environments_a": 106,
+        "n_environments_b": 82,
+        "design": "independent environment bootstrap"
+      },
+      "selection_gain_10": {
+        "estimate": -0.343353955415444,
+        "ci_low": -0.4924686468064483,
+        "ci_high": -0.19763439646444178,
+        "probability_positive": 0.0,
+        "n_environments_a": 106,
+        "n_environments_b": 82,
+        "design": "independent environment bootstrap"
+      }
+    },
+    "germplasm_turnover_in_forward_year_v2_reference": {
+      "cell_a": "forward_year_v2",
+      "cell_b": "cohort_matched_forward",
+      "msed": {
+        "estimate": 0.6828731101859311,
+        "ci_low": 0.40348048281273236,
+        "ci_high": 0.9948325810057166,
+        "probability_positive": 1.0,
+        "n_environments_a": 106,
+        "n_environments_b": 82,
+        "design": "independent environment bootstrap"
+      },
+      "spearman": {
+        "estimate": -0.03980965491266141,
+        "ci_low": -0.06589472521772792,
+        "ci_high": -0.015192046366750147,
+        "probability_positive": 0.0,
+        "n_environments_a": 106,
+        "n_environments_b": 82,
+        "design": "independent environment bootstrap"
+      },
+      "selection_gain_10": {
+        "estimate": -0.028672276967360688,
+        "ci_low": -0.1530762543504928,
+        "ci_high": 0.09877315225603382,
+        "probability_positive": 0.324,
+        "n_environments_a": 106,
+        "n_environments_b": 82,
+        "design": "independent environment bootstrap"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+ "N_cells_all": 31144,
+ "N_cells_new": 27906,
+ "K_years": 17,
+ "H7": {
+  "est": -0.03959443226718149,
+  "lo": -0.08846649105271953,
+  "hi": 0.009277626518356542,
+  "p": 0.11231025347872597,
+  "threshold": 0.016999418252085112,
+  "verdict": "tied"
+ },
+ "GO": false,
+ "combined_with_wave2c_31_years_descriptive": {
+  "est": 0.009229618828783924,
+  "se": 0.011511069592123219,
+  "lo": -0.013331662995311756,
+  "hi": 0.0317909006528796,
+  "tau2": 0.0023606939871377206,
+  "k": 48,
+  "n_years_se_zero_floored": 0,
+  "weight_share": {
+   "ESWYT": 0.271,
+   "G2F": 0.171,
+   "GEM_IA": 0.015,
+   "MU_SOY": 0.025,
+   "NUST": 0.362,
+   "URSN": 0.156
+  }
+ },
+ "fw_pick_counts": {
+  "cell_reml": 6,
+  "gbm": 3,
+  "rf": 2,
+  "reml_x10": 2,
+  "knn10": 2,
+  "reml_x0.1": 1,
+  "reml": 1
+ },
+ "stack_weight_share_cell_reml": 0.12934641719693324
+}

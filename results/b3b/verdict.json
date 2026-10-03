@@ -1,0 +1,33 @@
+{
+ "N_cells_all": 87294,
+ "N_cells_new": 68781,
+ "holm": [
+  {
+   "contrast": "H4",
+   "est": 0.007211064493435084,
+   "level": 0.975,
+   "lo": -0.010219324490149593,
+   "hi": 0.02464145347701976,
+   "p": 0.3537797305196958,
+   "resolution": 0.011438972393280254,
+   "verdict": "tied"
+  },
+  {
+   "contrast": "H3",
+   "est": 0.0027776720295261117,
+   "p": 0.6115636494981713,
+   "verdict": "not tested (Holm stopped)"
+  }
+ ],
+ "prediction_H3_tied": true,
+ "prediction_H4_tied": true,
+ "stack_weight_share_gxe_learners_G2F_URSN": 0.2231338619269453,
+ "stack_weight_share_cell_reml": 0.3499884843482166,
+ "fw_pick_counts_main": {
+  "cell_reml": 24,
+  "gbm": 4,
+  "rf": 1,
+  "mlp": 1,
+  "reml_x100": 1
+ }
+}

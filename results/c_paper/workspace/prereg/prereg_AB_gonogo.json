@@ -1,0 +1,187 @@
+{
+ "title": "Go/no-go pilots for angle A (genotype-specific phenology-aligned exposure) and angle B (evolutionary x trial environment bridge)",
+ "frozen_at_utc": "2026-09-28T15:43:21Z",
+ "status": "FROZEN - thresholds below must not be changed after any result is seen; deviations must be declared, not silently applied",
+ "inputs_g2f": {
+  "1_Training_Trait_Data_2014_2021.csv": {
+   "path": "<local>/gp_project/data/raw/g2f/1_Training_Trait_Data_2014_2021.csv",
+   "bytes": 26404798,
+   "sha256": "502582195367608dda756d63aaf48d70e371a6468c3c9fa883d0367f9a383e72"
+  },
+  "2_Training_Meta_Data_2014_2021.csv": {
+   "path": "<local>/gp_project/data/raw/g2f/2_Training_Meta_Data_2014_2021.csv",
+   "bytes": 80005,
+   "sha256": "0b8ed470f5a8df9a4dcd9744a3d688974d2421e0b92ec3376dc2dfd756cadc14"
+  },
+  "3_Training_Soil_Data_2015_2021.csv": {
+   "path": "<local>/gp_project/data/raw/g2f/3_Training_Soil_Data_2015_2021.csv",
+   "bytes": 23184,
+   "sha256": "21429e3c5867a879fb9e3814c24aa78ef93504cb1c193b0d3e0d8a900b5ddafa"
+  },
+  "4_Training_Weather_Data_2014_2021.csv": {
+   "path": "<local>/gp_project/data/raw/g2f/4_Training_Weather_Data_2014_2021.csv",
+   "bytes": 8326135,
+   "sha256": "ed53f534cf813fd821e82e1b791256ef41d350624a16155cc0c3c67154e404f2"
+  },
+  "5_Genotype_Data_All_2014_2025_Hybrids.vcf": {
+   "path": "<local>/gp_project/data/raw/g2f/5_Genotype_Data_All_2014_2025_Hybrids.vcf",
+   "bytes": 57432657,
+   "sha256": "28f2e8c6c933539af4dfdd966df77f773dfdc925e6f3235ecb20d52b92acce6c"
+  },
+  "6_Training_EC_Data_2014_2021.csv": {
+   "path": "<local>/gp_project/data/raw/g2f/6_Training_EC_Data_2014_2021.csv",
+   "bytes": 1646754,
+   "sha256": "1c2d0b9a518ba2183acaa50915e4a3a378f2e2344be582a67ee457113ef7faa2"
+  }
+ },
+ "common": {
+  "trait_primary": "Yield_Mg_ha",
+  "unit_of_evaluation": "hybrid mean within environment (average of plots of the same Hybrid in the same Env)",
+  "forward_year_splits": [
+   {
+    "train_years": [
+     2014,
+     2015,
+     2016,
+     2017,
+     2018
+    ],
+    "test_year": 2019
+   },
+   {
+    "train_years": [
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019
+    ],
+    "test_year": 2020
+   },
+   {
+    "train_years": [
+     2014,
+     2015,
+     2016,
+     2017,
+     2018,
+     2019,
+     2020
+    ],
+    "test_year": 2021
+   }
+  ],
+  "test_env_inclusion": "Env in test year with >=30 genotyped hybrids having yield",
+  "primary_metric": "within-environment Pearson r between predicted and observed hybrid means, averaged with equal weight over all test envs pooled across the three test years",
+  "secondary_metrics": [
+   "within-env Spearman",
+   "top-10% overlap within env",
+   "same metrics restricted to hybrids never phenotyped in training years (new hybrids)"
+  ],
+  "uncertainty": "paired bootstrap over test environments, 2000 resamples, seed 20260928; 95% percentile CI of the model difference",
+  "genotype_processing": "2,425 SNPs from 5_Genotype_Data_All_2014_2025_Hybrids.vcf coded 0/1/2 (alt dosage), MAF>=0.05 among G2F hybrids, missing -> marker mean; PCA fitted on all genotyped hybrids (no phenotypes used); K=30 PCs for interaction terms",
+  "response_centering": "training response = hybrid-mean yield minus env mean (env main effects cannot affect within-env r)",
+  "model_class": "ridge regression; features standardized on training data; penalty chosen from log grid 10^-2..10^5 by holding out the LAST training year as validation, then refit on all training years; no information from the test year is used anywhere except weather of the test environment (weather is treated as known, CV0-style)",
+  "gdd": "daily GDD = max(0, (min(Tmax,30)+max(Tmin,10))/2 - 10) using T2M_MAX/T2M_MIN from 4_Training_Weather_Data; accumulated from env median planting date",
+  "windows_relative_to_silking_gdd": {
+   "W1_pre": [
+    -400,
+    -50
+   ],
+   "W2_flowering": [
+    -50,
+    150
+   ],
+   "W3_grainfill": [
+    150,
+    750
+   ]
+  },
+  "window_variables": [
+   "mean T2M_MAX",
+   "mean T2M_MIN",
+   "mean VPD (kPa) from T2M and RH2M via Tetens",
+   "sum PRECTOTCORR",
+   "mean ALLSKY_SFC_SW_DWN",
+   "mean GWETROOT",
+   "count days T2M_MAX>32C"
+  ],
+  "n_ec": 21
+ },
+ "A": {
+  "hypothesis": "Aligning environmental exposure to each hybrid's own (genomically predicted) silking time adds predictive information for yield in new years beyond environment-level alignment and beyond a linear maturity x environment interaction.",
+  "A1_detectability": {
+   "what": "genotype-specific EC_ij aligned at OBSERVED silking (hybrid mean silking GDD within env); within-environment variance share = mean within-env variance / total variance, per EC",
+   "pass": ">=2 of 21 ECs with within-env share >=0.10",
+   "no_go": "all 21 ECs <0.05",
+   "marginal": "otherwise (continue, flagged)"
+  },
+  "A2_phenology_predictability": {
+   "what": "ridge on SNPs predicts hybrid silking GDD (target = hybrid mean of plot-level silking GDD over training envs); evaluate within-env Pearson r with observed silking GDD in each test env",
+   "pass": "median r over test envs >= 0.6",
+   "fail_action": "A3 still runs; flag that predicted alignment is noisy"
+  },
+  "A3_models": {
+   "M0": "SNP main effects + (PC1..30 x EC_env) where EC_env uses windows anchored at the env-level anchor = mean predicted silking GDD of the hybrids in that env",
+   "M0plus": "M0 + predicted maturity (z) x EC_env (21 terms)",
+   "M1plus": "M0plus + dEC_ij main (21) + (PC1..30 x dEC_ij), dEC_ij = EC_ij(windows anchored at hybrid's predicted silking GDD) - EC_env; in training years predicted maturity = in-sample genomic prediction from the same training fit",
+   "M1shuffle": "as M1plus but predicted maturity permuted among hybrids within each env before computing EC_ij (10 permutation replicates, seeds 1..10; report mean)",
+   "M1oracle": "as M1plus but EC_ij anchored at OBSERVED hybrid-mean silking in both train and test (upper bound; uses test-year phenotype, flagged as leakage by construction)"
+  },
+  "A3_decision": {
+   "GO": "mean r(M1plus) - r(M0plus) >= 0.01 AND bootstrap CI lower bound > 0 AND r(M1plus) - r(M1shuffle) CI lower bound > 0",
+   "WEAK_GO": "CI lower bound > 0 for M1plus - M0plus but point estimate < 0.01 (and beats M1shuffle)",
+   "NO_GO": "CI of M1plus - M0plus includes 0 or is negative, OR oracle headroom r(M1oracle) - r(M0plus) < 0.01",
+   "note": "A1 no_go overrides to NO_GO on G2F; conclusions apply to G2F only (narrow within-env maturity range, median within-env silking SD about 3 days)"
+  }
+ },
+ "B": {
+  "hypothesis": "A genome-inferred 'adaptive environment' learned from georeferenced landraces carries information about G2F hybrids' reaction to trial temperature beyond population structure, and improves forward-year prediction.",
+  "B0_data": {
+   "requirement": "public genotype matrix of georeferenced Mexican/American maize landraces (e.g., CIMMYT SeeD GBS, B73 v4 coordinates or liftable) + origin environment (He et al. 2024 GitHub Mexi_landrace_env.csv, passport coordinates + WorldClim, or equivalent published table)",
+   "blocked": "if not obtainable after requesting network access where needed -> BLOCKED (not NO_GO); no simulated or substitute data allowed"
+  },
+  "B1_overlap": {
+   "pass": ">=300 SNPs matched by v4 chromosome+position and alleles (allowing strand flip for non-palindromic SNPs), MAF>=0.05 in both panels",
+   "fail": "NO_GO on G2F"
+  },
+  "B2_gea_signal": {
+   "targets": [
+    "elevation_m",
+    "temperature (growing-season mean if available, else annual mean bio1)",
+    "annual precipitation (bio12)"
+   ],
+   "model": "ridge on overlap SNPs; spatially blocked CV = GroupKFold(5) with groups = 2x2 degree lat/lon cells",
+   "pass": "Pearson r >= 0.4 for at least one pre-declared target",
+   "fail": "NO_GO"
+  },
+  "B3_transfer": {
+   "score": "projection of each G2F hybrid with the full-landrace ridge model for the chosen target (temperature if it passed B2, else the best-passing target)",
+   "domain_pass": ">=50% of G2F hybrid scores inside the 1-99% quantile range of landrace cross-validated predictions",
+   "structure_pass": "R^2 of score ~ tester (Hybrid_Parent2) dummies + top 10 G2F PCs <= 0.8",
+   "fail": "NO_GO if either fails"
+  },
+  "B4_gxe_association": {
+   "slopes": "for hybrids with >=5 envs in 2014-2018, random-regression/empirical-Bayes-shrunk slope of hybrid-mean yield on env temperature (env mean T2M_MAX in the env-level W2 flowering window as defined in common)",
+   "statistic": "partial Pearson r between B3 score and slope controlling for tester dummies + top 10 G2F PCs",
+   "null_primary": "1,000 same-size random projections: landrace ridge coefficients permuted across the overlap SNPs, re-projected, statistic recomputed",
+   "null_secondary": "1,000 permutations of landrace environment labels (retrain + reproject), reported if compute allows",
+   "pass": "|partial r| >= 0.1 AND two-sided empirical p < 0.05 against primary null",
+   "fail": "NO_GO (B5 not run)"
+  },
+  "B5_forward_gain": {
+   "run_only_if": "B4 pass",
+   "model": "M0plus from A + (score_z x EC_env) 21 terms; same splits/metric/bootstrap as A",
+   "GO": "gain over M0plus >= 0.01 with CI lower bound > 0 AND beats the coefficient-permuted-score control",
+   "WEAK_GO": "CI lower > 0 but < 0.01",
+   "NO_GO": "otherwise"
+  }
+ },
+ "reporting_rules": [
+  "report every gate outcome including failures",
+  "no threshold edits after results",
+  "any departure from this spec (e.g., different landrace source, fewer permutations) must be listed as a deviation with reason",
+  "results frozen as JSON with sha256 of inputs and outputs"
+ ]
+}

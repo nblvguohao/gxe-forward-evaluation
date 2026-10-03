@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpverdict-audit"
+version = "0.1.0"
+description = "Tuning audit for genomic prediction across environments: was the model chosen on the reported data, by an admissible criterion, and does its lead survive?"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Guohao Lv"}, {name = "Lichuan Gu"}]
+dependencies = ["numpy>=1.22", "pandas>=1.4"]
+
+[project.scripts]
+gpverdict-audit = "gpverdict_audit.cli:main"
+
+[tool.setuptools]
+packages = ["gpverdict_audit"]

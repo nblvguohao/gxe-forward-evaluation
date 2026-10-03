@@ -1,0 +1,104 @@
+{
+ "title": "Round 10 (v10): final confirmation — (G) unseal G2F 2024 as a third external year; (W) second-crop forward validation on CIMMYT ESWYT with a same-test-set protocol contrast",
+ "frozen_at_utc": "2026-09-30T01:45:45Z",
+ "status": "FROZEN before any 2024 yield value is read (only file headers and row counts were inspected: 7_Testing_Observed_Values.csv = Env,Hybrid,Yield_Mg_ha, 9,486 rows, 23 envs) and before any ESWYT model is fitted (only per-nursery line/env counts were inspected).",
+ "depends_on": {
+  "prereg_v9_sha256": "6ed45e2bd64c88226fe72360e0b8405233cc84b03b1b604330eaa000dd99aa09",
+  "R9_A_results": "e98fb18d-a9db-4503-afdb-bafcd8eee51c (sha256 f946231b...)",
+  "R9_B_results": "753662bf-3a00-4574-af39-415ad08c41d2"
+ },
+ "compute": "amax only, under <server>/egp_gxe; <= 48 threads total; all folds of a setting on one machine",
+ "tuning": {
+  "primary": "P3 (grouped inner CV: leave-one-training-year-out for G2F, leave-one-training-nursery-out for ESWYT)",
+  "reported": "P1 (most recent training year / nursery as validation) and P2 (test-set oracle, audit only)",
+  "grid": [
+   0.01,
+   0.031623,
+   0.1,
+   0.316228,
+   1.0,
+   3.162278,
+   10.0,
+   31.622777,
+   100.0,
+   316.227766,
+   1000.0,
+   3162.27766,
+   10000.0,
+   31622.776602,
+   100000.0,
+   316227.766017,
+   1000000.0,
+   3162277.660168,
+   10000000.0
+  ],
+  "hgb": "learning_rate 0.05, max_leaf_nodes 31, min_samples_leaf 200, random_state 20260928, n_iter in {50,100,200,400,800} by the same inner folds"
+ },
+ "part_G_G2F_2024": {
+  "data": "train = all 2014-2023 plots of the 2025 release; test = <server>/egp_gxe/data/g2f_2025/Testing_data_SEALED/7_Testing_Observed_Values.csv (env x hybrid means); 2024 weather/meta/EC from the same folder; test env inclusion >= 30 genotyped hybrids",
+  "models": "MG_2k, MG_98k (dense dosages built from the repaired 437k inbred VCF as in R9; hybrids whose parents are missing from the VCF are excluded from the 98k contrast only, with coverage reported; if < 80% of 2024 test records are buildable the 98k contrast is reported without a gate), D_noEC(MG_2k), D_full(MG_2k)",
+  "metric": "within-env Pearson over test envs; for the pooled external set EXT3 = 2022 + 2023 (from R9, re-scored from saved per-env predictions, not refit) + 2024",
+  "uncertainty": "env bootstrap stratified by year (2000, seed 20260928) and the per-year signs; year-level uncertainty is acknowledged as not captured by env resampling",
+  "G1_enhancements_external": {
+   "contrasts": [
+    "MG_98k - MG_2k",
+    "D_noEC - MG_2k",
+    "D_full - MG_2k"
+   ],
+   "USEFUL": "pooled EXT3 Delta >= 0.01 with CI lower > 0 AND Delta > 0 in >= 2 of 3 years",
+   "NOT_USEFUL": "otherwise",
+   "family_claim": "C_final_no_external_gain holds if no contrast is USEFUL"
+  },
+  "G2_EC_increment": {
+   "contrast": "D_full - D_noEC",
+   "CONFIRMED": "pooled EXT3 >= 0.005 with CI lower > 0 AND > 0 in >= 2 of 3 years",
+   "NEGLIGIBLE": "pooled CI upper < 0.01",
+   "else": "INCONCLUSIVE"
+  },
+  "G3_window_search_leak": {
+   "procedure": "as R7 H1 (v5 variables/windows)",
+   "setting": "2024 alone and pooled EXT3 (2022-2023 re-scored from R9)",
+   "REPLICATED_EXTERNALLY": "pooled optimism >= 0.05 with CI lower > 0",
+   "else": "NOT_REPLICATED_EXTERNALLY"
+  },
+  "G4_tuning_audit": "descriptive: P2-P3 and P1-P3 per year and pooled for every model"
+ },
+ "part_W_ESWYT": {
+  "data": "<server>/egp_gxe/data/eswyt (Juliana et al. 2020, ESWYT 24-37, line x environment BLUEs of yield; env = nursery x location; 9,110 markers after the das_gxe_go_gate QC; no weather available, so no EC models)",
+  "test_set": "all envs of nurseries 34, 35, 36, 37 with >= 30 genotyped lines",
+  "protocols": {
+   "FORWARD": "for test nursery k, train on nurseries 24..k-1",
+   "INTERNAL_LONO": "for test nursery k, train on all other nurseries 24..37 except k (future nurseries included)"
+  },
+  "models": {
+   "MG": "ridge on marker dosages (record level, env-centred yield)",
+   "D_noEC": "two-stage: MG at its P3 lambda, then HGB on cross-fitted residuals with PC1..30 of the markers as features"
+  },
+  "W1_protocol_overstatement": {
+   "quantity": "[r(D_noEC)-r(MG)]_INTERNAL_LONO - [r(D_noEC)-r(MG)]_FORWARD on the identical test envs",
+   "CONFIRMED": ">= 0.01 with CI lower > 0 (env bootstrap stratified by nursery)"
+  },
+  "W2_forward_gain": {
+   "quantity": "[r(D_noEC)-r(MG)]_FORWARD",
+   "report": "mean, CI, per-nursery signs; USEFUL if >= 0.01 with CI lower > 0 and positive in >= 3 of 4 nurseries"
+  },
+  "W3_baseline_overstatement": {
+   "quantity": "r(MG)_INTERNAL_LONO - r(MG)_FORWARD",
+   "report": "descriptive with CI"
+  },
+  "W4_tuning_audit": "descriptive: P2-P3 and P1-P3 under both protocols"
+ },
+ "paper_level": {
+  "C_THESIS_SUPPORTED": "G1 family claim holds AND W1 CONFIRMED",
+  "C_THESIS_PARTIAL": "exactly one of the two",
+  "C_THESIS_NOT_SUPPORTED": "neither"
+ },
+ "reporting_rules": [
+  "all numbers reported",
+  "no threshold edits after results",
+  "deviations listed",
+  "results frozen as JSON with sha256",
+  "no simulated or substitute data",
+  "2024 data are read only inside part G code paths after this file is frozen"
+ ]
+}

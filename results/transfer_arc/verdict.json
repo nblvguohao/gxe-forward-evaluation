@@ -1,0 +1,35 @@
+{
+ "H1": {
+  "range": "all48",
+  "metric": "spearman",
+  "scope": "all",
+  "N": 118438,
+  "resolution": 0.008717174147157603,
+  "est": 0.0036233434820668034,
+  "se": 0.001961144500737523,
+  "lo": -0.00022042910785752658,
+  "hi": 0.007467116071991133,
+  "tau2": 0.00012734803376070175,
+  "k": 48,
+  "years_positive": 33,
+  "judgement": "tied"
+ },
+ "G2F_descriptive": {
+  "range": "G2F",
+  "metric": "spearman",
+  "scope": "all",
+  "N": 53638,
+  "resolution": 0.01295343549437951,
+  "est": 0.03418115703421337,
+  "se": 0.006520322373901519,
+  "lo": 0.021401560013775685,
+  "hi": 0.046960754054651055,
+  "tau2": 2.6847832377986164e-05,
+  "k": 5,
+  "years_positive": 5,
+  "judgement": "resolved gain"
+ },
+ "outcome": "H1 not resolved, G2F alone a resolved gain (descriptive)",
+ "lodo_min": 0.0016233292124411048,
+ "lodo_max": 0.005558518592053349
+}

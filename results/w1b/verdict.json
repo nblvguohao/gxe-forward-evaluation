@@ -1,0 +1,11 @@
+{
+ "F2024m": {
+  "own_closer_to_tstar": true,
+  "own_t_smaller": true
+ },
+ "F2022m": {
+  "own_closer_to_tstar": true,
+  "own_t_smaller": true
+ },
+ "supported": true
+}

@@ -1,0 +1,108 @@
+{
+ "decisions": {
+  "H2": {
+   "contrast": "ol3 - ol1",
+   "GO": false,
+   "est": 0.011516882894298834,
+   "p": 0.0012066228823748614,
+   "holm_level": 0.975,
+   "ci": [
+    0.003542986885088818,
+    0.01949077890350885
+   ],
+   "resolution": 0.026578871697687526,
+   "N": 12740,
+   "lodo": {
+    "G2F": 0.014907913749927598,
+    "NUST": 0.007644650603905242
+   },
+   "single_dataset": {
+    "G2F": 0.007644650603905242,
+    "NUST": 0.014907913749927598
+   },
+   "k": 18
+  },
+  "H1": {
+   "contrast": "ol2 - ol1",
+   "GO": false,
+   "est": 0.012674712330421844,
+   "p": 0.13628328245836707,
+   "holm_level": 0.95,
+   "ci": [
+    -0.004000270005178632,
+    0.02934969466602232
+   ],
+   "resolution": 0.026578871697687526,
+   "N": 12740,
+   "lodo": {
+    "G2F": 0.013018400054714774,
+    "NUST": 0.013647708192437933
+   },
+   "single_dataset": {
+    "G2F": 0.013647708192437933,
+    "NUST": 0.013018400054714774
+   },
+   "k": 18
+  }
+ },
+ "consistency": {
+  "median": 1.0,
+  "min": 0.9999999999999998,
+  "bench_missing": 0,
+  "n_env": 305,
+  "pass": true
+ },
+ "units": [
+  "G2F_2016",
+  "G2F_2018",
+  "G2F_2020",
+  "G2F_2022",
+  "G2F_2024",
+  "NUST_2005",
+  "NUST_2006",
+  "NUST_2007",
+  "NUST_2008",
+  "NUST_2011",
+  "NUST_2012",
+  "NUST_2013",
+  "NUST_2014",
+  "NUST_2015",
+  "NUST_2016",
+  "NUST_2017",
+  "NUST_2019",
+  "NUST_2020",
+  "MU_SOY_2020"
+ ],
+ "skipped": [
+  "NUST_2009",
+  "NUST_2010",
+  "URSN_1999",
+  "URSN_2000",
+  "URSN_2001",
+  "URSN_2002",
+  "URSN_2003",
+  "URSN_2004",
+  "URSN_2008",
+  "URSN_2009",
+  "URSN_2014",
+  "URSN_2015",
+  "URSN_2019",
+  "ESWYT_2006",
+  "ESWYT_2007",
+  "ESWYT_2008",
+  "ESWYT_2009",
+  "ESWYT_2010",
+  "ESWYT_2011",
+  "ESWYT_2012",
+  "ESWYT_2013",
+  "ESWYT_2014",
+  "ESWYT_2015",
+  "ESWYT_2016",
+  "ESWYT_2017",
+  "GEM_IA_2016",
+  "GEM_IA_2017",
+  "GEM_IA_2018",
+  "GEM_IA_2019"
+ ],
+ "note": "descriptive headroom check; GO = worth a confirmatory pre-registration on data not used here"
+}
