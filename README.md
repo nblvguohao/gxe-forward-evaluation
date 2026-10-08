@@ -3,7 +3,7 @@
 Code and analysis plans for a forward evaluation of genomic prediction under genotype-by-environment interaction.
 
 Lv G, Gu L. *Which information improves within-trial ranking in a new year? A forward evaluation of genomic prediction under
-genotype-by-environment interaction in public maize, wheat and soybean trials.* Submitted to Theoretical and Applied Genetics.
+genotype-by-environment interaction in public maize, wheat and soybean trials.* Manuscript in preparation; not yet peer reviewed or published.
 
 ## Contents
 
