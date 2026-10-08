@@ -16,7 +16,7 @@ Lv G, Gu L. *Genomic prediction for selection in a new year: a forward benchmark
   per-cell predictions. `python3 scripts/check_sequel_sources.py` checks the results reported in the main text (and the
   supplementary numbers it lists) against these tables, row by row (run from the repository root; exit code 1 if any row
   fails). `python3 scripts/supplement_tables.py` rebuilds the supplementary tables that are generated from these tables
-  (Tables S3, S5-S7, S10, S11, S13-S15, S17-S19) as Markdown files in `results/supplement_tables/`.
+  (Tables S3, S5-S7, S10, S11, S13-S15, S17-S20) as Markdown files in `results/supplement_tables/`.
 - `results/figdata_tcj/`: source data of the figures; `scripts/make_figures_tcj.py` draws them (panel 1a also needs the
   benchmark cells built from the public data).
 - `results/c_paper/amax_runs/*/code/`: code of the separately planned G2F analysis with external years (Section 3.5).
@@ -24,7 +24,7 @@ Lv G, Gu L. *Genomic prediction for selection in a new year: a forward benchmark
   lists the commit hash and sha256 of each original.
 
 Scripts that pool or rescore stored tables (for example `floor_sensitivity.py`, `revision_tcj_stats.py` except its new-hybrid
-part, `resolution_scale_facts.py`, `mde_ties.py`, `network_boundary_seeds.py`, `supplement_tables.py`) run from the files in this
+part, `resolution_scale_facts.py`, `mde_ties.py`, `network_boundary_seeds.py`, `threshold_sensitivity.py`, `supplement_tables.py`) run from the files in this
 repository. Scripts
 that fit models or score per-cell predictions need the public data below. Phenotypes, genotypes, per-cell predictions and
 figures are not included; per-cell predictions can be regenerated with the scripts from the public data, or obtained from

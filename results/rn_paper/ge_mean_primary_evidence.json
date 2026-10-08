@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "record_name": "TAG Paper A equal-weight genotype-environment primary evidence",
+  "record_name": "Paper A equal-weight genotype-environment primary evidence",
   "created_utc": "2026-08-26T04:20:23.124162+00:00",
   "analysis_unit": "one unadjusted mean per genotype-environment cell throughout fitting and evaluation",
   "bootstrap_unit": "held-out environment",

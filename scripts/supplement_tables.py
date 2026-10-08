@@ -252,6 +252,21 @@ def implied():
     return S["se_over_scale"].min(), S["se_over_scale"].median(), S["se_over_scale"].max(), len(S)
 
 
+def table_s20():
+    V = pd.read_csv(R / "threshold_sensitivity/verdicts.csv")
+    rows = ["| Contrast | Target years | Estimate [interval] | Level | c = 2: c/√N | Verdict | c = 3: c/√N | Verdict | c = 4: c/√N | Verdict |",
+            "|---|---|---|---|---|---|---|---|---|---|"]
+    for r in V.itertuples():
+        rows.append(f"| {r.contrast} | {r.target_years} | {f(r.est)} {ci(r.lo, r.hi)} | {100 * r.level:.4g} % | {r.resolution_c2:.4f} | {r.verdict_c2} | "
+                    f"{r.resolution_c3:.4f} | {r.verdict_c3} | {r.resolution_c4:.4f} | {r.verdict_c4} |")
+    Y = pd.read_csv(R / "threshold_sensitivity/per_year.csv")
+    yrows = ["| Dataset | Target years | Cells per target year (min–max) | 3/√N of one target year: min / median / max |", "|---|---|---|---|"]
+    for r in Y.itertuples():
+        yrows.append(f"| {r.dataset} | {r.target_years} | {r.cells_min:,}–{r.cells_max:,} | {r.threshold_min:.3f} / {r.threshold_median:.3f} / {r.threshold_max:.3f} |")
+    changed = int((V.verdict_c2 != V.verdict_c3).sum()), int((V.verdict_c4 != V.verdict_c3).sum())
+    return "\n".join(rows), "\n".join(yrows), changed
+
+
 def floor_no_floor_sentence():
     fv = pd.read_csv(R / "revision_tcj/floor_variants.csv").set_index("fraction")
     return (" Without any floor, after dropping the target years whose standard error is zero "
@@ -281,6 +296,7 @@ def main(out):
         "S17_clac_by_year": table_s17(),
         "S18_across_environment_metric": table_s18(),
         "S19_value_of_phenotypes": table_s19(),
+        "S20_threshold_constant": "\n\n".join(table_s20()[:2]),
     }
     for name, body in tables.items():
         (out / f"{name}.md").write_text(f"# Table {name.split('_')[0]}\n\n{body}\n")

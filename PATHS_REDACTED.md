@@ -23,8 +23,9 @@ for pre-registration files they match the checksums recorded at the time of regi
 | results/c_paper/workspace/prereg/prereg_v10_final_confirmation.json | dfc8e990551241c72d04e3d74f2526dca52209d677884bbcd88edfb6644e015b |
 | results/c_paper/workspace/prereg/prereg_v2_remediation.json | 02505e00099d87e16166009357a33975a24fa225b7e09d42a5708a11167bf990 |
 | results/c_paper/workspace/prereg/prereg_v9_mainline_external.json | 6ed45e2bd64c88226fe72360e0b8405233cc84b03b1b604330eaa000dd99aa09 |
+| results/rn_paper/ge_mean_primary_evidence.json | b066851d3300cc028c06c0609cc9cc3b2901ee12caac9801ada19c79d734f8a9 |
 | scripts/build_g2f.py | 076c134d4679d483d85300cf9982ae9be13d95cd14ad26ec83162968bdd24073 |
-| scripts/check_sequel_sources.py | 9c7d89c35673f823e66dd176daef2f6e48becb6c87f348adb7381512e9e3edaf |
+| scripts/check_sequel_sources.py | 251ac936ebdb27eacb44f8ea99b21ed6c5fe0928ad6e4d397bd6617af5117a91 |
 | scripts/clac_decomp/chain.sh | d12fc7b5bb3ee83fd253e5ea918f27d4c9220defaa3eafb1d68b954b7eb751f3 |
 | scripts/env_definition_baselines.py | 1996a2e798c33145c6f59c643e36f24d1f00e8bdeca6ba7422ade04f8ce4e803 |
 | scripts/env_definition_facts.py | 6299b6a53489f76e3d4b12ee4bb1f18f09999ebf12eba5461b72c1261c950628 |

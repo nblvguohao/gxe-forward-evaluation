@@ -1,4 +1,4 @@
-"""RA §2.3 (with the 2026-09-30 addendum): Fernandes et al. 2024 LightGBM G(A)+E, rebuilt from the TAG repository's
+"""RA §2.3 (with the 2026-09-30 addendum): Fernandes et al. 2024 LightGBM G(A)+E, rebuilt from the Fernandes et al. (2024) repository's
 own functions (third_party/Maize_GxE_Prediction/src/preprocessing.py, imported unmodified) and settings
 (create_datasets.py, run_g_or_gxe_model.py: EC SVD 15, lag-2 yield features, lat/lon bins, weather x latitude terms,
 train-mean imputation; G features = additive kinship rows, SVD 100 on non-lag features, LightGBM max_depth=3,

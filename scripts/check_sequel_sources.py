@@ -79,7 +79,7 @@ for sc, est, lo, hi in (("F2024m", "+0.170", "+0.068", "+0.263"), ("F2022m", "+0
     add("M6", f"GE-BiFormer own - fair, {sc}", "MAIN", "a1/summary.csv", "delta", est, csv_row("a1/summary.csv", c, "delta"))
     add("M6", "  CI low", "MAIN", "a1/summary.csv", "ci2_lo", lo, csv_row("a1/summary.csv", c, "ci2_lo"))
     add("M6", "  CI high", "MAIN", "a1/summary.csv", "ci2_hi", hi, csv_row("a1/summary.csv", c, "ci2_hi"))
-# (TAG-draft-only rows M7, M8 removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
+# (earlier-draft-only rows M7, M8 removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 s48 = "summary48/pooled.csv"
 for item, est, lo, hi in (("Oracle", "+0.019", "+0.010", "+0.027"), ("R_STK_FW", "-0.002", "-0.012", "+0.007"),
                           ("rn_ridge", "-0.020", "-0.044", "+0.005"), ("gxe_gbm", "-0.036", "-0.072", "-0.000"),
@@ -196,7 +196,7 @@ for sc, own, fair in (("F2024m", "0.078", "0.162"), ("F2022m", "0.216", "0.274")
     add("M10", f"Table 2 level: GEFormer fair, {sc}", "MAIN", f, "mean (spearman, GEFormer_fair)", fair, csv_row(f, {"metric": "spearman", "method": "GEFormer_fair"}, "mean"))
 
 
-# (TAG-draft-only rows M10 (GE-BiFormer levels) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
+# (earlier-draft-only rows M10 (GE-BiFormer levels) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 
 
 def gef_res(sc):
@@ -208,7 +208,7 @@ def gef_res(sc):
 
 add("M10", "GEFormer resolution F2024m (3/sqrt cells)", "MAIN", "e1/geformer_rerun_vs_gate2.csv", "cells", "0.031", gef_res("F2024m"))
 add("M10", "GEFormer resolution F2022m", "MAIN", "e1/geformer_rerun_vs_gate2.csv", "cells", "0.028", gef_res("F2022m"))
-# (TAG-draft-only row M10 (phi) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
+# (earlier-draft-only row M10 (phi) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 for item, est, lo, hi in (("reml", "-0.012", "-0.019", "-0.006"), ("gbm", "-0.041", "-0.058", "-0.024"), ("mlp", "-0.089", "-0.110", "-0.067"),
                           ("R_CV", "-0.010", "-0.019", "-0.001")):
     c = {"item": item, "metric": "spearman", "scope": "all48"}
@@ -217,7 +217,7 @@ for item, est, lo, hi in (("reml", "-0.012", "-0.019", "-0.006"), ("gbm", "-0.04
     add("M9", "  CI high", "MAIN", s48, "hi", hi, csv_row(s48, c, "hi"))
 
 
-# (TAG-draft-only rows A7 (pick counts) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
+# (earlier-draft-only rows A7 (pick counts) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 sv, s2v, hv, ov, xv = ("headroom_sparse/verdict.json", "headroom_sparse2/verdict.json", "holdout_ib/verdict.json",
                        "headroom_oldlines/verdict.json", "headroom_secondary/verdict.json")
 add("A2", "  M2-M1 CI low", "A", sv, "main_m2_m1.lo", "-0.0029", js(sv, "main_m2_m1", "lo"))
@@ -692,10 +692,30 @@ def hk_not_wider(root):
 
 add("D12", "Section 2.6: contrasts (>= 2 years) whose Hartung-Knapp interval is not wider than DL ('wider for every contrast')",
     "MAIN", HKS, "count hk width <= dl width", "0", hk_not_wider)
+for f, v in ((0.25, "3.9"), (0.5, "2.9")):   # cover letter
+    add("D12", f"Cover letter: phenotype value / GxE increment on the same cells, {f}", "MAIN", SVP, "ratio", v,
+        lambda root, f=f: sv(f, "all", "m0-ref", "all", "est")(root) / sv(f, "all", "m1-m0", "all", "est")(root))
+TA = "transfer_arc/pooled.csv"
+for col, v in (("est", "-0.006"), ("lo", "-0.032"), ("hi", "+0.021"), ("resolution", "0.036"), ("k", "4")):   # Section 4.2
+    add("D12", f"Kernel transfer, GEM_IA ({col})", "MAIN", TA, col, v, csv_row(TA, {"range": "GEM_IA", "metric": "spearman", "scope": "all"}, col))
 
 def decimals(s):
     s = s.split()[0].lstrip("<=+ ")
     return len(s.split(".")[1]) if "." in s else 0
+
+
+# ---------------- D13: v14e (2026-10-08): threshold constant and single-year thresholds (results/threshold_sensitivity; Table S20, Section 4.3)
+TS, TY = "threshold_sensitivity/verdicts.csv", "threshold_sensitivity/per_year.csv"
+add("D13", "Section 4.3: pooled contrasts re-judged", "MAIN", TS, "rows", "31", lambda root: float(len(pd.read_csv(root / TS))))
+for c in (2, 4):
+    add("D13", f"Section 4.3: verdicts changed with constant {c} (vs 3)", "MAIN", TS, f"verdict_c{c} != verdict_c3", "0",
+        lambda root, c=c: float((pd.read_csv(root / TS)[f"verdict_c{c}"] != pd.read_csv(root / TS)["verdict_c3"]).sum()))
+add("D13", "Section 4.3: constant 3 reproduces the stored verdicts", "MAIN", TS, "verdict_c3 == dl_verdict", "31",
+    lambda root: float((pd.read_csv(root / TS)["verdict_c3"].values == pd.read_csv(root / "revision_tcj/hk_sensitivity.csv")["dl_verdict"].values).sum()))
+for d, col, v in (("G2F", "threshold_min", "0.025"), ("G2F", "threshold_max", "0.035"), ("NUST", "threshold_min", "0.051"), ("NUST", "threshold_max", "0.092")):
+    add("D13", f"Section 4.3: single-year 3/sqrt(N), {d} {col}", "MAIN", TY, col, v, csv_row(TY, {"dataset": d}, col))
+add("D13", "Section 4.3: smallest multiple among the other positive findings (FW, March forecasts)", "MAIN", RN, "preseason ratio", "1.2",
+    lambda root: [r for r in rows if r[0] == "D7" and "preseason" in r[1]][0][6](root))
 
 
 def main():
