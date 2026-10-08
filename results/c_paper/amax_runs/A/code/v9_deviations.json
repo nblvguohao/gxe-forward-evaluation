@@ -1,0 +1,13 @@
+[
+ "[population] H9a/H9b use every hybrid with 2k genotypes (the v8 Q2 population); R8 Q1 ran S4 on the Lima common population, so the S4 test-env set can differ from that run.",
+ "[phenology] The predicted-maturity ridge keeps the round-1 grid; its lambda is chosen once per outer fold on the P1 validation fold (the training year nearest the test year; for EXT the last training year) and is held fixed across protocols, as in v7/v8.",
+ "[inner folds] P3 inner folds reuse the outer-fold feature construction (record-weighted SNP standardisation, EC anchors from the outer phenology model), as in v7/v8; no test-env data enters.",
+ "[D] Stage-2 residuals are cross-fitted over the P3 inner groups, with nested cross-fitting for the inner n_iter selection (as v8). Stage 1 is MG_2k at its P3 lambda in every protocol, and P1/P2 choose only n_iter (audit only).",
+ "[D features] D_noEC uses PC1..30 of the 2k set and predicted maturity; D_full adds the 21 round-1 EC_env variables, anchored at the env mean predicted maturity of the records (raw values), as in v8.",
+ "[multiplicity] Per-hypothesis p = max over S4 and EXT_pooled of the one-sided env-bootstrap p (intersection-union); Holm is applied over H9a and H9b only, and the prereg's Holm across H9a-H9d is left to the merge with track B.",
+ "[EXT_pooled] Bootstrap resamples the pooled 2022 + 2023 test envs without stratifying by year.",
+ "[S4] Test cells with no env meeting the >= 30 genotyped-hybrid rule are skipped (prereg) and listed in folds.",
+ "[CERIS secondary] Uses the R7 H1 procedure with v5 G2F variables and windows. In each EXT fold, nested = training envs and leaky = training + included test envs; env-mean OLS; pooled over the EXT_2022 and EXT_2023 test envs.",
+ "[compute] Every fold of every setting is computed on amax (x86_64, egp311 env) by 3 processes x 8 threads, from one data cache built from the 2025 release (sha256 recorded).",
+ "[overall_verdict] Mapping declared before the summary: H9a CONFIRMED -> GO; H9a rule met in exactly one of S4/EXT_pooled -> WEAK_GO; neither -> NO_GO; H9b is reported separately."
+]

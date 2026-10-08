@@ -1,0 +1,4 @@
+[
+ "[POST-HOC data defect, found after the primary summary] The released 2024 weather has T2M_MAX, T2M_MIN, T2M, RH2M and PRECTOTCORR missing on 2024-07-12..14 in all 23 envs, and GWETROOT missing from 2024-07-02 on; the training weather has none. Under the unchanged R9 pipeline these gaps make every 2024 weather window after 2024-07-11 undefined. The primary gates are reported as run. D_full (G1 D_full - MG_2k, G2) and the 2024 CERIS part of G3 (only 2 of 22 envs usable) rest on defective inputs; MG_2k and D_noEC are unaffected.",
+ "[POST-HOC sensitivity] The 2024 fold was refit with only the 3-day interior gap of those five variables linearly interpolated within each env (GWETROOT left missing, no substitute variable), using the same code and summariser; 2022/2023 are unchanged. Its G1-G4 results are reported beside the primary ones and do not replace them."
+]

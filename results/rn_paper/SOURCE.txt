@@ -1,0 +1,1 @@
+source: https://github.com/nblvguohao/kernel-gated-reaction-norm commit 000fc53e810b6a57b8ef20bf3cb59da0a9fd987e (2026-08-26 16:30:51 +0800); copied 2026-09-30 by the sequel-integration session with user permission

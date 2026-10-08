@@ -1,0 +1,107 @@
+{
+ "by_dataset": [
+  {
+   "dataset": "ESWYT",
+   "environments": 451,
+   "cells": 22323,
+   "n_min": 47,
+   "n_median": 50.0,
+   "n_max": 50,
+   "ratio_unequal_sizes": 1.000112446650636,
+   "mean_rho_cell_reml": 0.07731709963887332,
+   "fhp_factor": 1.0234083544580672,
+   "sd_over_inv_sqrt_n_min": 1.0555651203868008,
+   "sd_over_inv_sqrt_n_max": 1.0577220271843717
+  },
+  {
+   "dataset": "G2F",
+   "environments": 129,
+   "cells": 53638,
+   "n_min": 90,
+   "n_median": 400.0,
+   "n_max": 1148,
+   "ratio_unequal_sizes": 1.075613814577545,
+   "mean_rho_cell_reml": 0.1675874946596935,
+   "fhp_factor": 1.0006471516788038,
+   "sd_over_inv_sqrt_n_min": 1.0019571856044,
+   "sd_over_inv_sqrt_n_max": 1.0177534703332713
+  },
+  {
+   "dataset": "GEM_IA",
+   "environments": 33,
+   "cells": 6942,
+   "n_min": 31,
+   "n_median": 230.0,
+   "n_max": 455,
+   "ratio_unequal_sizes": 1.372728690845375,
+   "mean_rho_cell_reml": 0.11105245138227646,
+   "fhp_factor": 1.016865776924793,
+   "sd_over_inv_sqrt_n_min": 1.0202347506279728,
+   "sd_over_inv_sqrt_n_max": 1.0699548764969142
+  },
+  {
+   "dataset": "MU_SOY",
+   "environments": 11,
+   "cells": 1879,
+   "n_min": 60,
+   "n_median": 147.0,
+   "n_max": 343,
+   "ratio_unequal_sizes": 1.2129996469819828,
+   "mean_rho_cell_reml": 0.23321849259841396,
+   "fhp_factor": 0.9735641908914184,
+   "sd_over_inv_sqrt_n_min": 0.9778498940331514,
+   "sd_over_inv_sqrt_n_max": 0.9988557842198937
+  },
+  {
+   "dataset": "NUST",
+   "environments": 499,
+   "cells": 32740,
+   "n_min": 25,
+   "n_median": 48.0,
+   "n_max": 403,
+   "ratio_unequal_sizes": 1.1784894188651627,
+   "mean_rho_cell_reml": 0.31415025033719435,
+   "fhp_factor": 0.9279550492227313,
+   "sd_over_inv_sqrt_n_min": 0.9314283803268486,
+   "sd_over_inv_sqrt_n_max": 0.9892034062004603
+  },
+  {
+   "dataset": "URSN",
+   "environments": 58,
+   "cells": 916,
+   "n_min": 10,
+   "n_median": 14.0,
+   "n_max": 27,
+   "ratio_unequal_sizes": 1.0310929103308077,
+   "mean_rho_cell_reml": 0.480291178365891,
+   "fhp_factor": 0.7920638133420372,
+   "sd_over_inv_sqrt_n_min": 0.8401105403199455,
+   "sd_over_inv_sqrt_n_max": 0.9466973301248999
+  },
+  {
+   "dataset": "All six datasets",
+   "environments": 1181,
+   "cells": 118438,
+   "n_min": 10,
+   "n_median": 50.0,
+   "n_max": 1148,
+   "ratio_unequal_sizes": 1.4373683257419052,
+   "mean_rho_cell_reml": 0.20942997148680073,
+   "fhp_factor": 0.9844054403536093,
+   "sd_over_inv_sqrt_n_min": 0.8401105403199455,
+   "sd_over_inv_sqrt_n_max": 1.0699548764969142
+  }
+ ],
+ "own_rho_per_environment": {
+  "environments": 1181,
+  "share_outside_20pct": 0.1380186282811177,
+  "min": 0.25526733690554926,
+  "max": 1.1605555612324898
+ },
+ "implied_se_over_scale": {
+  "min": 0.01845365232858797,
+  "median": 1.0465261919038058,
+  "max": 4.882633934002829,
+  "contrasts": 31
+ }
+}

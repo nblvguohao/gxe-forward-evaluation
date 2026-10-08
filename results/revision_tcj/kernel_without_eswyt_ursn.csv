@@ -1,0 +1,2 @@
+analysis,target_years,resolution,est,lo,hi,verdict
+Kernel transfer: cell_arc − cell_reml,25,0.009723106920154595,0.0063921296743866705,0.0004778392744940775,0.012306420074279264,"detectable, below resolution"

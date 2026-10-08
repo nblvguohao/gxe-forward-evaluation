@@ -1,0 +1,59 @@
+{
+ "0": [
+  "ARH2",
+  "IAH1",
+  "IAH1c",
+  "IAH2",
+  "NYS1",
+  "ONH1",
+  "ONH2",
+  "TXH1-Dry",
+  "TXH1-Early",
+  "WIH3"
+ ],
+ "1": [
+  "IAH4",
+  "INH1",
+  "MIH1",
+  "MOH1",
+  "MOH1_1",
+  "MOH1_2",
+  "NYH2",
+  "NYH3",
+  "TXH2",
+  "WIH1"
+ ],
+ "2": [
+  "ARH1",
+  "DEH1",
+  "GAH1",
+  "IAH3",
+  "KSH1",
+  "MNH1",
+  "NEH2",
+  "NEH3",
+  "TXH3"
+ ],
+ "3": [
+  "GAH2",
+  "GEH1",
+  "IAH1b",
+  "ILH1",
+  "MOH2",
+  "NCH1",
+  "SDH1",
+  "TXH4",
+  "WIH2"
+ ],
+ "4": [
+  "COH1",
+  "IAH1a",
+  "NEH1",
+  "NEH4",
+  "NYH1",
+  "OHH1",
+  "SCH1",
+  "TXH1",
+  "TXH1-Late"
+ ]
+}

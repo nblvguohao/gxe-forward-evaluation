@@ -37,3 +37,19 @@ def stratified_unweighted(ye: pd.DataFrame, rng, B: int = 2000) -> dict:
     by = {d: g["d"].to_numpy(float) for d, g in ye.groupby("dataset")}
     bs = [np.mean(np.concatenate([x[rng.integers(0, len(x), len(x))] for x in by.values()])) for _ in range(B)]
     return {"est": float(ye["d"].mean()), "lo": float(np.quantile(bs, 0.025)), "hi": float(np.quantile(bs, 0.975))}
+
+
+def hartung_knapp(ye: pd.DataFrame, level: float = 0.95) -> dict:
+    """Hartung-Knapp(-Sidik-Jonkman) interval around the DerSimonian-Laird estimate: same weights 1/(v + tau2), variance
+    sum w (d - est)^2 / ((k - 1) sum w), t quantile with k - 1 degrees of freedom. Sensitivity analysis only (TCJ revision,
+    2026-10-08); the pre-specified pooling is dersimonian_laird."""
+    from scipy.stats import t as tdist
+    r = dersimonian_laird(ye, level=level)
+    d, v = ye["d"].to_numpy(float), ye["se"].to_numpy(float) ** 2
+    k = len(d)
+    if k < 2:
+        return {**r, "hk_lo": float("nan"), "hk_hi": float("nan"), "hk_se": float("nan")}
+    w = 1 / (v + r["tau2"])
+    se = float(np.sqrt((w * (d - r["est"]) ** 2).sum() / ((k - 1) * w.sum())))
+    q = float(tdist.ppf(1 - (1 - level) / 2, k - 1))
+    return {**r, "hk_se": se, "hk_lo": r["est"] - q * se, "hk_hi": r["est"] + q * se}

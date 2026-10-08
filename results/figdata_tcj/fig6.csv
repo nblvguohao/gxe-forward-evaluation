@@ -1,0 +1,20 @@
+panel,item,quantity,est,lo,hi,resolution,count
+a,"G2F, year out","environment-mean r, leaky − nested",0.126611,0.073793,0.179119,,
+a,"G2F, year out","within-environment r, leaky − nested",-0.001209,,,,
+a,"G2F, location out","environment-mean r, leaky − nested",0.088493,0.037793,0.13918,,
+a,"G2F, location out","within-environment r, leaky − nested",0.000525,,,,
+a,"Wheat, year out","environment-mean r, leaky − nested",0.239235,0.046331,0.437243,,
+a,"Wheat, year out","within-environment r, leaky − nested",0.00143,,,,
+b,Internal split,,0.0195,0.009349,0.029932,0.010471220134724785,
+b,External years,,-0.00611,-0.009973,-0.002182,0.01897556361225881,
+c,Same environments,,0.0186479565650147,0.0100615672685589,0.0272343458614706,0.0087,
+c,Different halves,,-0.0036767624252892,-0.0103804707658485,0.00302694591527,0.0087,
+d,Ridge λ tuned on the test year (within-env. Pearson),,0.030255,0.022956,0.036719,0.01897556361225881,
+d,"GEFormer, own − validation-year choices, 2024",,-0.0839665145789034,-0.1628688687025209,-0.0190839503361504,0.030802055181684867,
+d,"GEFormer, own − validation-year choices, 2022",,-0.0577652032236764,-0.141705642583244,0.0038552452991907,0.027614898390477937,
+d,"GE-BiFormer, own − validation-year choices, 2024",,0.1698448158563872,0.0684344998375563,0.2634444475208882,0.0315109361926175,
+d,"GE-BiFormer, own − validation-year choices, 2022",,0.0206769290400687,-0.1348932783286616,0.1438580882775731,0.029584302657432,
+e,Choose on test data,,,,,,6.0
+e,Train/validation only,,,,,,5.0
+e,Not auditable,,,,,,3.0
+e,No public code,,,,,,3.0

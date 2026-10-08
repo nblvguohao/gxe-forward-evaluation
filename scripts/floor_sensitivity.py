@@ -44,18 +44,12 @@ def verdict(est, lo, hi, res):
     return "tied"
 
 
-def main():
-    OUT.mkdir(parents=True, exist_ok=True)
-    rows = []
+def contrast_inputs():
+    """The 31 primary pooled contrasts of the manuscript: (label, year effects, resolution, level). Order as in Table S10."""
+    out = []
 
     def add(label, ye, res, level=0.95):
-        ye = ye[["dataset", "d", "se"]].reset_index(drop=True)
-        a, b = dersimonian_laird(floor_se(ye), level=level), dersimonian_laird(zero_only(ye), level=level)
-        rows.append({"contrast": label, "target_years": a["k"], "level": level, "resolution": res,
-                     "est_plan": a["est"], "lo_plan": a["lo"], "hi_plan": a["hi"], "verdict_plan": verdict(a["est"], a["lo"], a["hi"], res),
-                     "est_zero_only": b["est"], "lo_zero_only": b["lo"], "hi_zero_only": b["hi"],
-                     "verdict_zero_only": verdict(b["est"], b["lo"], b["hi"], res),
-                     "years_raised_by_plan_floor": int((floor_se(ye)["se"] > ye["se"]).sum()), "years_with_zero_se": int((ye["se"] <= 0).sum())})
+        out.append((label, ye[["dataset", "d", "se"]].reset_index(drop=True), float(res), float(level)))
 
     y = pd.read_csv(R / "summary48/year_effects.csv")
     for item, nm in (("reml", "Two-stage GBLUP"), ("rf", "Random forest"), ("gbm", "Gradient boosting"), ("mlp", "Multilayer perceptron"),
@@ -96,6 +90,19 @@ def main():
     add("Kernel transfer: all six datasets", y, pt["all48"])
     for d in ("G2F", "NUST", "URSN", "ESWYT", "GEM_IA", "MU_SOY"):
         add(f"Kernel transfer: {d}", y[y["dataset"] == d], pt[d])
+    return out
+
+
+def main():
+    OUT.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for label, ye, res, level in contrast_inputs():
+        a, b = dersimonian_laird(floor_se(ye), level=level), dersimonian_laird(zero_only(ye), level=level)
+        rows.append({"contrast": label, "target_years": a["k"], "level": level, "resolution": res,
+                     "est_plan": a["est"], "lo_plan": a["lo"], "hi_plan": a["hi"], "verdict_plan": verdict(a["est"], a["lo"], a["hi"], res),
+                     "est_zero_only": b["est"], "lo_zero_only": b["lo"], "hi_zero_only": b["hi"],
+                     "verdict_zero_only": verdict(b["est"], b["lo"], b["hi"], res),
+                     "years_raised_by_plan_floor": int((floor_se(ye)["se"] > ye["se"]).sum()), "years_with_zero_se": int((ye["se"] <= 0).sum())})
     T = pd.DataFrame(rows)
     T["verdict_changed"] = T["verdict_plan"] != T["verdict_zero_only"]
     T["abs_change_est"] = (T["est_plan"] - T["est_zero_only"]).abs()
@@ -106,6 +113,7 @@ def main():
     print("verdicts changed:", int(T["verdict_changed"].sum()), "of", len(T), "| largest change in estimate:", round(float(T["abs_change_est"].max()), 4))
 
     # ---- CLAC ablations without the six environments that have no final CLAC prediction
+    vd = json.load(open(R / "clac_decomp/verdict.json"))["verdict"]
     E = pd.read_csv(R / "clac_decomp/per_env.csv")
     assert set(NO_FINAL_CLAC) <= set(E["env"])
     E2 = E[~E["env"].isin(NO_FINAL_CLAC)]

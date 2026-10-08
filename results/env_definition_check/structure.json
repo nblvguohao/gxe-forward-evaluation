@@ -1,0 +1,10 @@
+{
+ "nust_scored_envs": 499,
+ "nust_envs_ge2_trials": 493,
+ "nust_median_trials": 4.0,
+ "nust_trial_share_median": 0.28254742504357355,
+ "ursn_scored_envs": 58,
+ "ursn_check_share_mean": 0.28593488796084865,
+ "ursn_envs_worst_is_check": 47,
+ "ursn_envs_ge12": 53
+}

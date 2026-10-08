@@ -79,13 +79,7 @@ for sc, est, lo, hi in (("F2024m", "+0.170", "+0.068", "+0.263"), ("F2022m", "+0
     add("M6", f"GE-BiFormer own - fair, {sc}", "MAIN", "a1/summary.csv", "delta", est, csv_row("a1/summary.csv", c, "delta"))
     add("M6", "  CI low", "MAIN", "a1/summary.csv", "ci2_lo", lo, csv_row("a1/summary.csv", c, "ci2_lo"))
     add("M6", "  CI high", "MAIN", "a1/summary.csv", "ci2_hi", hi, csv_row("a1/summary.csv", c, "ci2_hi"))
-e1 = "wp4/e1_exact_verdict.json"
-add("M7", "E1-1: pooled-Pearson epoch has larger phi (runs in direction)", "MAIN", e1, "E1_1_phi.in_direction", "18", js(e1, "E1_1_phi", "in_direction"))
-add("M7", "E1-2 exact: scale closer to u* (runs in direction, of 16)", "MAIN", e1, "E1_2_abslog.in_direction", "12", js(e1, "E1_2_abslog", "in_direction"))
-add("M7", "E1-2 exact one-sided p", "MAIN", e1, "E1_2_abslog.p_one_sided", "0.038", js(e1, "E1_2_abslog", "p_one_sided"))
-for sc, want in (("F2024m", "0.077"), ("F2022m", "0.124")):
-    f = f"wp2/case_gate2_{sc}_own.json"
-    add("M8", f"Audit tool A4: pooled-Pearson optimism, GEFormer own {sc}", "MAIN", f, "A4_optimism.optimism", want, js(f, "A4_optimism", "optimism"))
+# (TAG-draft-only rows M7, M8 removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 s48 = "summary48/pooled.csv"
 for item, est, lo, hi in (("Oracle", "+0.019", "+0.010", "+0.027"), ("R_STK_FW", "-0.002", "-0.012", "+0.007"),
                           ("rn_ridge", "-0.020", "-0.044", "+0.005"), ("gxe_gbm", "-0.036", "-0.072", "-0.000"),
@@ -202,16 +196,7 @@ for sc, own, fair in (("F2024m", "0.078", "0.162"), ("F2022m", "0.216", "0.274")
     add("M10", f"Table 2 level: GEFormer fair, {sc}", "MAIN", f, "mean (spearman, GEFormer_fair)", fair, csv_row(f, {"metric": "spearman", "method": "GEFormer_fair"}, "mean"))
 
 
-def a1_level(sc, method):
-    def r(root):
-        d = pd.read_csv(root / "a1/levels.csv")
-        return float(d[(d["scenario"] == sc) & (d["method"] == method)]["within_spearman"].mean())
-    return r
-
-
-for sc, own, fair in (("F2024m", "0.167", "-0.003"), ("F2022m", "0.060", "0.040")):
-    add("M10", f"Table 2 level: GE-BiFormer own, {sc} (mean of 3 seeds)", "MAIN", "a1/levels.csv", "within_spearman", own, a1_level(sc, "GEBiFormer_own"))
-    add("M10", f"Table 2 level: GE-BiFormer fair, {sc}", "MAIN", "a1/levels.csv", "within_spearman", fair, a1_level(sc, "GEBiFormer_fair"))
+# (TAG-draft-only rows M10 (GE-BiFormer levels) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 
 
 def gef_res(sc):
@@ -223,7 +208,7 @@ def gef_res(sc):
 
 add("M10", "GEFormer resolution F2024m (3/sqrt cells)", "MAIN", "e1/geformer_rerun_vs_gate2.csv", "cells", "0.031", gef_res("F2024m"))
 add("M10", "GEFormer resolution F2022m", "MAIN", "e1/geformer_rerun_vs_gate2.csv", "cells", "0.028", gef_res("F2022m"))
-add("M10", "phi of GEFormer own pick, F2024m", "MAIN", "wp2/case_gate2_F2024m_own.json", "A3_source.phi", "0.95", js("wp2/case_gate2_F2024m_own.json", "A3_source", "phi"))
+# (TAG-draft-only row M10 (phi) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 for item, est, lo, hi in (("reml", "-0.012", "-0.019", "-0.006"), ("gbm", "-0.041", "-0.058", "-0.024"), ("mlp", "-0.089", "-0.110", "-0.067"),
                           ("R_CV", "-0.010", "-0.019", "-0.001")):
     c = {"item": item, "metric": "spearman", "scope": "all48"}
@@ -232,15 +217,7 @@ for item, est, lo, hi in (("reml", "-0.012", "-0.019", "-0.006"), ("gbm", "-0.04
     add("M9", "  CI high", "MAIN", s48, "hi", hi, csv_row(s48, c, "hi"))
 
 
-def picks(cls):
-    def r(root):
-        d = pd.read_csv(root / "ideas_diag/oracle_picks.csv")
-        return float(d["class"].isin(cls).sum())
-    return r
-
-
-for cls, n in ((["cell_reml"], "20"), (["nonlinear_2stage"], "15"), (["linear_2stage"], "9"), (["gxe_linear", "gxe_nonlinear"], "4")):
-    add("A7", f"Hindsight pick is {'/'.join(cls)} (years of 48)", "A", "ideas_diag/oracle_picks.csv", "class counts", n, picks(cls))
+# (TAG-draft-only rows A7 (pick counts) removed 2026-10-08: not printed in the TCJ manuscript; their source files are not in the public release.)
 sv, s2v, hv, ov, xv = ("headroom_sparse/verdict.json", "headroom_sparse2/verdict.json", "holdout_ib/verdict.json",
                        "headroom_oldlines/verdict.json", "headroom_secondary/verdict.json")
 add("A2", "  M2-M1 CI low", "A", sv, "main_m2_m1.lo", "-0.0029", js(sv, "main_m2_m1", "lo"))
@@ -384,7 +361,7 @@ add("D3", "  spatial adjustment applied: smallest share of training environments
     decomp_stat(lambda y, p, s, v: 100 * (s["adjustment_successful"] / s["training_environments"]).min()))
 add("D3", "  spatial adjustment applied: largest share (%)", "MAIN", "clac_decomp/spatial_adjustment_counts.csv", "max", "69",
     decomp_stat(lambda y, p, s, v: 100 * (s["adjustment_successful"] / s["training_environments"]).max()))
-add("D3", "  kernel loss / resolution (Table 4)", "MAIN", dv, "est/resolution", "1.75",
+add("D3", "  kernel loss / resolution (Table S12)", "MAIN", dv, "est/resolution", "1.75",
     decomp_stat(lambda y, p, s, v: v["loss_D4_linear_kernel"]["est"] / v["loss_D4_linear_kernel"]["resolution"]))
 
 
@@ -405,7 +382,7 @@ for col, v in (("est", "+0.083"), ("lo", "+0.049"), ("hi", "+0.116")):
     add("D4", f"  G2F selection differential {col}", "MAIN", tp, col, v, csv_row(tp, c, col))
 add("D4", "  G2F target years with a gain (of 5)", "MAIN", tp, "years_positive", "5", csv_row(tp, {"range": "G2F", "metric": "spearman", "scope": "all"}, "years_positive"))
 add("D4", "  target years pooled", "MAIN", tp, "k", "48", csv_row(tp, {"range": "all48", "metric": "spearman", "scope": "all"}, "k"))
-add("D4", "  G2F kernel gain / resolution (Table 4)", "MAIN", tp, "est/resolution", "2.64",
+add("D4", "  G2F kernel gain / resolution (Table S12)", "MAIN", tp, "est/resolution", "2.64",
     lambda root: csv_row(tp, {"range": "G2F", "metric": "spearman", "scope": "all"}, "est")(root) / csv_row(tp, {"range": "G2F", "metric": "spearman", "scope": "all"}, "resolution")(root))
 add("D4", "  control agrees with the benchmark (worst within-environment Spearman)", "MAIN", "transfer_arc/consistency.json", "worst_min", "1.000", js("transfer_arc/consistency.json", "worst_min"))
 
@@ -429,6 +406,52 @@ add("D5", "  cells in the six environments (53,638 - 51,666)", "MAIN", six, "cel
 add("D5", "  loss equal weights: upper Holm limit (just above the resolution)", "MAIN", dv, "ci[1]", "0.015", js(dv, "verdict", "loss_D1_equal_weights", "ci", 1))
 add("D5", "  kernel transfer, all 48 years: estimate / resolution (less than half)", "MAIN", tp, "est/resolution", "0.42",
     lambda root: csv_row(tp, {"range": "all48", "metric": "spearman", "scope": "all"}, "est")(root) / csv_row(tp, {"range": "all48", "metric": "spearman", "scope": "all"}, "resolution")(root))
+
+
+# ---------------- D6: environment definitions of NUST and URSN (post hoc, results/env_definition_check) ----------------
+ST, PV, SV, MF, U12 = ("env_definition_check/" + f for f in ("structure.json", "pooled_by_variant.csv", "sparse_by_variant.csv",
+                                                              "marker_free_reference.csv", "ursn_min12_pooled.csv"))
+for key, v in (("nust_envs_ge2_trials", "493"), ("nust_scored_envs", "499"), ("nust_median_trials", "4"), ("ursn_envs_worst_is_check", "47"),
+               ("ursn_scored_envs", "58"), ("ursn_envs_ge12", "53")):
+    add("D6", f"Structure: {key}", "MAIN", ST, key, v, js(ST, key))
+add("D6", "Structure: NUST trial share of within-env variance (%)", "MAIN", ST, "x100", "28", lambda root: 100 * js(ST, "nust_trial_share_median")(root))
+add("D6", "Structure: URSN check share (%)", "MAIN", ST, "x100", "29", lambda root: 100 * js(ST, "ursn_check_share_mean")(root))
+for var, item, est, lo, hi in (("NUST:detrend / URSN:orig", "reml", "-0.005", "-0.011", "+0.002"), ("NUST:detrend / URSN:nocheck_n3", "reml", "-0.005", "-0.011", "+0.002"),
+                               ("NUST:trial_env / URSN:nocheck_n3", "reml", "-0.011", "-0.018", "-0.004"),
+                               ("NUST:detrend / URSN:orig", "gxe_gbm", "-0.037", "-0.072", "-0.001"), ("NUST:detrend / URSN:nocheck_n3", "gxe_gbm", "-0.036", "-0.079", "+0.007"),
+                               ("NUST:trial_env / URSN:nocheck_n3", "gxe_gbm", "-0.037", "-0.080", "+0.006"),
+                               ("NUST:detrend / URSN:orig", "dl_g", "-0.006", "-0.015", "+0.003"), ("NUST:detrend / URSN:nocheck_n3", "dl_g", "-0.006", "-0.017", "+0.005"),
+                               ("NUST:trial_env / URSN:nocheck_n3", "dl_g", "-0.012", "-0.027", "+0.002")):
+    c = {"variant": var, "item": item}
+    for col, val in (("est", est), ("lo", lo), ("hi", hi)):
+        add("D6", f"Table S11 {var} {item} {col}", "MAIN", PV, col, val, csv_row(PV, c, col))
+for item, est, lo, hi in (("reml", "-0.012", "-0.019", "-0.005"), ("gxe_gbm", "-0.034", "-0.070", "+0.002"), ("dl_g", "-0.014", "-0.026", "-0.001")):
+    for col, val in (("est", est), ("lo", lo), ("hi", hi)):
+        add("D6", f"Table S11 URSN>=12 {item} {col}", "MAIN", U12, col, val, csv_row(U12, {"item": item}, col))
+for f, nv, uv, est, lo, hi in ((0.25, "detrend", "orig", "+0.013", "+0.009", "+0.018"), (0.25, "detrend", "nocheck", "+0.015", "+0.010", "+0.019"),
+                               (0.25, "trial_env", "nocheck", "+0.016", "+0.011", "+0.021"), (0.5, "detrend", "orig", "+0.025", "+0.018", "+0.032"),
+                               (0.5, "detrend", "nocheck", "+0.025", "+0.018", "+0.033"), (0.5, "trial_env", "nocheck", "+0.022", "+0.013", "+0.031")):
+    c = {"fraction": f, "NUST": nv, "URSN": uv}
+    for col, val in (("est", est), ("lo", lo), ("hi", hi)):
+        add("D6", f"Table S11 sparse {f} {nv}/{uv} {col}", "MAIN", SV, col, val, csv_row(SV, c, col))
+add("D6", "Sparse 25%: smallest post hoc estimate (+0.0135)", "MAIN", SV, "est", "+0.0135", csv_row(SV, {"fraction": 0.25, "NUST": "detrend", "URSN": "orig"}, "est"))
+add("D6", "Sparse 25%: largest post hoc estimate (+0.0156)", "MAIN", SV, "est", "+0.0156", csv_row(SV, {"fraction": 0.25, "NUST": "trial_env", "URSN": "nocheck"}, "est"))
+for nv, v in (("detrend", "+0.012"), ("trial_env", "+0.014")):
+    add("D6", f"NUST alone sparse 25% {nv}", "MAIN", SV, "NUST_alone_est", v, csv_row(SV, {"fraction": 0.25, "NUST": nv, "URSN": "nocheck"}, "NUST_alone_est"))
+NU = {"dataset": "NUST", "reference": "location x maturity-group history"}
+for col, v in (("reference_mean", "0.257"), ("cell_reml_mean", "0.343")):
+    add("D6", f"Marker-free NUST {col}", "MAIN", MF, col, v, csv_row(MF, NU, col))
+lib10 = ["reml", "reml_x0.1", "reml_x10", "reml_x100", "ridge_pc20", "rf", "gbm", "knn10", "knn30", "mlp"]
+add("D6", "Marker-free NUST: lowest two-stage mean", "MAIN", MF, "min", "0.209", lambda root: min(csv_row(MF, NU, m + "_mean")(root) for m in lib10))
+add("D6", "Marker-free NUST: highest two-stage mean", "MAIN", MF, "max", "0.302", lambda root: max(csv_row(MF, NU, m + "_mean")(root) for m in lib10))
+add("D6", "Marker-free NUST: two-stage methods below the reference", "MAIN", MF, "count", "4",
+    lambda root: sum(csv_row(MF, NU, m + "_mean")(root) < csv_row(MF, NU, "reference_mean")(root) for m in lib10))
+UR = {"dataset": "URSN", "reference": "check history (baseline)"}
+for col, v in (("reference_mean", "0.440"), ("cell_reml_mean", "0.480")):
+    add("D6", f"Marker-free URSN {col}", "MAIN", MF, col, v, csv_row(MF, UR, col))
+add("D6", "Marker-free URSN: lowest under other tie placements", "MAIN", MF, "reference_mean", "-0.076", csv_row(MF, {"dataset": "URSN", "reference": "check history (baseline_below)"}, "reference_mean"))
+add("D6", "Marker-free URSN: lowest two-stage mean", "MAIN", MF, "min", "0.261", lambda root: min(csv_row(MF, UR, m + "_mean")(root) for m in lib10))
+add("D6", "Marker-free URSN: highest two-stage mean", "MAIN", MF, "max", "0.493", lambda root: max(csv_row(MF, UR, m + "_mean")(root) for m in lib10))
 
 
 def clac_years_positive(root):
@@ -460,6 +483,215 @@ def mg98_minus_2k(root):
 
 add("C7", "98k-marker minus 2k-marker ridge, external years (unweighted mean over environments, within-env Pearson)", "C",
     "amax_runs/trackB/*_selected_per_env.csv", "MG_98k - MG_2k, P3", "-0.005", mg98_minus_2k)
+
+
+# ---------------- D7: TCJ v9 (2026-10-08): basis of 3/sqrt(N) (Section 2.1, Note S2, Table S13) and Table S12 ratios ----------------
+RN = "resolution_note/by_dataset.csv"
+rn = lambda root: pd.read_csv(root / RN)
+rn6 = lambda root: rn(root)[rn(root)["dataset"] != "All six datasets"]
+add("D7", "Unequal environment sizes: largest ratio over the six datasets ('up to 1.37 times')", "MAIN", RN, "max ratio_unequal_sizes", "1.37",
+    lambda root: rn6(root)["ratio_unequal_sizes"].max())
+add("D7", "  smallest ratio (1.00, ESWYT)", "MAIN", RN, "min ratio_unequal_sizes", "1.00", lambda root: rn6(root)["ratio_unequal_sizes"].min())
+add("D7", "Fieller-Hartley-Pearson factor (1-rho^2)sqrt(1.060) at the mean correlation: smallest over datasets", "MAIN", RN, "min fhp_factor", "0.79",
+    lambda root: rn6(root)["fhp_factor"].min())
+add("D7", "  largest", "MAIN", RN, "max fhp_factor", "1.02", lambda root: rn6(root)["fhp_factor"].max())
+add("D7", "SD of one environment's Spearman / (1/sqrt n): largest deviation from 1 over all environments ('within about 20 %')", "MAIN", RN,
+    "max |sd_over_inv_sqrt_n - 1|", "0.16", lambda root: max(1 - rn6(root)["sd_over_inv_sqrt_n_min"].min(), rn6(root)["sd_over_inv_sqrt_n_max"].max() - 1))
+add("D7", "  mean cell_reml within-environment Spearman: smallest (ESWYT)", "MAIN", RN, "min mean_rho_cell_reml", "0.08", lambda root: rn6(root)["mean_rho_cell_reml"].min())
+add("D7", "  mean cell_reml within-environment Spearman: largest (URSN)", "MAIN", RN, "max mean_rho_cell_reml", "0.48", lambda root: rn6(root)["mean_rho_cell_reml"].max())
+IS = "resolution_note/implied_se.csv"
+add("D7", "Implied SE / (1/sqrt N) over the 31 pooled contrasts: smallest", "MAIN", IS, "min", "0.02", lambda root: pd.read_csv(root / IS)["se_over_scale"].min())
+add("D7", "  median", "MAIN", IS, "median", "1.05", lambda root: pd.read_csv(root / IS)["se_over_scale"].median())
+add("D7", "  largest", "MAIN", IS, "max", "4.9", lambda root: pd.read_csv(root / IS)["se_over_scale"].max())
+FT = "floor_sensitivity/table.csv"
+for lab, contrast, v in (("CLAC - cell_reml", "CLAC − cell-level GBLUP", "4.51"), ("Sparse 25 %", "Sparse 25 %: M×E − main-effect GBLUP", "1.81"),
+                         ("Sparse 50 %", "Sparse 50 %: M×E − main-effect GBLUP", "2.49")):
+    add("D7", f"Table S12: {lab}, estimate / resolution", "MAIN", FT, "est_plan/resolution", v,
+        lambda root, c=contrast: csv_row(FT, {"contrast": c}, "est_plan")(root) / csv_row(FT, {"contrast": c}, "resolution")(root))
+for state, v in (("observed", "2.23"), ("inseason", "2.09"), ("preseason", "1.21")):
+    add("D7", f"Table S12: FW vs additive, {state}, estimate / resolution", "MAIN", rp, "estimate/(3/sqrt N)", v,
+        lambda root, st=state: js(rp, "states", st, "fw_vs_additive", "spearman", "estimate")(root)
+        / (3 / js(rp, "states", st, "n_genotype_environment_units")(root) ** 0.5))
+add("D7", "Table S12: GEFormer 2022, estimate / resolution", "MAIN", g22, "delta/(3/sqrt cells)", "1.83",
+    lambda root: csv_row(g22, {"metric": "spearman", "method": "GEFormer_fair"}, "delta")(root) / gef_res("F2022m")(root))
+
+
+# ---------------- D8: TCJ v10 revision (2026-10-08): Hartung-Knapp, per-dataset results, rescoring details ----------------
+HK, PD, WO, ES, CN = ("revision_tcj/" + f for f in ("hk_sensitivity.csv", "per_dataset.csv", "without_eswyt_ursn.csv", "env_shrink.csv", "clac_new_hybrids.json"))
+for c, col, v in (("CLAC ablation, loss: linear kernel", "hk_lo", "-0.018"), ("CLAC ablation, loss: linear kernel", "hk_hi", "+0.063"),
+                  ("Kernel transfer: G2F", "hk_lo", "+0.016"), ("Kernel transfer: G2F", "hk_hi", "+0.052")):
+    add("D8", f"HK {c} {col}", "MAIN", HK, col, v, csv_row(HK, {"contrast": c}, col))
+add("D8", "HK: verdicts changed (two)", "MAIN", HK, "verdict_changed", "2", lambda root: float(pd.read_csv(root / HK)["verdict_changed"].sum()))
+add("D8", "HK: covariate LightGBM tied", "MAIN", HK, "hk_hi>0", "1",
+    lambda root: float(csv_row(HK, {"contrast": "Benchmark: Covariate LightGBM − cell-level GBLUP"}, "hk_hi")(root) > 0))
+for col, v in (("est", "-0.0361"), ("lo", "-0.0717"), ("hi", "-0.0004")):
+    add("D8", f"Covariate LightGBM 4 decimals {col}", "MAIN", "floor_sensitivity/table.csv", col + "_plan", v,
+        csv_row("floor_sensitivity/table.csv", {"contrast": "Benchmark: Covariate LightGBM − cell-level GBLUP"}, col + "_plan"))
+for d, v in (("G2F", "0.0151"), ("NUST", "0.0204")):
+    add("D8", f"Sparse 25% own resolution {d}", "MAIN", PD, "resolution", v, csv_row(PD, {"analysis": "Sparse 25 %: M×E − main-effect GBLUP", "dataset": d}, "resolution"))
+for f, v in (("25", "+0.029"), ("50", "+0.055")):
+    add("D8", f"Sparse {f}% without ESWYT and URSN", "MAIN", WO, "est", v, csv_row(WO, {"analysis": f"Sparse {f} %: M×E − main-effect GBLUP"}, "est"))
+SG = {"analysis": "Benchmark: Stacking on the forward history − cell-level GBLUP", "dataset": "G2F"}
+for col, v in (("est", "+0.037"), ("lo", "+0.006"), ("hi", "+0.068"), ("resolution", "0.0130")):
+    add("D8", f"G2F stacking {col}", "MAIN", PD, col, v, csv_row(PD, SG, col))
+for col, v in (("est", "-0.075"), ("lo", "-0.141"), ("hi", "-0.009")):
+    add("D8", f"GEM_IA stacking {col}", "MAIN", PD, col, v, csv_row(PD, {"analysis": "Benchmark: Stacking on the forward history − cell-level GBLUP", "dataset": "GEM_IA"}, col))
+add("D8", "Stacking: datasets with a resolved gain (G2F only)", "MAIN", PD, "verdict", "1",
+    lambda root: float((pd.read_csv(root / PD).query("analysis == 'Benchmark: Stacking on the forward history − cell-level GBLUP'")["verdict"] == "resolved gain").sum()))
+lib_names = ["Two-stage GBLUP", "Two-stage ridge, shrinkage x0.1", "Two-stage ridge, shrinkage x10", "Two-stage ridge, shrinkage x100", "Ridge on 20 PCs",
+             "Random forest", "Gradient boosting", "kNN, k = 10", "kNN, k = 30", "Multilayer perceptron"]
+add("D8", "G2F: two-stage methods tied with cell_reml (six of ten)", "MAIN", PD, "verdict", "6",
+    lambda root: float(sum(pd.read_csv(root / PD).set_index(["analysis", "dataset"]).loc[(f"Benchmark: {m} − cell-level GBLUP", "G2F"), "verdict"] == "tied" for m in lib_names)))
+def sparse_drop(fr, fn):
+    def r(root):
+        sv = pd.read_csv(root / "env_definition_check/sparse_by_variant.csv")
+        sv = sv[sv["fraction"] == fr]
+        o = float(sv[(sv["NUST"] == "orig") & (sv["URSN"] == "orig")]["est"].iloc[0])
+        return fn(100 * (1 - sv[sv["NUST"] != "orig"]["est"] / o))
+    return r
+add("D8", "Sparse: post hoc pooled gains smaller by at least (%; 25 %)", "MAIN", "env_definition_check/sparse_by_variant.csv", "min", "16", sparse_drop(0.25, min))
+add("D8", "Sparse: post hoc pooled gains smaller by at most (%; 50 %)", "MAIN", "env_definition_check/sparse_by_variant.csv", "max", "38", sparse_drop(0.5, max))
+def shr(v, fn, two=False):
+    def r(root):
+        e = pd.read_csv(root / ES)
+        e = e[e["variant"] == v]
+        return float(e[e["item"] == "reml"]["shrink_pct"].iloc[0]) if two else float(fn(e[e["item"] != "reml"]["shrink_pct"]))
+    return r
+
+
+add("D8", "Shrink, NUST detrend: nine methods min (%)", "MAIN", ES, "min", "14", shr("NUST:detrend / URSN:orig", min))
+add("D8", "Shrink, NUST detrend: nine methods max (%)", "MAIN", ES, "max", "47", shr("NUST:detrend / URSN:orig", max))
+add("D8", "Shrink, NUST detrend + URSN nocheck n3: nine methods min (%)", "MAIN", ES, "min", "33", shr("NUST:detrend / URSN:nocheck_n3", min))
+add("D8", "Shrink, NUST detrend + URSN nocheck n3: nine methods max (%)", "MAIN", ES, "max", "44", shr("NUST:detrend / URSN:nocheck_n3", max))
+add("D8", "Shrink, two-stage GBLUP (%)", "MAIN", ES, "reml", "63", shr("NUST:detrend / URSN:nocheck_n3", None, True))
+for col, v in (("est", "-0.011"), ("lo", "-0.023"), ("hi", "-0.000")):
+    add("D8", f"Network, NUST trial_env / URSN orig {col}", "MAIN", "env_definition_check/pooled_by_variant.csv", col, v,
+        csv_row("env_definition_check/pooled_by_variant.csv", {"variant": "NUST:trial_env / URSN:orig", "item": "dl_g"}, col))
+YS = "headroom_sparse/year_effects.csv"
+zs = lambda f: (lambda root: float(((lambda y: (y["fraction"] == f) & (y["contrast"] == "m1-m0") & (y["metric"] == "sp") & (y["se"] <= 0))(pd.read_csv(root / YS))).sum()))
+add("D8", "Zero-SE sparse years, 25 %", "MAIN", YS, "se==0", "8", zs(0.25))
+add("D8", "Zero-SE sparse years, 50 %", "MAIN", YS, "se==0", "3", zs(0.5))
+for c, v in (("Sparse 25 %: M×E − main-effect GBLUP", "0.016"), ("Sparse 50 %: M×E − main-effect GBLUP", "0.029")):
+    add("D8", f"Floor on zero SEs only: {c}", "MAIN", "floor_sensitivity/table.csv", "est_zero_only", v, csv_row("floor_sensitivity/table.csv", {"contrast": c}, "est_zero_only"))
+add("D8", "CLAC new hybrids: cells", "MAIN", CN, "new_hybrid_cells", "46627", js(CN, "new_hybrid_cells"))
+add("D8", "CLAC new hybrids: resolution", "MAIN", CN, "resolution", "0.0139", js(CN, "resolution"))
+add("D7", "SD / (1/sqrt n) at dataset mean rho: min over environments", "MAIN", RN, "min", "0.84", lambda root: rn6(root)["sd_over_inv_sqrt_n_min"].min())
+add("D7", "SD / (1/sqrt n) at dataset mean rho: max over environments", "MAIN", RN, "max", "1.07", lambda root: rn6(root)["sd_over_inv_sqrt_n_max"].max())
+add("D7", "SD / (1/sqrt n) with own rho: share of environments outside +-20 % (%)", "MAIN", "resolution_note/facts.json", "x100", "14",
+    lambda root: 100 * js("resolution_note/facts.json", "own_rho_per_environment", "share_outside_20pct")(root))
+
+
+# ---------------- D9: TCJ v12 (2026-10-08): second-round check ----------------
+SVF = "env_definition_check/sparse_by_variant.csv"
+nus = lambda f, nv, col: csv_row(SVF, {"fraction": f, "NUST": nv, "URSN": "nocheck"}, col)
+add("D9", "NUST alone sparse 25 %, post hoc: smallest (+0.012)", "MAIN", SVF, "NUST_alone_est", "+0.012", nus(0.25, "detrend", "NUST_alone_est"))
+add("D9", "NUST alone sparse 25 %, post hoc: largest (+0.014)", "MAIN", SVF, "NUST_alone_est", "+0.014", nus(0.25, "trial_env", "NUST_alone_est"))
+for col, v in (("NUST_alone_est", "+0.031"), ("NUST_alone_lo", "+0.019"), ("NUST_alone_hi", "+0.043")):
+    add("D9", f"NUST alone sparse 50 %, centred within trial {col}", "MAIN", SVF, col, v, nus(0.5, "detrend", col))
+for col, v in (("NUST_alone_est", "+0.022"), ("NUST_alone_lo", "+0.001"), ("NUST_alone_hi", "+0.043")):
+    add("D9", f"NUST alone sparse 50 %, trial units {col}", "MAIN", SVF, col, v, nus(0.5, "trial_env", col))
+add("D9", "NUST own resolution, sparse 50 %", "MAIN", PD, "resolution", "0.0290", csv_row(PD, {"analysis": "Sparse 50 %: M×E − main-effect GBLUP", "dataset": "NUST"}, "resolution"))
+add("D9", "Table 2: post hoc pooled sparse 25 % lower end (+0.013)", "MAIN", SVF, "est", "+0.013", csv_row(SVF, {"fraction": 0.25, "NUST": "detrend", "URSN": "orig"}, "est"))
+YR = "reanalysis/year_effects.csv"
+cy = lambda fn: (lambda root: float(fn(pd.read_csv(root / YR).query("method == 'clac' and metric == 'sp'")["d"])))
+add("D9", "CLAC per year: smallest", "MAIN", YR, "min d", "+0.031", cy(min))
+add("D9", "CLAC per year: largest", "MAIN", YR, "max d", "+0.080", cy(max))
+FV = "revision_tcj/floor_variants.csv"
+for f, col, v in ((0.25, "est_no_floor_zero_dropped", "0.019"), (0.5, "est_no_floor_zero_dropped", "0.034")):
+    add("D9", f"No floor, zero-SE years dropped, sparse {f}", "MAIN", FV, col, v, csv_row(FV, {"fraction": f}, col))
+for f, v in ((0.25, "14"), (0.5, "17")):
+    add("D9", f"Zero-only floor: sparse {f} smaller by (%)", "MAIN", FV, "pct", v,
+        lambda root, f=f: 100 * (1 - csv_row(FV, {"fraction": f}, "est_zero_floor")(root) / csv_row(FV, {"fraction": f}, "est_plan_floor")(root)))
+KW = "revision_tcj/kernel_without_eswyt_ursn.csv"
+for col, v in (("est", "+0.0064"), ("lo", "+0.0005"), ("hi", "+0.0123"), ("resolution", "0.0097")):
+    add("D9", f"Kernel transfer without ESWYT and URSN {col}", "MAIN", KW, col, v, csv_row(KW, {"analysis": "Kernel transfer: cell_arc − cell_reml"}, col))
+WN = "revision_tcj/without_nust.csv"
+wn = lambda m: {"analysis": f"Benchmark: {m} − cell-level GBLUP"}
+for m in ("Two-stage GBLUP", "Random forest"):
+    add("D9", f"Without NUST, {m}: loss shrinks by more than half", "MAIN", WN, "ratio<0.5", "1",
+        lambda root, m=m: float(abs(csv_row(WN, wn(m), "est_without_nust")(root)) < 0.5 * abs(csv_row(WN, wn(m), "est_all")(root))))
+    add("D9", f"Without NUST, {m}: tied", "MAIN", WN, "verdict", "1", lambda root, m=m: float(pd.read_csv(root / WN).set_index("analysis").loc[wn(m)["analysis"], "verdict"] == "tied"))
+for m in ("Ridge on 20 PCs", "kNN, k = 30"):
+    add("D9", f"Without NUST, {m}: loss does not shrink", "MAIN", WN, "smaller", "0", lambda root, m=m: float(pd.read_csv(root / WN).set_index("analysis").loc[wn(m)["analysis"], "loss_smaller_without_nust"]))
+add("D9", "MLP: resolved loss in all six datasets", "MAIN", PD, "verdict", "6",
+    lambda root: float((pd.read_csv(root / PD).query("analysis == 'Benchmark: Multilayer perceptron − cell-level GBLUP'")["verdict"] == "resolved loss").sum()))
+
+
+# ---------------- D10: across-environment metric (post hoc, results/tpe_metric; Table S18) ----------------
+TP = "tpe_metric/pooled.csv"
+tpa = lambda root: pd.read_csv(root / TP).query("range == 'all'").set_index("item")
+lib10b = ["reml", "reml_x0.1", "reml_x10", "reml_x100", "ridge_pc20", "rf", "gbm", "knn10", "knn30", "mlp"]
+add("D10", "Across-env: resolution, 48 years", "MAIN", TP, "resolution", "0.0297", lambda root: tpa(root).loc["reml", "resolution"])
+add("D10", "Across-env: two-stage methods with a resolved loss (seven)", "MAIN", TP, "verdict", "7", lambda root: float((tpa(root).loc[lib10b, "verdict"] == "resolved loss").sum()))
+for m in ("reml", "reml_x10", "knn30", "gxe_gbm"):
+    add("D10", f"Across-env: {m} tied", "MAIN", TP, "verdict", "1", lambda root, m=m: float(tpa(root).loc[m, "verdict"] == "tied"))
+add("D10", "Across-env: no method with a resolved gain", "MAIN", TP, "verdict", "0", lambda root: float((pd.read_csv(root / TP)["verdict"] == "resolved gain").query if False else (tpa(root)["verdict"] == "resolved gain").sum()))
+
+
+# ---------------- D11: value of the target-year phenotypes (post hoc, results/sparse_value; Table S19) ----------------
+SVP = "sparse_value/pooled.csv"
+sv = lambda f, sc, c, rg, col: csv_row(SVP, {"fraction": f, "scope": sc, "contrast": c, "range": rg}, col)
+for f, est, lo, hi, res in ((0.25, "+0.072", "+0.057", "+0.088", "0.0103"), (0.5, "+0.103", "+0.079", "+0.126", "0.0140")):
+    for col, v in (("est", est), ("lo", lo), ("hi", hi), ("resolution", res)):
+        add("D11", f"Phenotypes themselves {f} all lines {col}", "MAIN", SVP, col, v, sv(f, "all", "m0-ref", "all", col))
+for f, v in ((0.25, "4"), (0.5, "3")):
+    add("D11", f"Phenotype value / G×E increment, {f} (about)", "MAIN", SVP, "ratio", v,
+        lambda root, f=f: sv(f, "all", "m0-ref", "all", "est")(root) / sv(f, "all", "m1-m0", "all", "est")(root))
+add("D11", "Phenotype value resolved within datasets at 25 % (G2F, NUST, ESWYT, GEM_IA)", "MAIN", SVP, "verdict", "4",
+    lambda root: float(sum(pd.read_csv(root / SVP).set_index(["fraction", "scope", "contrast", "range"]).loc[(0.25, "all", "m0-ref", d), "verdict"] == "resolved gain"
+                           for d in ("G2F", "NUST", "ESWYT", "GEM_IA"))))
+add("D11", "  and not in URSN or MU_SOY at 25 %", "MAIN", SVP, "verdict", "0",
+    lambda root: float(sum(pd.read_csv(root / SVP).set_index(["fraction", "scope", "contrast", "range"]).loc[(0.25, "all", "m0-ref", d), "verdict"] == "resolved gain"
+                           for d in ("URSN", "MU_SOY"))))
+for col, v in (("est", "+0.095"), ("lo", "+0.074"), ("hi", "+0.116")):
+    add("D11", f"Phenotypes themselves 25 % new lines {col}", "MAIN", SVP, col, v, sv(0.25, "new", "m0-ref", "all", col))
+add("D11", "Phenotypes themselves 25 % old lines est", "MAIN", SVP, "est", "+0.021", sv(0.25, "old", "m0-ref", "all", "est"))
+add("D11", "  old lines resolution", "MAIN", SVP, "resolution", "0.0268", sv(0.25, "old", "m0-ref", "all", "resolution"))
+add("D11", "  old lines 25 % below resolution (detectable)", "MAIN", SVP, "verdict", "1", lambda root: float(pd.read_csv(root / SVP).set_index(["fraction", "scope", "contrast", "range"]).loc[(0.25, "old", "m0-ref", "all"), "verdict"] == "detectable, below resolution"))
+add("D11", "  old lines 50 % tied", "MAIN", SVP, "verdict", "1", lambda root: float(pd.read_csv(root / SVP).set_index(["fraction", "scope", "contrast", "range"]).loc[(0.5, "old", "m0-ref", "all"), "verdict"] == "tied"))
+for col, v in (("est", "+0.013"), ("lo", "+0.010"), ("hi", "+0.016")):
+    add("D11", f"G×E increment 25 % on common years {col}", "MAIN", SVP, col, v, sv(0.25, "all", "m1-m0", "common_years", col))
+add("D11", "Common years", "MAIN", "sparse_value/meta.json", "common_years", "36", js("sparse_value/meta.json", "common_years"))
+add("D11", "Reference control vs cell_reml: min of per-panel medians", "MAIN", "sparse_value/coverage.csv", "min", "1.000",
+    lambda root: pd.read_csv(root / "sparse_value/coverage.csv")["ia_ctrl_vs_cell_reml_median_sp"].min())
+
+NP = "sparse_value/nust_posthoc.csv"
+for v, est, lo, hi in (("detrend", "+0.041", "+0.029", "+0.053"), ("trial_env", "+0.052", "+0.034", "+0.070")):
+    for col, val in (("est", est), ("lo", lo), ("hi", hi)):
+        add("D11", f"NUST phenotype value 25 %, {v} {col}", "MAIN", NP, col, val, csv_row(NP, {"fraction": 0.25, "variant": v, "contrast": "m0-ref"}, col))
+add("D11", "NUST phenotype value resolved under all post hoc definitions and fractions", "MAIN", NP, "verdict", "4",
+    lambda root: float((pd.read_csv(root / NP).query("contrast == 'm0-ref' and variant != 'orig'")["verdict"] == "resolved gain").sum()))
+add("D11", "NUST post hoc script reproduces the pre-specified NUST phenotype value (25 %, 3 decimals)", "MAIN", NP, "est", "+0.048",
+    csv_row(NP, {"fraction": 0.25, "variant": "orig", "contrast": "m0-ref"}, "est"))
+
+for col, v in (("est", "+0.023"), ("lo", "+0.008"), ("hi", "+0.038")):
+    add("D11", f"Old lines 50 % without single-environment years {col}", "MAIN", SVP, col, v, sv(0.5, "old", "m0-ref", "multi_env_years", col))
+NB = "env_definition_check/network_boundary_seeds.csv"
+add("D11", "Network, NUST trial units / URSN orig: seeds with tied verdict (of 20)", "MAIN", NB, "tied", "15", lambda root: float((pd.read_csv(root / NB)["verdict"] == "tied").sum()))
+add("D11", "  seeds run", "MAIN", NB, "rows", "20", lambda root: float(len(pd.read_csv(root / NB))))
+
+# ---------------- D12: main-text numbers found unchecked in the public-release audit (2026-10-08) ----------------
+add("D12", "Unequal environment sizes: ratio over all six datasets ('1.44 times')", "MAIN", "resolution_note/by_dataset.csv",
+    "All six datasets ratio_unequal_sizes", "1.44", csv_row("resolution_note/by_dataset.csv", {"dataset": "All six datasets"}, "ratio_unequal_sizes"))
+for k, want in (("stk", "98.3"), ("dlres", "97.5")):
+    add("D12", f"Sparse 0.25: Holm interval level of {k} on top of MxE (%)", "A", "headroom_sparse2/verdict.json",
+        f"decisions.{k}.holm_level x 100", want, lambda root, k=k: 100 * js("headroom_sparse2/verdict.json", "decisions", k, "holm_level")(root))
+add("D12", "CLAC ablation, single main effect: Holm interval level (%)", "MAIN", "clac_decomp/verdict.json",
+    "verdict.loss_D5_single_main_effect.holm_level x 100", "98.75",
+    lambda root: 100 * js("clac_decomp/verdict.json", "verdict", "loss_D5_single_main_effect", "holm_level")(root))
+add("D12", "Table 1: GxE increment (MxE - main effect), upper end of the pooled range, 50 %", "A", sp, "est (3 decimals)", "+0.035",
+    csv_row(sp, {"fraction": "0.5", "contrast": "m1-m0", "metric": "sp", "range": "all48"}, "est"))
+HKS = "revision_tcj/hk_sensitivity.csv"
+
+
+def hk_not_wider(root):
+    d = pd.read_csv(root / HKS)
+    d = d[d["target_years"] > 1]
+    return float(((d["hk_hi"] - d["hk_lo"]) <= (d["dl_hi"] - d["dl_lo"])).sum())
+
+
+add("D12", "Section 2.6: contrasts (>= 2 years) whose Hartung-Knapp interval is not wider than DL ('wider for every contrast')",
+    "MAIN", HKS, "count hk width <= dl width", "0", hk_not_wider)
 
 def decimals(s):
     s = s.split()[0].lstrip("<=+ ")
